@@ -4,6 +4,7 @@ import java.awt.*;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
@@ -17,17 +18,24 @@ public class Main {
             //System.out.println("i = " + i);
         //}
 
-        createWindow();
+        /*String fonts[]
+                = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+
+        for (int i = 0; i < fonts.length; i++) {
+            System.out.println(fonts[i]);
+        }*/
+
+        homeMenu();
     }
 
-    private static void createWindow() {
+    public static void homeMenu() {
         //Creating the window.
         JFrame frame = new JFrame("FPL Optimiser");
 
         //Stops the application when the window is closed.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //Setting the size of the window to 75% of the users screen size.
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double screenWidth = screenSize.getWidth();
         double windowWidth = screenWidth * 0.75;
@@ -40,8 +48,35 @@ public class Main {
         frame.setPreferredSize(new Dimension(screenWidthInt, screenHeightInt));
         frame.pack();
 
+        //Setting background colour.
+        frame.getContentPane().setBackground(Color.decode("#38003C"));
+
+        //Adding the title and making it 30% of the screen size.
+        double titleWidth = screenWidth * 5;
+        int titleWidthInt = (int)titleWidth;
+
+        double titleHeight = screenHeight * 5;
+        int titleHeightInt = (int)titleHeight;
+
+        JLabel title = new JLabel("FPL Optimiser");
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setVerticalAlignment(SwingConstants.TOP);
+        title.setPreferredSize(new Dimension(titleWidthInt, titleHeightInt));
+        title.setForeground(Color.decode("#FFFFFF"));
+        title.setFont(new Font("Calibri", Font.PLAIN, 120));
+
+        frame.getContentPane().add(title, BorderLayout.CENTER);
+
+        //Puts the window in the middle of the screen.
         frame.setLocationRelativeTo(null);
 
+        //Making the window visible.
         frame.setVisible(true);
     }
+
+    public static void teamScreen() {
+
+
+    }
+
 }
