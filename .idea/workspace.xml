@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -12,6 +12,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,14 +81,24 @@
       <option name="project" value="LOCAL" />
       <updated>1701299655326</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments.">
+      <option name="closed" value="true" />
+      <created>1701380199175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701380199175</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test new commit" />
     <MESSAGE value="created the window for the application" />
     <MESSAGE value="in the process of working on the title screen, will make a button that takes you to a screen that allows you to add players" />
-    <option name="LAST_COMMIT_MESSAGE" value="in the process of working on the title screen, will make a button that takes you to a screen that allows you to add players" />
+    <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality." />
+    <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

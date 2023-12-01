@@ -48,6 +48,9 @@ public class Main {
         double windowHeight = screenHeight * 0.75;
         int screenHeightInt = (int)windowHeight;
 
+        System.out.println(screenWidthInt);
+        System.out.println(screenHeightInt);
+
         frame.setPreferredSize(new Dimension(screenWidthInt, screenHeightInt));
         frame.pack();
 
@@ -136,5 +139,7 @@ public class Main {
         frame.setVisible(true);
 
     }
+
+
 
 }
