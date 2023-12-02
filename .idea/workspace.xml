@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments.">
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pitch.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +32,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/FYP",
+    "onboarding.tips.debug.path": "C:/Users/Daniel/IdeaProjects/FYP/src/Main.java"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -89,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701380199175</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cleaned up title screen in a new file. use frame.java as main file from now on.">
+      <option name="closed" value="true" />
+      <created>1701457178323</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701457178323</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -98,7 +112,8 @@
     <MESSAGE value="in the process of working on the title screen, will make a button that takes you to a screen that allows you to add players" />
     <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality." />
     <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
+    <MESSAGE value="cleaned up title screen in a new file. use frame.java as main file from now on." />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up title screen in a new file. use frame.java as main file from now on." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
