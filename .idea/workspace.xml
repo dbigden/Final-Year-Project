@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pitch.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,15 +32,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/FYP",
-    "onboarding.tips.debug.path": "C:/Users/Daniel/IdeaProjects/FYP/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
@@ -103,7 +103,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701457178323</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="cleaned up title screen in a new file. use frame.java as main file from now on.">
+      <option name="closed" value="true" />
+      <created>1701477386918</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701477386918</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file.">
+      <option name="closed" value="true" />
+      <created>1701477636792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701477636792</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,7 +129,8 @@
     <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality." />
     <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
     <MESSAGE value="cleaned up title screen in a new file. use frame.java as main file from now on." />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up title screen in a new file. use frame.java as main file from now on." />
+    <MESSAGE value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
+    <option name="LAST_COMMIT_MESSAGE" value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
