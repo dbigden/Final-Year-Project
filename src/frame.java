@@ -146,7 +146,7 @@ public class frame extends JFrame {
         teamFrame.add(pitchPane);
 
 
-        //Creating the search for players
+        //Creating the search for players until file is linked.
         String[] gks = {"Select a player", "Alisson", "Ederson", "Leno", "Vicario", "Ramsdale", "Raya"};
         String[] dfs = {"Select a player", "Romero", "VVD", "Saliba", "Silva", "VDV", "Trippier"};
         String[] mfs = {"Select a player", "De Bruyne", "Maddison", "Rice", "Casemiro", "Salah", "Enzo"};
@@ -256,6 +256,7 @@ public class frame extends JFrame {
         submitButton.setForeground(Color.decode("#38003C"));
         pitchPane.add(submitButton, JLayeredPane.PALETTE_LAYER);
 
+        //Test code for errors in team.
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
