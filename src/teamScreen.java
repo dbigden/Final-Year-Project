@@ -184,12 +184,38 @@ public class teamScreen {
         fw3.setBounds(860, 640, 150, 50);
         pitchPane.add(fw3, JLayeredPane.PALETTE_LAYER);
 
+        //Adding a text box for users to state the number of free transfers they have.
+        JLabel freeTransfers = new JLabel("Free transfers available:");
+        freeTransfers.setBounds(1460, 0, 400, 100);
+        freeTransfers.setFont(new Font("Calibri", Font.BOLD, 40));
+        freeTransfers.setForeground(Color.decode("#FFFFFF"));
+        pitchPane.add(freeTransfers, JLayeredPane.PALETTE_LAYER);
+
+        JSpinner freeTransferNumber = new JSpinner();
+        freeTransferNumber.setBounds(1460, 100, 400, 50);
+        freeTransferNumber.setFont(new Font("Calibri", Font.BOLD, 20));
+        freeTransferNumber.setForeground(Color.decode("#000000"));
+        pitchPane.add(freeTransferNumber, JLayeredPane.PALETTE_LAYER);
+
+        //Adding a text box for users to state the number of free transfers they have.
+        JLabel budget = new JLabel("Budget remaining:");
+        budget.setBounds(1460, 300, 400, 100);
+        budget.setFont(new Font("Calibri", Font.BOLD, 40));
+        budget.setForeground(Color.decode("#FFFFFF"));
+        pitchPane.add(budget, JLayeredPane.PALETTE_LAYER);
+
+        JSpinner budgetNumber = new JSpinner();
+        budgetNumber.setBounds(1460, 400, 400, 50);
+        budgetNumber.setFont(new Font("Calibri", Font.BOLD, 20));
+        budgetNumber.setForeground(Color.decode("#000000"));
+        pitchPane.add(budgetNumber, JLayeredPane.PALETTE_LAYER);
+
 
 
         //Adding a button that checks your team is valid.
         JButton submitButton = new JButton("Submit team");
         submitButton.setBounds(1470, 920, 400, 100);
-        submitButton.setFont(new Font("Calibri Light", Font.BOLD, 30));
+        submitButton.setFont(new Font("Calibri Light", Font.BOLD, 50));
         submitButton.setBackground(Color.decode("#00FF85"));
         submitButton.setForeground(Color.decode("#38003C"));
         pitchPane.add(submitButton, JLayeredPane.PALETTE_LAYER);
@@ -288,8 +314,11 @@ public class teamScreen {
         ArrayList<ArrayList<String>> playerData = new ArrayList<ArrayList<String>>();
 
         //Creating a buffered reader to read from the csv to help count the number of lines.
+        //BufferedReader bf1 = new BufferedReader(
+                //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
+
         BufferedReader bf1 = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
 
         //Counting the number of lines in the file.
         int lines = 0;
@@ -305,8 +334,11 @@ public class teamScreen {
         String item = "";
 
         //Creating a buffered reader to read from the csv for player data.
+        //BufferedReader bf = new BufferedReader(
+                //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
+
         BufferedReader bf = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
 
         //A for loop that goes through each line of the csv file.
         for (int j = 0; j < lines; j++) {
