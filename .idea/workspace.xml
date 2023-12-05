@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -46,6 +50,7 @@
       <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
       <recent name="C:\Users\Daniel\IdeaProjects\FYP\lib" />
     </key>
   </component>
@@ -138,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701712292131</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program.">
+      <option name="closed" value="true" />
+      <created>1701717221633</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701717221633</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
