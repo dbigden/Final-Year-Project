@@ -96,8 +96,12 @@ public class homeScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //teamScreen();
-                //teamScreen.teamScreen();
-                homeFrame.dispose();
+                try {
+                    teamScreen.teamScreen();
+                    homeFrame.dispose();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

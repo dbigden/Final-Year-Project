@@ -16,10 +16,11 @@ import java.lang.*;
 
 public class teamScreen {
     public static void main(String args[]) throws Exception {
-        readFile("position", "defender");
+        //readFile("position", "defender");
+        teamScreen();
     }
 
-    public static void teamScreen() {
+    public static void teamScreen() throws Exception {
         //Creating the window.
         JFrame teamFrame = new JFrame("FPL Optimiser");
 
@@ -66,18 +67,32 @@ public class teamScreen {
 
 
         //Creating the search for players until file is linked.
-        String[] gks = {"Select a player", "Alisson", "Ederson", "Leno", "Vicario", "Ramsdale", "Raya"};
-        String[] dfs = {"Select a player", "Romero", "VVD", "Saliba", "Silva", "VDV", "Trippier"};
-        String[] mfs = {"Select a player", "De Bruyne", "Maddison", "Rice", "Casemiro", "Salah", "Enzo"};
-        String[] ats = {"Select a player", "Son", "Watkins", "Haaland", "Isak"};
+        //String[] gks = {"Select a player", "Alisson", "Ederson", "Leno", "Vicario", "Ramsdale", "Raya"};
+        //String[] dfs = {"Select a player", "Romero", "VVD", "Saliba", "Silva", "VDV", "Trippier"};
+        //String[] mfs = {"Select a player", "De Bruyne", "Maddison", "Rice", "Casemiro", "Salah", "Enzo"};
+        //String[] ats = {"Select a player", "Son", "Watkins", "Haaland", "Isak"};
 
+        //Getting all goalkeepers names for the dropdown box.
+        ArrayList<ArrayList<String>> gks = readFile("position", "goalkeeper");
+        ArrayList<String> gkNames = getColumnFromData(gks, "name");
 
+        //Getting all defenders names for the dropdown box.
+        ArrayList<ArrayList<String>> dfs = readFile("position", "defender");
+        ArrayList<String> dfNames = getColumnFromData(dfs, "name");
+
+        //Getting all midfielders names for the dropdown box.
+        ArrayList<ArrayList<String>> mfs = readFile("position", "midfielder");
+        ArrayList<String> mfNames = getColumnFromData(mfs, "name");
+
+        //Getting all defenders names for the dropdown box.
+        ArrayList<ArrayList<String>> fws = readFile("position", "forward");
+        ArrayList<String> fwNames = getColumnFromData(fws, "name");
 
         //JComboBox gk1 = new JComboBox(gks);
-        JComboBox gk1 = new JComboBox(gks);
-        String gk1Selection = gks[0];
-        JComboBox gk2 = new JComboBox(gks);
-        String gk2Selection = gks[0];
+        JComboBox gk1 = new JComboBox(gkNames.toArray());
+        //String gk1Selection = gks[0];
+        JComboBox gk2 = new JComboBox(gkNames.toArray());
+        //String gk2Selection = gks[0];
 
         gk1.setBounds(560, 180, 150, 50);
         pitchPane.add(gk1, JLayeredPane.PALETTE_LAYER);
@@ -114,60 +129,62 @@ public class teamScreen {
         });*/
 
         //Defenders.
-        JComboBox df1 = new JComboBox(dfs);
+        JComboBox df1 = new JComboBox(dfNames.toArray());
         df1.setBounds(320, 320, 150, 50);
         pitchPane.add(df1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df2 = new JComboBox(dfs);
+        JComboBox df2 = new JComboBox(dfNames.toArray());
         df2.setBounds(500, 320, 150, 50);
         pitchPane.add(df2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df3 = new JComboBox(dfs);
+        JComboBox df3 = new JComboBox(dfNames.toArray());
         df3.setBounds(680, 320, 150, 50);
         pitchPane.add(df3, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df4 = new JComboBox(dfs);
+        JComboBox df4 = new JComboBox(dfNames.toArray());
 
         df4.setBounds(860, 320, 150, 50);
         pitchPane.add(df4, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df5 = new JComboBox(dfs);
+        JComboBox df5 = new JComboBox(dfNames.toArray());
         df5.setBounds(1040, 320, 150, 50);
         pitchPane.add(df5, JLayeredPane.PALETTE_LAYER);
 
         //Midfielders.
-        JComboBox mf1 = new JComboBox(mfs);
+        JComboBox mf1 = new JComboBox(mfNames.toArray());
         mf1.setBounds(320, 480, 150, 50);
         pitchPane.add(mf1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf2 = new JComboBox(mfs);
+        JComboBox mf2 = new JComboBox(mfNames.toArray());
         mf2.setBounds(500, 480, 150, 50);
         pitchPane.add(mf2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf3 = new JComboBox(mfs);
+        JComboBox mf3 = new JComboBox(mfNames.toArray());
         mf3.setBounds(680, 480, 150, 50);
         pitchPane.add(mf3, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf4 = new JComboBox(mfs);
+        JComboBox mf4 = new JComboBox(mfNames.toArray());
         mf4.setBounds(860, 480, 150, 50);
         pitchPane.add(mf4, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf5 = new JComboBox(mfs);
+        JComboBox mf5 = new JComboBox(mfNames.toArray());
         mf5.setBounds(1040, 480, 150, 50);
         pitchPane.add(mf5, JLayeredPane.PALETTE_LAYER);
 
         //Attackers.
-        JComboBox at1 = new JComboBox(ats);
-        at1.setBounds(500, 640, 150, 50);
-        pitchPane.add(at1, JLayeredPane.PALETTE_LAYER);
+        JComboBox fw1 = new JComboBox(fwNames.toArray());
+        fw1.setBounds(500, 640, 150, 50);
+        pitchPane.add(fw1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox at2 = new JComboBox(ats);
-        at2.setBounds(680, 640, 150, 50);
-        pitchPane.add(at2, JLayeredPane.PALETTE_LAYER);
+        JComboBox fw2 = new JComboBox(fwNames.toArray());
+        fw2.setBounds(680, 640, 150, 50);
+        pitchPane.add(fw2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox at3 = new JComboBox(ats);
-        at3.setBounds(860, 640, 150, 50);
-        pitchPane.add(at3, JLayeredPane.PALETTE_LAYER);
+        JComboBox fw3 = new JComboBox(fwNames.toArray());
+        fw3.setBounds(860, 640, 150, 50);
+        pitchPane.add(fw3, JLayeredPane.PALETTE_LAYER);
+
+
 
         //Adding a button that checks your team is valid.
         JButton submitButton = new JButton("Submit team");
@@ -181,8 +198,54 @@ public class teamScreen {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Error", "Team Error", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error", "Team Error", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println(gk1.getSelectedItem());
+
+                //Adding all player selections to an array.
+                ArrayList<String> players = new ArrayList<String>();
+                players.add(String.valueOf(gk1.getSelectedItem()));
+                players.add(String.valueOf(gk2.getSelectedItem()));
+                players.add(String.valueOf(df1.getSelectedItem()));
+                players.add(String.valueOf(df2.getSelectedItem()));
+                players.add(String.valueOf(df3.getSelectedItem()));
+                players.add(String.valueOf(df4.getSelectedItem()));
+                players.add(String.valueOf(df5.getSelectedItem()));
+                players.add(String.valueOf(mf1.getSelectedItem()));
+                players.add(String.valueOf(mf2.getSelectedItem()));
+                players.add(String.valueOf(mf3.getSelectedItem()));
+                players.add(String.valueOf(mf4.getSelectedItem()));
+                players.add(String.valueOf(mf5.getSelectedItem()));
+                players.add(String.valueOf(fw1.getSelectedItem()));
+                players.add(String.valueOf(fw2.getSelectedItem()));
+                players.add(String.valueOf(fw3.getSelectedItem()));
+
+                System.out.println(players);
+
+                for (int i = 0; i < players.size(); i++) {
+
+                    //Ending the comparisons if at the last item in array.
+                    if (i + 1 == players.size()) {
+                        break;
+
+                    } else {
+
+                        //Comparing items in array of players.
+                        if (players.get(i).equals(players.get(i + 1))) {
+                            JOptionPane.showMessageDialog(null,
+                                    "You can't select the same player more than once!",
+                                    "Team Error", JOptionPane.INFORMATION_MESSAGE);
+
+                            //Clearing the players array to stop the pop up showing infinitely.
+                            players = null;
+                            break;
+                        }
+
+                    }
+
+                }
+
             }
+
         });
 
     }
@@ -288,21 +351,78 @@ public class teamScreen {
             //System.out.println(element);
         }
 
-        //Finding the column of the search subject.
+        //Checking if the query wants all player data or specific data.
+        if (querySubject.equalsIgnoreCase("all") || querySearch.equalsIgnoreCase("all")) {
+            return playerData;
+
+        } else {
+
+            //Finding the column of the search subject.
+            int indexOfSubject = -1;
+            ArrayList<ArrayList<String>> returnData = new ArrayList<ArrayList<String>>();
+
+            ArrayList<String> returnElement = new ArrayList<String>();
+            ArrayList<String> tempElement = new ArrayList<String>();
+
+            //For loop going through rows in the data.
+            for (ArrayList element : playerData) {
+
+                //For loop going through columns in the data.
+                for (int i = 0; i < element.size(); i++) {
+
+                    //Finding a match and recording the index.
+                    if (querySubject.equalsIgnoreCase(String.valueOf(element.get(i)))) {
+                        indexOfSubject = i;
+
+                    }
+
+                }
+
+            }
+
+            for (ArrayList element : playerData) {
+
+                for (int i = 0; i < element.size(); i++) {
+
+                    if (querySearch.equalsIgnoreCase(String.valueOf(element.get(i)))) {
+                        returnData.add(element);
+
+                    }
+
+                }
+
+            }
+
+            //TEMPORARY - FOR PRINTING ELEMENTS OF ARRAYLIST LINE BY LINE
+            for (ArrayList element : returnData) {
+                //System.out.println(element);
+            }
+
+            return returnData;
+
+        }
+
+    }
+
+    public static ArrayList<String> getColumnFromData(ArrayList<ArrayList<String>> data, String querySubject) throws Exception{
+
+        //Importing full data to find the index of the queried column.
+        ArrayList<ArrayList<String>> fullData = readFile("all", "all");
+
+       //Finding the column of the search subject.
         int indexOfSubject = -1;
-        ArrayList<ArrayList<String>> returnData = new ArrayList<ArrayList<String>>();
 
-        ArrayList<String> returnElement = new ArrayList<String>();
-        ArrayList<String> tempElement = new ArrayList<String>();
+        //The return data ArrayList.
+        ArrayList<String> returnData = new ArrayList<String>();
 
-        //For loop going through rows in the data.
-        for (ArrayList element : playerData) {
+        //For loop going through rows in the data to find what the index of queried column is.
+        for (ArrayList element : fullData) {
 
             //For loop going through columns in the data.
             for (int i = 0; i < element.size(); i++) {
 
                 //Finding a match and recording the index.
-                if (querySubject.equals(String.valueOf(element.get(i)))) {
+                if (querySubject.equalsIgnoreCase(String.valueOf(element.get(i)))) {
                     indexOfSubject = i;
 
                 }
@@ -311,22 +431,10 @@ public class teamScreen {
 
         }
 
-        for (ArrayList element : playerData) {
+        //Adding the queried data to an ArrayList.
+        for (ArrayList element : data) {
+            returnData.add(String.valueOf(element.get(indexOfSubject)));
 
-            for (int i = 0; i < element.size(); i++) {
-
-                if (querySearch.equals(String.valueOf(element.get(i)))) {
-                    returnData.add(element);
-
-                }
-
-            }
-
-        }
-
-        //TEMPORARY - FOR PRINTING ELEMENTS OF ARRAYLIST LINE BY LINE
-        for (ArrayList element : returnData) {
-            //System.out.println(element);
         }
 
         return returnData;
