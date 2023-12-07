@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -58,163 +58,212 @@ public class teamScreen {
         //Adding a pitch background image.
         JLayeredPane pitchPane = new JLayeredPane();
         JLabel pitch = new JLabel("");
-        pitch.setBounds(25, 20, 1400, 1000);
+        pitch.setBounds(25, 20, 1500, 1000);
         pitchPane.add(pitch, JLayeredPane.DEFAULT_LAYER);
+        pitch.setVisible(true);
         pitchPane.setVisible(true);
         pitchPane.setBounds(0, 0, 1960, 1080);
         pitch.setIcon(new ImageIcon("C:\\Users\\Daniel\\IdeaProjects\\FYP\\pitch.png"));
         teamFrame.add(pitchPane);
 
-
-        //Creating the search for players until file is linked.
-        //String[] gks = {"Select a player", "Alisson", "Ederson", "Leno", "Vicario", "Ramsdale", "Raya"};
-        //String[] dfs = {"Select a player", "Romero", "VVD", "Saliba", "Silva", "VDV", "Trippier"};
-        //String[] mfs = {"Select a player", "De Bruyne", "Maddison", "Rice", "Casemiro", "Salah", "Enzo"};
-        //String[] ats = {"Select a player", "Son", "Watkins", "Haaland", "Isak"};
-
         //Getting all goalkeepers names for the dropdown box.
         ArrayList<ArrayList<String>> gks = readFile("position", "goalkeeper");
         ArrayList<String> gkNames = getColumnFromData(gks, "name");
+        ArrayList<String> gkTeams = getColumnFromData(gks, "team");
+        ArrayList<String> gkName_Team = new ArrayList<String>();
+
+        //Adding the names and teams together to identify players.
+        for (int i = 0; i < gkNames.size(); i++) {
+
+            gkName_Team.add(gkNames.get(i) + ", " + gkTeams.get(i));
+
+        }
+
+        //Sorting the ArrayList alphabetically so it is easier to find players.
+        Collections.sort(gkName_Team, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareToIgnoreCase(o2);
+            }
+        });
 
         //Getting all defenders names for the dropdown box.
         ArrayList<ArrayList<String>> dfs = readFile("position", "defender");
         ArrayList<String> dfNames = getColumnFromData(dfs, "name");
+        ArrayList<String> dfTeams = getColumnFromData(dfs, "team");
+        ArrayList<String> dfName_Team = new ArrayList<String>();
+
+        //Adding the names and teams together to identify players.
+        for (int i = 0; i < dfNames.size(); i++) {
+
+            dfName_Team.add(dfNames.get(i) + ", " + dfTeams.get(i));
+
+        }
+
+        //Sorting the ArrayList alphabetically so it is easier to find players.
+        Collections.sort(dfName_Team, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareToIgnoreCase(o2);
+            }
+        });
 
         //Getting all midfielders names for the dropdown box.
         ArrayList<ArrayList<String>> mfs = readFile("position", "midfielder");
         ArrayList<String> mfNames = getColumnFromData(mfs, "name");
+        ArrayList<String> mfTeams = getColumnFromData(mfs, "team");
+        ArrayList<String> mfName_Team = new ArrayList<String>();
+
+        //Adding the names and teams together to identify players.
+        for (int i = 0; i < mfNames.size(); i++) {
+
+            mfName_Team.add(mfNames.get(i) + ", " + mfTeams.get(i));
+
+        }
+
+        //Sorting the ArrayList alphabetically so it is easier to find players.
+        Collections.sort(mfName_Team, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareToIgnoreCase(o2);
+            }
+        });
 
         //Getting all defenders names for the dropdown box.
         ArrayList<ArrayList<String>> fws = readFile("position", "forward");
         ArrayList<String> fwNames = getColumnFromData(fws, "name");
+        ArrayList<String> fwTeams = getColumnFromData(fws, "team");
+        ArrayList<String> fwName_Team = new ArrayList<String>();
 
-        //JComboBox gk1 = new JComboBox(gks);
-        JComboBox gk1 = new JComboBox(gkNames.toArray());
-        //String gk1Selection = gks[0];
-        JComboBox gk2 = new JComboBox(gkNames.toArray());
-        //String gk2Selection = gks[0];
+        //Adding the names and teams together to identify players.
+        for (int i = 0; i < fwNames.size(); i++) {
 
+            fwName_Team.add(fwNames.get(i) + ", " + fwTeams.get(i));
+
+        }
+
+        //Sorting the ArrayList alphabetically so it is easier to find players.
+        Collections.sort(fwName_Team, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareToIgnoreCase(o2);
+            }
+        });
+
+        //Goalkeepers.
+        JComboBox gk1 = new JComboBox(gkName_Team.toArray());
         gk1.setBounds(560, 180, 150, 50);
         pitchPane.add(gk1, JLayeredPane.PALETTE_LAYER);
 
-
-        /*gk1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gk1Selection = gks[gk1.getSelectedIndex()];
-                System.out.println(gk1Selection);
-
-                if (gk1.getSelectedIndex() == gk2.getSelectedIndex()) {
-                    gk2.setSelectedIndex(0);
-                    System.out.println(gk2Selection);
-                }
-            }
-        });*/
-
+        JComboBox gk2 = new JComboBox(gkName_Team.toArray());
         gk2.setBounds(795, 180, 150, 50);
         pitchPane.add(gk2, JLayeredPane.PALETTE_LAYER);
 
-        //pitchPanel.add(gk2);
-        /*gk2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gk2Selection = gks[gk2.getSelectedIndex()];
-                System.out.println(gk2Selection);
-
-                if (gk1.getSelectedIndex() == gk2.getSelectedIndex()) {
-                    gk2.setSelectedIndex(0);
-                    System.out.println(gk2Selection);
-                }
-            }
-        });*/
-
         //Defenders.
-        JComboBox df1 = new JComboBox(dfNames.toArray());
+        JComboBox df1 = new JComboBox(dfName_Team.toArray());
         df1.setBounds(320, 320, 150, 50);
         pitchPane.add(df1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df2 = new JComboBox(dfNames.toArray());
+        JComboBox df2 = new JComboBox(dfName_Team.toArray());
         df2.setBounds(500, 320, 150, 50);
         pitchPane.add(df2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df3 = new JComboBox(dfNames.toArray());
+        JComboBox df3 = new JComboBox(dfName_Team.toArray());
         df3.setBounds(680, 320, 150, 50);
         pitchPane.add(df3, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df4 = new JComboBox(dfNames.toArray());
-
+        JComboBox df4 = new JComboBox(dfName_Team.toArray());
         df4.setBounds(860, 320, 150, 50);
         pitchPane.add(df4, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox df5 = new JComboBox(dfNames.toArray());
+        JComboBox df5 = new JComboBox(dfName_Team.toArray());
         df5.setBounds(1040, 320, 150, 50);
         pitchPane.add(df5, JLayeredPane.PALETTE_LAYER);
 
         //Midfielders.
-        JComboBox mf1 = new JComboBox(mfNames.toArray());
+        JComboBox mf1 = new JComboBox(mfName_Team.toArray());
         mf1.setBounds(320, 480, 150, 50);
         pitchPane.add(mf1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf2 = new JComboBox(mfNames.toArray());
+        JComboBox mf2 = new JComboBox(mfName_Team.toArray());
         mf2.setBounds(500, 480, 150, 50);
         pitchPane.add(mf2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf3 = new JComboBox(mfNames.toArray());
+        JComboBox mf3 = new JComboBox(mfName_Team.toArray());
         mf3.setBounds(680, 480, 150, 50);
         pitchPane.add(mf3, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf4 = new JComboBox(mfNames.toArray());
+        JComboBox mf4 = new JComboBox(mfName_Team.toArray());
         mf4.setBounds(860, 480, 150, 50);
         pitchPane.add(mf4, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox mf5 = new JComboBox(mfNames.toArray());
+        JComboBox mf5 = new JComboBox(mfName_Team.toArray());
         mf5.setBounds(1040, 480, 150, 50);
         pitchPane.add(mf5, JLayeredPane.PALETTE_LAYER);
 
-        //Attackers.
-        JComboBox fw1 = new JComboBox(fwNames.toArray());
+        //Forwards.
+        JComboBox fw1 = new JComboBox(fwName_Team.toArray());
         fw1.setBounds(500, 640, 150, 50);
         pitchPane.add(fw1, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox fw2 = new JComboBox(fwNames.toArray());
+        JComboBox fw2 = new JComboBox(fwName_Team.toArray());
         fw2.setBounds(680, 640, 150, 50);
         pitchPane.add(fw2, JLayeredPane.PALETTE_LAYER);
 
-        JComboBox fw3 = new JComboBox(fwNames.toArray());
+        JComboBox fw3 = new JComboBox(fwName_Team.toArray());
         fw3.setBounds(860, 640, 150, 50);
         pitchPane.add(fw3, JLayeredPane.PALETTE_LAYER);
 
         //Adding a text box for users to state the number of free transfers they have.
         JLabel freeTransfers = new JLabel("Free transfers available:");
-        freeTransfers.setBounds(1460, 0, 400, 100);
-        freeTransfers.setFont(new Font("Calibri", Font.BOLD, 40));
+        freeTransfers.setBounds(1503, 0, 380, 100);
+        freeTransfers.setFont(new Font("Calibri", Font.BOLD, 38));
         freeTransfers.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(freeTransfers, JLayeredPane.PALETTE_LAYER);
 
         JSpinner freeTransferNumber = new JSpinner();
-        freeTransferNumber.setBounds(1460, 100, 400, 50);
-        freeTransferNumber.setFont(new Font("Calibri", Font.BOLD, 20));
+        freeTransferNumber.setBounds(1503, 100, 380, 50);
+        freeTransferNumber.setFont(new Font("Calibri", Font.BOLD, 38));
         freeTransferNumber.setForeground(Color.decode("#000000"));
         pitchPane.add(freeTransferNumber, JLayeredPane.PALETTE_LAYER);
 
-        //Adding a text box for users to state the number of free transfers they have.
+        //Adding a text box for users to state the remaining budget they have.
         JLabel budget = new JLabel("Budget remaining:");
-        budget.setBounds(1460, 300, 400, 100);
-        budget.setFont(new Font("Calibri", Font.BOLD, 40));
+        budget.setBounds(1503, 300, 380, 100);
+        budget.setFont(new Font("Calibri", Font.BOLD, 38));
         budget.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(budget, JLayeredPane.PALETTE_LAYER);
 
-        JSpinner budgetNumber = new JSpinner();
-        budgetNumber.setBounds(1460, 400, 400, 50);
-        budgetNumber.setFont(new Font("Calibri", Font.BOLD, 20));
+        JTextField budgetNumber = new JTextField();
+        budgetNumber.setBounds(1503, 400, 380, 50);
+        budgetNumber.setFont(new Font("Calibri", Font.BOLD, 38));
+        budgetNumber.setHorizontalAlignment(SwingConstants.RIGHT);
         budgetNumber.setForeground(Color.decode("#000000"));
         pitchPane.add(budgetNumber, JLayeredPane.PALETTE_LAYER);
+
+        //Allowing only numbers and decimal points to be inputted.
+        budgetNumber.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //Checking if inputted character is a number or a decimal point.
+                if (e.getKeyChar() >= '0' && e.getKeyChar() <= '9' || e.getKeyChar() == '.') {
+                    budgetNumber.setEditable(true);
+
+                } else {
+                    budgetNumber.setEditable(false);
+                    JOptionPane.showMessageDialog(null,
+                            "You must enter a valid budget!",
+                            "Budget Error", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+            }
+        });
 
 
 
         //Adding a button that checks your team is valid.
         JButton submitButton = new JButton("Submit team");
-        submitButton.setBounds(1470, 920, 400, 100);
+        submitButton.setBounds(1503, 920, 380, 100);
         submitButton.setFont(new Font("Calibri Light", Font.BOLD, 50));
         submitButton.setBackground(Color.decode("#00FF85"));
         submitButton.setForeground(Color.decode("#38003C"));
@@ -225,7 +274,11 @@ public class teamScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //JOptionPane.showMessageDialog(null, "Error", "Team Error", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(gk1.getSelectedItem());
+
+                //Creating variables to track if the submission passes all the checks.
+                boolean noDupes = false;
+                boolean validFrees = false;
+                boolean validBudget = false;
 
                 //Adding all player selections to an array.
                 ArrayList<String> players = new ArrayList<String>();
@@ -245,12 +298,13 @@ public class teamScreen {
                 players.add(String.valueOf(fw2.getSelectedItem()));
                 players.add(String.valueOf(fw3.getSelectedItem()));
 
-                System.out.println(players);
+                //System.out.println(players);
 
                 for (int i = 0; i < players.size(); i++) {
 
                     //Ending the comparisons if at the last item in array.
                     if (i + 1 == players.size()) {
+                        noDupes = true;
                         break;
 
                     } else {
@@ -266,6 +320,54 @@ public class teamScreen {
                             break;
                         }
 
+                    }
+
+                }
+
+                //Checking if the free transfers is valid.
+                int freeTransfersInt;
+
+                if (freeTransferNumber.getValue() instanceof Integer) {
+
+                    if ((int) freeTransferNumber.getValue() >= 0) {
+                        freeTransfersInt = Integer.parseInt(freeTransferNumber.getValue().toString());
+                        validFrees = true;
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "You must enter a valid number of free transfers!",
+                                "Free Transfers Error", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "You must enter a valid number of free transfers!",
+                            "Free Transfers Error", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+                //Checking if the budget is valid.
+                double budgetDouble;
+
+                if (isNumeric(budgetNumber.getText())) {
+                    budgetDouble = Double.valueOf(budgetNumber.getText());
+                    validBudget = true;
+
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "You must enter a valid budget!",
+                            "Budget Error", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+                if (noDupes && validFrees && validBudget) {
+
+                    try {
+                        outputScreen.outputScreen(players);
+                        teamFrame.dispose();
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
                     }
 
                 }
@@ -470,6 +572,16 @@ public class teamScreen {
         }
 
         return returnData;
+
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
 
     }
 
