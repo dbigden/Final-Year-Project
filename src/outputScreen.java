@@ -8,12 +8,15 @@ public class outputScreen {
 
     public static void main(String args[]) throws Exception {
         ArrayList<String> players = new ArrayList<>(
-                Arrays.asList("A.Becker, Liverpool", "Leno, Fulham", "Walker, Man City",
-                        "Saliba, Arsenal",  "Romero, Spurs", "Udogie, Spurs", "Virgil, Liverpool",
+                Arrays.asList("A.Becker, Liverpool", "Leno, Fulham", "Chambers, Liverpool",
+                        "Saliba, Arsenal",  "Romero, Spurs", "Chambers, Aston Villa", "Virgil, Liverpool",
                         "Son, Spurs", "Salah, Liverpool", "Bernardo, Man City", "Maddison, Spurs",
                         "Bentancur, Spurs", "Haaland, Man City", "Watkins, Aston Villa",
                         "Mbeumo, Brentford"));
 
+
+        //"Udogie, Spurs"
+        //"Walker, Man City"
         outputScreen(players);
 
     }
@@ -306,49 +309,18 @@ public class outputScreen {
         ArrayList<ArrayList<String>> selectedPlayersRanked = rankings(selectedPlayerData, nameIndex,
                 teamIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
-        /*//Sorting selected player data by ICT.
-        ArrayList<ArrayList<String>> selectedSorted_ICT = sortData(selectedPlayerData, ICT_Index);
 
-        //Creating an ArrayList to store the player ranking data as its own ArrayList as well as a
-        //temporary ArrayList to hold the current players ranking data.
-        ArrayList<String> playerArrList = new ArrayList<String>();
-        ArrayList<String> tempPlayerArrList = new ArrayList<String>();
-        ArrayList<ArrayList<String>> playerRanking = new ArrayList<ArrayList<String>>();
-
-        //A for loop that goes through each row of the ArrayList.
-        int rank = 1;
-        for (ArrayList element : selectedSorted_ICT) {
-
-            //A for loop that goes through each column of the Arraylist.
-            for (int i = 0; i < element.size(); i++) {
-
-                //A for loop that adds the name, ICT index and ICT ranking to the temporary ArrayList.
-                if (i == nameIndex) {
-                    tempPlayerArrList.add(String.valueOf(element.get(i)));
-
-                } else if (i == ICT_Index){
-                    tempPlayerArrList.add(String.valueOf(element.get(i)));
-                    tempPlayerArrList.add(String.valueOf(rank));
-                    rank = rank + 1;
-
-                }
-
-            }
-
-            //Cloning the temporary ArrayList into the player data ArrayList then adding
-            //that into the main ArrayList.
-            playerArrList = (ArrayList<String>)tempPlayerArrList.clone();
-            playerRanking.add(playerArrList);
-            tempPlayerArrList.clear();
-
-        }
-
-        for (ArrayList element : playerRanking) {
-            System.out.println(element);
-        }*/
 
         for (ArrayList element : selectedPlayersRanked) {
-            System.out.println(element);
+            //System.out.println(element);
+        }
+
+        //Storing player ranking of all players.
+        ArrayList<ArrayList<String>> allPlayersRanked = rankings(playerData, nameIndex,
+                teamIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
+
+        for (ArrayList element : allPlayersRanked) {
+            //System.out.println(element);
         }
 
         //Adding the starting players to the team.
@@ -415,6 +387,9 @@ public class outputScreen {
                 } else if (i == teamIndex){
                     tempPlayerArrList.add(String.valueOf(element.get(i)));
 
+                }  else if (i == costIndex){
+                    tempPlayerArrList.add(String.valueOf(element.get(i)));
+
                 } else if (i == ICT_Index){
                     //tempPlayerArrList.add(String.valueOf(element.get(i)));
                     tempPlayerArrList.add(String.valueOf(rank));
@@ -453,8 +428,9 @@ public class outputScreen {
             //selected players ranked ArrayList.
             for (ArrayList rankElement : playerRanking) {
 
-                //Checking if the name of both elements matches.
-                if (formElement.get(nameIndex).equals(rankElement.get(nameIndex))) {
+                //Checking if the name and team of both elements matches.
+                if (formElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
+                        formElement.get(teamIndex).equals(rankElement.get(teamIndex - 1))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
@@ -510,8 +486,9 @@ public class outputScreen {
             //selected players ranked ArrayList.
             for (ArrayList rankElement : playerRanking) {
 
-                //Checking if the name of both elements matches.
-                if (ppgElement.get(nameIndex).equals(rankElement.get(nameIndex))) {
+                //Checking if the name and team of both elements matches.
+                if (ppgElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
+                        ppgElement.get(teamIndex).equals(rankElement.get(teamIndex - 1))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
@@ -547,9 +524,265 @@ public class outputScreen {
 
         updatedPlayerRankings.clear();
 
-        //(Total Points / Cost) * Total Points Ranking
+
+        //(Total Points / Cost) * Total Points Ranking - Points:Cost (PC) Ranking
+        //Creating an ArrayList to hold player name, team, points, cost and PC.
+        ArrayList<ArrayList<String>> selectedPlayersPC = new ArrayList<ArrayList<String>>();
+        ArrayList<String> playerPC_Data = new ArrayList<String >();
+        ArrayList<String> tempPlayerPC_Data = new ArrayList<String>();
+
+        //Creating the PC index.
+        int PC_Index = -1;
+
+        //For loop searching through rows of the player data.
+        for (ArrayList element : playerData) {
+            boolean skip = false;
+
+            //For loop searching through the columns in the player data.
+            for (int i = 0; i < element.size(); i++) {
+
+                //Making the loop ignore the header of the data.
+                if (element.get(i).equals("Name")) {
+                    skip = true;
+                    break;
+
+                //Adding the players name.
+                } else if (i == nameIndex) {
+                    tempPlayerPC_Data.add(String.valueOf(element.get(i)));
+
+                //Adding the players team.
+                } else if (i == teamIndex) {
+                    tempPlayerPC_Data.add(String.valueOf(element.get(i)));
+
+                //Adding the players total points.
+                } else if (i == pointsIndex) {
+                    tempPlayerPC_Data.add(String.valueOf(element.get(i)));
+
+                //Adding the players cost.
+                } else if (i == costIndex) {
+                    tempPlayerPC_Data.add(String.valueOf(element.get(i)));
+
+                //Calculating the players pc value and adding it to the temporary ArrayList.
+                } else if (i + 1 == element.size()) {
+                    //System.out.println(element.get(nameIndex));
+                    //System.out.println(element.get(pointsIndex));
+                    int playerPoints = Integer.parseInt(String.valueOf(element.get(pointsIndex)));
+                    double playerCost = Double.parseDouble(String.valueOf(element.get(costIndex)));
+                    double playerPC = (playerPoints / playerCost) * playerPoints;
+
+                    tempPlayerPC_Data.add(String.valueOf(playerPC));
+
+                    //System.out.println(tempPlayerPC_Data);
+
+                    //Setting PC index.
+                    PC_Index = tempPlayerPC_Data.size() - 1;
+
+                }
+
+            }
+
+            if (!skip) {
+                //Cloning the temporary ArrayList into the player PC ArrayList then adding
+                //that into the selected players PC ArrayList.
+                playerPC_Data = (ArrayList<String>) tempPlayerPC_Data.clone();
+                selectedPlayersPC.add(playerPC_Data);
+                tempPlayerPC_Data.clear();
+
+            }
+
+        }
+
+        //Rod�k
+        for (ArrayList element : selectedPlayersPC) {
+            ///////////////////////////////////////////////System.out.println(element);
+        }
+
+        //Sorting selected player data by PC.
+        ArrayList<ArrayList<String>> selectedSortedPC = sortData(selectedPlayersPC, PC_Index);
+
+        //Clearing the previous ArrayList to store the player ranking data as its own ArrayList as well as
+        //clearing the temporary ArrayList to hold the current players ranking data.
+        ArrayList<String> playerPC_ArrList = new ArrayList<String>();
+        tempPlayerArrList.clear();
+
+        //Resetting the rank variable.
+        rank = 1;
+
+        //A for loop that goes through each row of the selected players PC ranked ArrayList.
+        for (ArrayList pcElement : selectedSortedPC) {
+
+            //A for loop that goes through each row of the previously used
+            //selected players ranked ArrayList.
+            for (ArrayList rankElement : playerRanking) {
+
+                //Checking if the name and team of both elements matches.
+                if (pcElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
+                        pcElement.get(teamIndex - 1).equals(rankElement.get(teamIndex - 1))) {
+
+                    //Loop adding previously stored rank data to the new ranking ArrayList.
+                    for (int i = 0; i < rankElement.size(); i++) {
+
+                        tempPlayerArrList.add(String.valueOf(rankElement.get(i)));
+
+                    }
+
+                    //Adding PC and PC ranking to new ranking ArrayList.
+                    //tempPlayerArrList.add(String.valueOf(pcElement.get(PC_Index)));
+                    tempPlayerArrList.add(String.valueOf(rank));
+                    rank = rank + 1;
+
+                }
+
+            }
+
+            //Cloning the temporary ArrayList into the player data ArrayList then adding
+            //that into the new ranking ArrayList.
+            playerPC_ArrList = (ArrayList<String>) tempPlayerArrList.clone();
+            updatedPlayerRankings.add(playerPC_ArrList);
+            tempPlayerArrList.clear();
+
+        }
+
+        //Clearing the player ranking ArrayList and copying the contents of the new player ranking
+        //ArrayList into it, then clearing the new player ranking ArrayList.
+        playerRanking.clear();
+
+        for (ArrayList element : updatedPlayerRankings) {
+            playerRanking.add(element);
+        }
+
+        updatedPlayerRankings.clear();
 
 
+        //Final average ranking.
+        //Creating an ArrayList to hold player name, team, ICT rank, form rank, points per game rank,
+        //PC rank and average rank.
+        ArrayList<ArrayList<String>> selectedPlayersRank = new ArrayList<ArrayList<String>>();
+        ArrayList<String> playerRankData = new ArrayList<String >();
+        ArrayList<String> tempPlayerRankData = new ArrayList<String>();
+
+        //Creating a rank index.
+        int rankIndex = -1;
+
+        //Creating a double for the rank average.
+        double playerRankAverage;
+
+        //For loop searching through each row in the player ranking ArrayList.
+        for (ArrayList element : playerRanking) {
+
+            //Resetting the rank average
+            playerRankAverage = 0;
+
+            //Going through each column in the player ranking ArrayList.
+            for (int i = 0; i < element.size(); i++) {
+
+                //Adding players name and team to temporary Arraylist.
+                if (i < 3) {
+                    tempPlayerRankData.add(String.valueOf(element.get(i)));
+
+                } else {
+
+                    //Checking if the current column is the last in the ArrayList.
+                    if (i + 1 == element.size()) {
+
+                        //Adding the last rank to the temporary ArrayList.
+                        tempPlayerRankData.add(String.valueOf(element.get(i)));
+
+                        //Adding the rank to the total.
+                        playerRankAverage = playerRankAverage + Integer.parseInt(
+                                String.valueOf(element.get(i)));
+
+                        //Dividing the total of the ranks by the number of tests.
+                        playerRankAverage = playerRankAverage / 4;
+
+                        //Adding the rank average to the temporary ArrayList.
+                        tempPlayerRankData.add(String.valueOf(playerRankAverage));
+
+                        //Setting the rank index.
+                        rankIndex = tempPlayerRankData.size() - 1;
+
+                    } else {
+
+                        //Adding the rank to the total.
+                        playerRankAverage = playerRankAverage + Integer.parseInt(
+                                String.valueOf(element.get(i)));
+
+
+                        //Adding the rank to the temporary ArrayList.
+                        tempPlayerRankData.add(String.valueOf(element.get(i)));
+
+                    }
+
+                }
+
+            }
+
+            //Cloning the temporary ArrayList into the player PC ArrayList then adding
+            //that into the selected players PC ArrayList.
+            playerRankData = (ArrayList<String>) tempPlayerRankData.clone();
+            selectedPlayersRank.add(playerRankData);
+            tempPlayerRankData.clear();
+
+        }
+
+        //Sorting selected player data by PC.
+        ArrayList<ArrayList<String>> selectedSortedRank = sortData(selectedPlayersRank, rankIndex);
+
+        //Clearing the previous ArrayList to store the player ranking data as its own ArrayList as well as
+        //clearing the temporary ArrayList to hold the current players ranking data.
+        ArrayList<String> playerRankArrList = new ArrayList<String>();
+        tempPlayerArrList.clear();
+
+        //Resetting the rank variable so that the system can asssign rank in reverse.
+        rank = 15;
+
+        //A for loop that goes through each row of the selected players sorted ranked ArrayList.
+        for (ArrayList avgRankElement : selectedSortedRank) {
+
+            //A for loop that goes through each row of the previously used
+            //selected players ranked ArrayList.
+            for (ArrayList rankElement : playerRanking) {
+
+                //Checking if the name of both elements matches.
+                if (avgRankElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
+                        avgRankElement.get(teamIndex - 1).equals(rankElement.get(teamIndex - 1))) {
+
+                    //Loop adding previously stored rank data to the new ranking ArrayList.
+                    for (int i = 0; i < rankElement.size(); i++) {
+
+                        tempPlayerArrList.add(String.valueOf(rankElement.get(i)));
+
+                    }
+
+                    //Adding rank and average ranking to new ranking ArrayList.
+                    //tempPlayerArrList.add(String.valueOf(avgRankElement.get(PC_Index)));
+                    tempPlayerArrList.add(String.valueOf(rank));
+                    rank = rank - 1;
+
+                }
+
+            }
+
+            //Cloning the temporary ArrayList into the player data ArrayList then adding
+            //that into the new ranking ArrayList.
+            playerRankArrList = (ArrayList<String>) tempPlayerArrList.clone();
+            updatedPlayerRankings.add(playerRankArrList);
+            tempPlayerArrList.clear();
+
+        }
+
+        //Clearing the player ranking ArrayList and copying the contents of the new player ranking
+        //ArrayList into it, then clearing the new player ranking ArrayList.
+        playerRanking.clear();
+
+        for (ArrayList element : updatedPlayerRankings) {
+            playerRanking.add(element);
+        }
+
+        updatedPlayerRankings.clear();
+
+        //Reversing the ArrayList so the rank best player is at the top.
+        Collections.reverse(playerRanking);
 
         return playerRanking;
     }
