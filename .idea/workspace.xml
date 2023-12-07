@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -40,7 +44,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;workingBranch&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;
   }
@@ -175,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701796142063</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation.">
+      <option name="closed" value="true" />
+      <created>1701912681440</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701912681440</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,7 +200,8 @@
     <MESSAGE value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
     <MESSAGE value="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program." />
     <MESSAGE value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
-    <option name="LAST_COMMIT_MESSAGE" value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
+    <MESSAGE value="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation." />
+    <option name="LAST_COMMIT_MESSAGE" value="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
