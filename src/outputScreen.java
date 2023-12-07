@@ -224,6 +224,7 @@ public class outputScreen {
         int costIndex = -1;
         int formIndex = -1;
         int pointsPerGameIndex = -1;
+        int positionIndex = -1;
         //For loop going through rows in the data to find what the index of the desired column is.
         for (ArrayList element : playerData) {
 
@@ -257,6 +258,9 @@ public class outputScreen {
                 //Finding a match and recording the index of the points per game column.
                 } else if (String.valueOf(element.get(i)).equalsIgnoreCase("points per game")) {
                     pointsPerGameIndex = i;
+
+                } else if (String.valueOf(element.get(i)).equalsIgnoreCase("position")) {
+                    positionIndex = i;
 
                 }
 
@@ -307,17 +311,17 @@ public class outputScreen {
 
         //Storing player rankings of selected players.
         ArrayList<ArrayList<String>> selectedPlayersRanked = rankings(selectedPlayerData, nameIndex,
-                teamIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
+                teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
 
 
         for (ArrayList element : selectedPlayersRanked) {
-            //System.out.println(element);
+            System.out.println(element);
         }
 
         //Storing player ranking of all players.
         ArrayList<ArrayList<String>> allPlayersRanked = rankings(playerData, nameIndex,
-                teamIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
+                teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
         for (ArrayList element : allPlayersRanked) {
             //System.out.println(element);
@@ -359,9 +363,9 @@ public class outputScreen {
     }
 
     public static ArrayList<ArrayList<String>> rankings(ArrayList<ArrayList<String>> playerData,
-                                                        int nameIndex, int teamIndex, int ICT_Index, int pointsIndex,
-                                                        int costIndex, int formIndex,
-                                                        int pointsPerGameIndex) {
+                                                        int nameIndex, int teamIndex, int positionIndex,
+                                                        int ICT_Index, int pointsIndex, int costIndex,
+                                                        int formIndex, int pointsPerGameIndex) {
 
         //ICT Ranking
         //Sorting selected player data by ICT.
@@ -387,7 +391,10 @@ public class outputScreen {
                 } else if (i == teamIndex){
                     tempPlayerArrList.add(String.valueOf(element.get(i)));
 
-                }  else if (i == costIndex){
+                } else if (i == positionIndex){
+                    tempPlayerArrList.add(String.valueOf(element.get(i)));
+
+                } else if (i == costIndex){
                     tempPlayerArrList.add(String.valueOf(element.get(i)));
 
                 } else if (i == ICT_Index){
@@ -430,7 +437,7 @@ public class outputScreen {
 
                 //Checking if the name and team of both elements matches.
                 if (formElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
-                        formElement.get(teamIndex).equals(rankElement.get(teamIndex - 1))) {
+                        formElement.get(teamIndex).equals(rankElement.get(teamIndex))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
@@ -488,7 +495,7 @@ public class outputScreen {
 
                 //Checking if the name and team of both elements matches.
                 if (ppgElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
-                        ppgElement.get(teamIndex).equals(rankElement.get(teamIndex - 1))) {
+                        ppgElement.get(teamIndex).equals(rankElement.get(teamIndex))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
@@ -617,7 +624,7 @@ public class outputScreen {
 
                 //Checking if the name and team of both elements matches.
                 if (pcElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
-                        pcElement.get(teamIndex - 1).equals(rankElement.get(teamIndex - 1))) {
+                        pcElement.get(teamIndex - 1).equals(rankElement.get(teamIndex))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
@@ -676,8 +683,8 @@ public class outputScreen {
             //Going through each column in the player ranking ArrayList.
             for (int i = 0; i < element.size(); i++) {
 
-                //Adding players name and team to temporary Arraylist.
-                if (i < 3) {
+                //Adding players name, team and position to temporary Arraylist.
+                if (i < 4) {
                     tempPlayerRankData.add(String.valueOf(element.get(i)));
 
                 } else {
@@ -745,7 +752,7 @@ public class outputScreen {
 
                 //Checking if the name of both elements matches.
                 if (avgRankElement.get(nameIndex).equals(rankElement.get(nameIndex)) &&
-                        avgRankElement.get(teamIndex - 1).equals(rankElement.get(teamIndex - 1))) {
+                        avgRankElement.get(teamIndex).equals(rankElement.get(teamIndex))) {
 
                     //Loop adding previously stored rank data to the new ranking ArrayList.
                     for (int i = 0; i < rankElement.size(); i++) {
