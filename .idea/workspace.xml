@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -44,6 +48,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
+      <recent name="C:\Users\Daniel\IdeaProjects\FYP\lib" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -119,7 +127,55 @@
       <option name="project" value="LOCAL" />
       <updated>1701477636792</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file.">
+      <option name="closed" value="true" />
+      <created>1701712079762</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701712079762</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program.">
+      <option name="closed" value="true" />
+      <created>1701712292131</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701712292131</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program.">
+      <option name="closed" value="true" />
+      <created>1701717221633</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701717221633</updated>
+    </task>
+    <task id="LOCAL-00012" summary="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page.">
+      <option name="closed" value="true" />
+      <created>1701742478693</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701742478693</updated>
+    </task>
+    <task id="LOCAL-00013" summary="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page.">
+      <option name="closed" value="true" />
+      <created>1701791778697</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701791778697</updated>
+    </task>
+    <task id="LOCAL-00014" summary="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page.">
+      <option name="closed" value="true" />
+      <created>1701796142063</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701796142063</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -130,7 +186,9 @@
     <MESSAGE value="got a screen with a title and working button, but need to come back to it to make it look better. will work on the main functionality. also need to clear out redundant code and comments." />
     <MESSAGE value="cleaned up title screen in a new file. use frame.java as main file from now on." />
     <MESSAGE value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
-    <option name="LAST_COMMIT_MESSAGE" value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
+    <MESSAGE value="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program." />
+    <MESSAGE value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
+    <option name="LAST_COMMIT_MESSAGE" value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

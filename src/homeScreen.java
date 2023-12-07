@@ -8,11 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
 
-public class frame extends JFrame {
+public class homeScreen extends JFrame {
 
     private JPanel contentPane;
 
@@ -25,9 +24,11 @@ public class frame extends JFrame {
                 try {
                     //frame frame = new frame();
                     //frame.setVisible(true);
-                    //homeScreen();
+                    homeScreen();
 
-                    teamScreen();
+                    //teamScreen();
+                    //teamScreen.teamScreen();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -94,8 +95,13 @@ public class frame extends JFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                teamScreen();
-                homeFrame.dispose();
+                //teamScreen();
+                try {
+                    teamScreen.teamScreen();
+                    homeFrame.dispose();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
