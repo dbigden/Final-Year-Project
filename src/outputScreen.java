@@ -25,6 +25,10 @@ public class outputScreen {
         //Creating the window.
         JFrame outputFrame = new JFrame("FPL Optimiser");
 
+        //Setting the icon image.
+        outputFrame.setIconImage(new ImageIcon("C:\\Users\\Daniel\\" +
+                "IdeaProjects\\FYP\\fpl logo.png").getImage());
+
         //Preventing the window from being resizeable.
         outputFrame.setResizable(false);
 

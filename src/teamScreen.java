@@ -24,6 +24,10 @@ public class teamScreen {
         //Creating the window.
         JFrame teamFrame = new JFrame("FPL Optimiser");
 
+        //Setting the icon image.
+        teamFrame.setIconImage(new ImageIcon("C:\\Users\\Daniel\\" +
+                "IdeaProjects\\FYP\\fpl logo.png").getImage());
+
         //Preventing the window from being resizeable.
         teamFrame.setResizable(false);
 

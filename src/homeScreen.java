@@ -45,6 +45,10 @@ public class homeScreen extends JFrame {
         JFrame homeFrame = new JFrame("FPL Optimiser");
         //frame.setLayout(new GridLayout());
 
+        //Setting the icon image.
+        homeFrame.setIconImage(new ImageIcon("C:\\Users\\Daniel\\" +
+                "IdeaProjects\\FYP\\fpl logo.png").getImage());
+
         //Preventing the window from being resizeable.
         homeFrame.setResizable(false);
 
