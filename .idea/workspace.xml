@@ -203,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701987400683</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added the position to the ranking arraylist.">
+      <option name="closed" value="true" />
+      <created>1701987973180</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701987973180</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -219,7 +227,8 @@
     <MESSAGE value="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation." />
     <MESSAGE value="added ranking for form and ppg." />
     <MESSAGE value="completed the ranking system for both the full player data and the selected players." />
-    <option name="LAST_COMMIT_MESSAGE" value="completed the ranking system for both the full player data and the selected players." />
+    <MESSAGE value="added the position to the ranking arraylist." />
+    <option name="LAST_COMMIT_MESSAGE" value="added the position to the ranking arraylist." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

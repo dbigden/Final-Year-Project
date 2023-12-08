@@ -12,7 +12,7 @@ public class outputScreen {
                         "Saliba, Arsenal",  "Romero, Spurs", "Chambers, Aston Villa", "Virgil, Liverpool",
                         "Son, Spurs", "Salah, Liverpool", "Bernardo, Man City", "Maddison, Spurs",
                         "Bentancur, Spurs", "Haaland, Man City", "Watkins, Aston Villa",
-                        "Mbeumo, Brentford"));
+                        "J.Alvarez, Man City"));
 
 
         //"Udogie, Spurs"
@@ -70,14 +70,22 @@ public class outputScreen {
         //Creating slots for players to potentially fill.
         //Goalkeepers.
         JLabel gk1 = new JLabel("gk1");
-        gk1.setBounds(560, 180, 150, 50);
+        gk1.setBounds(680, 180, 150, 50);
         gk1.setHorizontalAlignment(SwingConstants.CENTER);
+        gk1.setBackground(Color.decode("#38003C"));
+        gk1.setFont(new Font("Calibri", Font.BOLD, 15));
+        gk1.setForeground(Color.decode("#FFFFFF"));
+        gk1.setOpaque(true);
         pitchPane.add(gk1, JLayeredPane.PALETTE_LAYER);
 
-        JLabel gk2 = new JLabel("gk2");
-        gk2.setBounds(795, 180, 150, 50);
-        gk2.setHorizontalAlignment(SwingConstants.CENTER);
-        pitchPane.add(gk2, JLayeredPane.PALETTE_LAYER);
+//        JLabel gk2 = new JLabel("gk2");
+//        gk2.setBounds(795, 180, 150, 50);
+//        gk2.setHorizontalAlignment(SwingConstants.CENTER);
+//        gk2.setBackground(Color.decode("#38003C"));
+//        gk2.setFont(new Font("Calibri", Font.BOLD, 15));
+//        gk2.setForeground(Color.decode("#FFFFFF"));
+//        gk2.setOpaque(true);
+//        pitchPane.add(gk2, JLayeredPane.PALETTE_LAYER);
 
         //Defenders.
         //Options:
@@ -87,46 +95,73 @@ public class outputScreen {
         JLabel df1 = new JLabel("df1");
         df1.setBounds(320, 320, 150, 50);
         df1.setHorizontalAlignment(SwingConstants.CENTER);
+        df1.setBackground(Color.decode("#38003C"));
+        df1.setFont(new Font("Calibri", Font.BOLD, 15));
+        df1.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df1, JLayeredPane.PALETTE_LAYER);
 
         JLabel df2 = new JLabel("df2");
         df2.setBounds(410, 320, 150, 50);
         df2.setHorizontalAlignment(SwingConstants.CENTER);
+        df2.setBackground(Color.decode("#38003C"));
+        df2.setFont(new Font("Calibri", Font.BOLD, 15));
+        df2.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df2, JLayeredPane.PALETTE_LAYER);
 
         JLabel df3 = new JLabel("df3");
         df3.setBounds(500, 320, 150, 50);
         df3.setHorizontalAlignment(SwingConstants.CENTER);
+        df3.setBackground(Color.decode("#38003C"));
+        df3.setFont(new Font("Calibri", Font.BOLD, 15));
+        df3.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df3, JLayeredPane.PALETTE_LAYER);
 
         JLabel df4 = new JLabel("df4");
         df4.setBounds(590, 320, 150, 50);
         df4.setHorizontalAlignment(SwingConstants.CENTER);
+        df4.setBackground(Color.decode("#38003C"));
+        df4.setFont(new Font("Calibri", Font.BOLD, 15));
+        df4.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df4, JLayeredPane.PALETTE_LAYER);
 
         JLabel df5 = new JLabel("df5");
         df5.setBounds(680, 320, 150, 50);
         df5.setHorizontalAlignment(SwingConstants.CENTER);
+        df5.setBackground(Color.decode("#38003C"));
+        df5.setFont(new Font("Calibri", Font.BOLD, 15));
+        df5.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df5, JLayeredPane.PALETTE_LAYER);
 
         JLabel df6 = new JLabel("df6");
         df6.setBounds(770, 320, 150, 50);
         df6.setHorizontalAlignment(SwingConstants.CENTER);
+        df6.setBackground(Color.decode("#38003C"));
+        df6.setFont(new Font("Calibri", Font.BOLD, 15));
+        df6.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df6, JLayeredPane.PALETTE_LAYER);
 
         JLabel df7 = new JLabel("df7");
         df7.setBounds(860, 320, 150, 50);
         df7.setHorizontalAlignment(SwingConstants.CENTER);
+        df7.setBackground(Color.decode("#38003C"));
+        df7.setFont(new Font("Calibri", Font.BOLD, 15));
+        df7.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df7, JLayeredPane.PALETTE_LAYER);
 
         JLabel df8 = new JLabel("df8");
         df8.setBounds(950, 320, 150, 50);
         df8.setHorizontalAlignment(SwingConstants.CENTER);
+        df8.setBackground(Color.decode("#38003C"));
+        df8.setFont(new Font("Calibri", Font.BOLD, 15));
+        df8.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df8, JLayeredPane.PALETTE_LAYER);
 
         JLabel df9 = new JLabel("df9");
         df9.setBounds(1040, 320, 150, 50);
         df9.setHorizontalAlignment(SwingConstants.CENTER);
+        df9.setBackground(Color.decode("#38003C"));
+        df9.setFont(new Font("Calibri", Font.BOLD, 15));
+        df9.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(df9, JLayeredPane.PALETTE_LAYER);
 
         //Midfielders.
@@ -138,46 +173,73 @@ public class outputScreen {
         JLabel mf1 = new JLabel("mf1");
         mf1.setBounds(320, 480, 150, 50);
         mf1.setHorizontalAlignment(SwingConstants.CENTER);
+        mf1.setBackground(Color.decode("#38003C"));
+        mf1.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf1.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf1, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf2 = new JLabel("mf2");
         mf2.setBounds(410, 480, 150, 50);
         mf2.setHorizontalAlignment(SwingConstants.CENTER);
+        mf2.setBackground(Color.decode("#38003C"));
+        mf2.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf2.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf2, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf3 = new JLabel("mf3");
         mf3.setBounds(500, 480, 150, 50);
         mf3.setHorizontalAlignment(SwingConstants.CENTER);
+        mf3.setBackground(Color.decode("#38003C"));
+        mf3.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf3.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf3, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf4 = new JLabel("mf4");
         mf4.setBounds(590, 480, 150, 50);
         mf4.setHorizontalAlignment(SwingConstants.CENTER);
+        mf4.setBackground(Color.decode("#38003C"));
+        mf4.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf4.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf4, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf5 = new JLabel("mf5");
         mf5.setBounds(680, 480, 150, 50);
         mf5.setHorizontalAlignment(SwingConstants.CENTER);
+        mf5.setBackground(Color.decode("#38003C"));
+        mf5.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf5.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf5, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf6 = new JLabel("mf6");
         mf6.setBounds(770, 480, 150, 50);
         mf6.setHorizontalAlignment(SwingConstants.CENTER);
+        mf6.setBackground(Color.decode("#38003C"));
+        mf6.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf6.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf6, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf7 = new JLabel("mf7");
         mf7.setBounds(860, 480, 150, 50);
         mf7.setHorizontalAlignment(SwingConstants.CENTER);
+        mf7.setBackground(Color.decode("#38003C"));
+        mf7.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf7.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf7, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf8 = new JLabel("mf8");
         mf8.setBounds(950, 480, 150, 50);
         mf8.setHorizontalAlignment(SwingConstants.CENTER);
+        mf8.setBackground(Color.decode("#38003C"));
+        mf8.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf8.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf8, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf9 = new JLabel("mf9");
         mf9.setBounds(1040, 480, 150, 50);
         mf9.setHorizontalAlignment(SwingConstants.CENTER);
+        mf9.setBackground(Color.decode("#38003C"));
+        mf9.setFont(new Font("Calibri", Font.BOLD, 15));
+        mf9.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(mf9, JLayeredPane.PALETTE_LAYER);
 
         //Forwards.
@@ -188,26 +250,41 @@ public class outputScreen {
         JLabel fw1 = new JLabel("fw1");
         fw1.setBounds(500, 640, 150, 50);
         fw1.setHorizontalAlignment(SwingConstants.CENTER);
+        fw1.setBackground(Color.decode("#38003C"));
+        fw1.setFont(new Font("Calibri", Font.BOLD, 15));
+        fw1.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw1, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw2 = new JLabel("fw2");
         fw2.setBounds(590, 640, 150, 50);
         fw2.setHorizontalAlignment(SwingConstants.CENTER);
+        fw2.setBackground(Color.decode("#38003C"));
+        fw2.setFont(new Font("Calibri", Font.BOLD, 15));
+        fw2.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw2, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw3 = new JLabel("fw3");
         fw3.setBounds(680, 640, 150, 50);
         fw3.setHorizontalAlignment(SwingConstants.CENTER);
+        fw3.setBackground(Color.decode("#38003C"));
+        fw3.setFont(new Font("Calibri", Font.BOLD, 15));
+        fw3.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw3, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw4 = new JLabel("fw4");
         fw4.setBounds(770, 640, 150, 50);
         fw4.setHorizontalAlignment(SwingConstants.CENTER);
+        fw4.setBackground(Color.decode("#38003C"));
+        fw4.setFont(new Font("Calibri", Font.BOLD, 15));
+        fw4.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw4, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw5 = new JLabel("fw5");
         fw5.setBounds(860, 640, 150, 50);
         fw5.setHorizontalAlignment(SwingConstants.CENTER);
+        fw5.setBackground(Color.decode("#38003C"));
+        fw5.setFont(new Font("Calibri", Font.BOLD, 15));
+        fw5.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw5, JLayeredPane.PALETTE_LAYER);
 
         //Working out which players will start in the team.
@@ -327,11 +404,304 @@ public class outputScreen {
             //System.out.println(element);
         }
 
+
+        //Going through the ranked selected players and checking what the best possible starting team is.
+        int totalCost = 0;
+        String startingGk = "";
+        ArrayList<String> startingDf = new ArrayList<>();
+        ArrayList<String> startingMf = new ArrayList<>();
+        ArrayList<String> startingFw = new ArrayList<>();
+        ArrayList<String> subs = new ArrayList<>();
+
+
+        for (ArrayList player : selectedPlayersRanked) {
+
+            if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("goalkeeper")) {
+
+                if (startingGk.equalsIgnoreCase("")) {
+                    startingGk= player.get(nameIndex) + ", " + player.get(teamIndex);
+
+                } else {
+                    subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                }
+
+            } else if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("defender")) {
+
+                if (String.valueOf(startingDf.size()).equalsIgnoreCase("4")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("5")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("4")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("3")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("3")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingDf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                } else if (String.valueOf(startingDf.size()).equalsIgnoreCase("3")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("5") &&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("4") &&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("3")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingDf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                }  else {
+                        startingDf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                }
+
+            } else if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("midfielder")) {
+
+                if (String.valueOf(startingDf.size()).equalsIgnoreCase("5")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("4")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("3")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingMf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                } else if (String.valueOf(startingDf.size()).equalsIgnoreCase("4")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("4")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("3")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("3")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingMf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                } else {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("4")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("3")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingMf.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                }
+
+            } else if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("forward")) {
+
+                if (String.valueOf(startingDf.size()).equalsIgnoreCase("5")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("4") &&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("1")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("3") &&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingFw.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                } else if (String.valueOf(startingDf.size()).equalsIgnoreCase("4")) {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("5")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("1")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else if (String.valueOf(startingMf.size()).equalsIgnoreCase("4")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingFw.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                } else {
+
+                    if (String.valueOf(startingMf.size()).equalsIgnoreCase("5")&&
+                            String.valueOf(startingFw.size()).equalsIgnoreCase("2")) {
+                        subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    } else {
+                        startingFw.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
         //Adding the starting players to the team.
+        //Goalkeeper.
+        gk1.setText(startingGk);
+
+        //Defenders.
+        if (startingDf.size() == 5) {
+            df1.setText(startingDf.get(0));
+            df1.setOpaque(true);
+            df2.setText("");
+            df3.setText(startingDf.get(1));
+            df3.setOpaque(true);
+            df4.setText("");
+            df5.setText(startingDf.get(2));
+            df5.setOpaque(true);
+            df6.setText("");
+            df7.setText(startingDf.get(3));
+            df7.setOpaque(true);
+            df8.setText("");
+            df9.setText(startingDf.get(4));
+            df9.setOpaque(true);
+
+        } else if (startingDf.size() == 4) {
+            df1.setText("");
+            df2.setText(startingDf.get(0));
+            df2.setOpaque(true);
+            df3.setText("");
+            df4.setText(startingDf.get(1));
+            df4.setOpaque(true);
+            df5.setText("");
+            df6.setText(startingDf.get(2));
+            df6.setOpaque(true);
+            df7.setText("");
+            df8.setText(startingDf.get(3));
+            df8.setOpaque(true);
+            df9.setText("");
+
+        } else {
+            df1.setText("");
+            df2.setText("");
+            df3.setText(startingDf.get(0));
+            df3.setOpaque(true);
+            df4.setText("");
+            df5.setText(startingDf.get(1));
+            df5.setOpaque(true);
+            df6.setText("");
+            df7.setText(startingDf.get(2));
+            df7.setOpaque(true);
+            df8.setText("");
+            df9.setText("");
+
+        }
 
 
+        //Midfielders.
+        if (startingMf.size() == 5) {
+            mf1.setText(startingMf.get(0));
+            mf1.setOpaque(true);
+            mf2.setText("");
+            mf3.setText(startingMf.get(1));
+            mf3.setOpaque(true);
+            mf4.setText("");
+            mf5.setText(startingMf.get(2));
+            mf5.setOpaque(true);
+            mf6.setText("");
+            mf7.setText(startingMf.get(3));
+            mf7.setOpaque(true);
+            mf8.setText("");
+            mf9.setText(startingMf.get(4));
+            mf9.setOpaque(true);
 
+        } else if (startingMf.size() == 4) {
+            mf1.setText("");
+            mf2.setText(startingMf.get(0));
+            mf2.setOpaque(true);
+            mf3.setText("");
+            mf4.setText(startingMf.get(1));
+            mf4.setOpaque(true);
+            mf5.setText("");
+            mf6.setText(startingMf.get(2));
+            mf6.setOpaque(true);
+            mf7.setText("");
+            mf8.setText(startingMf.get(3));
+            mf8.setOpaque(true);
+            mf9.setText("");
 
+        } else if (startingMf.size() == 3) {
+            mf1.setText("");
+            mf2.setText("");
+            mf3.setText(startingMf.get(0));
+            mf3.setOpaque(true);
+            mf4.setText("");
+            mf5.setText(startingMf.get(1));
+            mf5.setOpaque(true);
+            mf6.setText("");
+            mf7.setText(startingMf.get(2));
+            mf7.setOpaque(true);
+            mf8.setText("");
+            mf9.setText("");
+
+        } else {
+            mf1.setText("");
+            mf2.setText("");
+            mf3.setText("");
+            mf4.setText(startingMf.get(0));
+            mf4.setOpaque(true);
+            mf5.setText("");
+            mf6.setText(startingMf.get(1));
+            mf6.setOpaque(true);
+            mf7.setText("");
+            mf8.setText("");
+            mf9.setText("");
+
+        }
+
+        //Forwards.
+        if (startingFw.size() == 3) {
+            fw1.setText(startingFw.get(0));
+            fw1.setOpaque(true);
+            fw2.setText("");
+            fw3.setText(startingFw.get(1));
+            fw3.setOpaque(true);
+            fw4.setText("");
+            fw5.setText(startingFw.get(2));
+            fw5.setOpaque(true);
+
+        } else if (startingFw.size() == 2) {
+            fw1.setText("");
+            fw2.setText(startingFw.get(0));
+            fw2.setOpaque(true);
+            fw3.setText("");
+            fw4.setText(startingFw.get(1));
+            fw4.setOpaque(true);
+            fw5.setText("");
+
+        } else {
+            fw1.setText("");
+            fw2.setText("");
+            fw3.setText(startingFw.get(0));
+            fw3.setOpaque(true);
+            fw4.setText("");
+            fw5.setText("");
+        }
 
     }
 
