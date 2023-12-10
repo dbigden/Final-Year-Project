@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 
@@ -17,11 +18,11 @@ public class outputScreen {
 
         //"Udogie, Spurs"
         //"Walker, Man City"
-        outputScreen(players);
+        outputScreen(players, 2, 0.6);
 
     }
 
-    public static void outputScreen(ArrayList<String> players) throws Exception {
+    public static void outputScreen(ArrayList<String> players, int freeTransfers, double budget) throws Exception {
         //Creating the window.
         JFrame outputFrame = new JFrame("FPL Optimiser");
 
@@ -72,7 +73,7 @@ public class outputScreen {
         outputFrame.add(pitchPane);
 
         //Creating slots for players to potentially fill.
-        //Goalkeepers.
+        //Goalkeeper.
         JLabel gk1 = new JLabel("gk1");
         gk1.setBounds(680, 180, 150, 50);
         gk1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,15 +82,6 @@ public class outputScreen {
         gk1.setForeground(Color.decode("#FFFFFF"));
         gk1.setOpaque(true);
         pitchPane.add(gk1, JLayeredPane.PALETTE_LAYER);
-
-//        JLabel gk2 = new JLabel("gk2");
-//        gk2.setBounds(795, 180, 150, 50);
-//        gk2.setHorizontalAlignment(SwingConstants.CENTER);
-//        gk2.setBackground(Color.decode("#38003C"));
-//        gk2.setFont(new Font("Calibri", Font.BOLD, 15));
-//        gk2.setForeground(Color.decode("#FFFFFF"));
-//        gk2.setOpaque(true);
-//        pitchPane.add(gk2, JLayeredPane.PALETTE_LAYER);
 
         //Defenders.
         //Options:
@@ -291,6 +283,43 @@ public class outputScreen {
         fw5.setForeground(Color.decode("#FFFFFF"));
         pitchPane.add(fw5, JLayeredPane.PALETTE_LAYER);
 
+        //Subs.
+        JLabel gkSub = new JLabel("gkSub");
+        gkSub.setBounds(1190, 180, 150, 50);
+        gkSub.setHorizontalAlignment(SwingConstants.CENTER);
+        gkSub.setBackground(Color.decode("#38003C"));
+        gkSub.setFont(new Font("Calibri", Font.BOLD, 15));
+        gkSub.setForeground(Color.decode("#FFFFFF"));
+        gkSub.setOpaque(true);
+        pitchPane.add(gkSub, JLayeredPane.PALETTE_LAYER);
+
+        JLabel sub1 = new JLabel("sub1");
+        sub1.setBounds(1215, 250, 150, 50);
+        sub1.setHorizontalAlignment(SwingConstants.CENTER);
+        sub1.setBackground(Color.decode("#38003C"));
+        sub1.setFont(new Font("Calibri", Font.BOLD, 15));
+        sub1.setForeground(Color.decode("#FFFFFF"));
+        sub1.setOpaque(true);
+        pitchPane.add(sub1, JLayeredPane.PALETTE_LAYER);
+
+        JLabel sub2 = new JLabel("sub2");
+        sub2.setBounds(1242, 320, 150, 50);
+        sub2.setHorizontalAlignment(SwingConstants.CENTER);
+        sub2.setBackground(Color.decode("#38003C"));
+        sub2.setFont(new Font("Calibri", Font.BOLD, 15));
+        sub2.setForeground(Color.decode("#FFFFFF"));
+        sub2.setOpaque(true);
+        pitchPane.add(sub2, JLayeredPane.PALETTE_LAYER);
+
+        JLabel sub3 = new JLabel("sub3");
+        sub3.setBounds(1270, 390, 150, 50);
+        sub3.setHorizontalAlignment(SwingConstants.CENTER);
+        sub3.setBackground(Color.decode("#38003C"));
+        sub3.setFont(new Font("Calibri", Font.BOLD, 15));
+        sub3.setForeground(Color.decode("#FFFFFF"));
+        sub3.setOpaque(true);
+        pitchPane.add(sub3, JLayeredPane.PALETTE_LAYER);
+
         //Working out which players will start in the team.
         //Getting the full player data.
         ArrayList<ArrayList<String>> playerData = teamScreen.readFile("all", "all");
@@ -306,6 +335,7 @@ public class outputScreen {
         int formIndex = -1;
         int pointsPerGameIndex = -1;
         int positionIndex = -1;
+        int availabilityIndex = -1;
         //For loop going through rows in the data to find what the index of the desired column is.
         for (ArrayList element : playerData) {
 
@@ -340,8 +370,13 @@ public class outputScreen {
                 } else if (String.valueOf(element.get(i)).equalsIgnoreCase("points per game")) {
                     pointsPerGameIndex = i;
 
+                //Finding a match and recording the index of the position column.
                 } else if (String.valueOf(element.get(i)).equalsIgnoreCase("position")) {
                     positionIndex = i;
+
+                //Finding a match and recording the index of the availability.
+                } else if (String.valueOf(element.get(i)).equalsIgnoreCase("chance of playing")) {
+                    availabilityIndex = i;
 
                 }
 
@@ -397,7 +432,7 @@ public class outputScreen {
 
 
         for (ArrayList element : selectedPlayersRanked) {
-            System.out.println(element);
+            //System.out.println(element);
         }
 
         //Storing player ranking of all players.
@@ -409,24 +444,140 @@ public class outputScreen {
         }
 
 
+        //Transfers.
+        //Checking if the user has any free transfers.
+        ArrayList<ArrayList<String>> transfers = new ArrayList<ArrayList<String>>();
+
+        if (freeTransfers != 0) {
+
+            for (int i = 0; i < freeTransfers; i++) {
+
+                //Checking if there is still budget left.
+                if (budget > 0) {
+
+                    ArrayList<String> bestTransfer = bestAvailableTransfer(selectedPlayersRanked,
+                            allPlayersRanked, playerData, nameIndex, teamIndex, positionIndex, costIndex, availabilityIndex, budget);
+
+                    transfers.add(bestTransfer);
+
+                    if (bestTransfer != null) {
+
+                        //Updating the budget with the new transfer.
+                        budget = Double.parseDouble(String.valueOf(bestTransfer.get(12)));
+                        budget = round(budget, 1);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        //Creating an ArrayList to add the current players details to.
+        ArrayList<ArrayList<String>> finalPlayers = new ArrayList<ArrayList<String>>();
+
+        //Making the transfers.
+        //A for loop that goes through all rows in the ranked ArrayList of selected players.
+        for (ArrayList playerInfo : selectedPlayersRanked) {
+
+            boolean transferMade = false;
+
+            //A for loop that goes through all rows in the transfers ArrayList.
+            for (ArrayList transferPlayer : transfers) {
+
+                //Checking if the current selected player and player to be transferred out match.
+                if (playerInfo.get(nameIndex).equals(transferPlayer.get(6)) &&
+                        playerInfo.get(positionIndex).equals(transferPlayer.get(7))) {
+
+                    //A for loop that goes through all rows in the full ranking ArrayList.
+                    for (ArrayList newPlayer : allPlayersRanked) {
+
+                        //Checking if the player in the ArrayList and player to be transferred in match.
+                        if (newPlayer.get(nameIndex).equals(transferPlayer.get(nameIndex)) &&
+                                newPlayer.get(positionIndex).equals(transferPlayer.get(positionIndex))) {
+
+                            finalPlayers.add(newPlayer);
+                            transferMade = true;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            //Checking if a transfer was made, if it was skipping adding the current player.
+            if (!transferMade) {
+
+                finalPlayers.add(playerInfo);
+
+            }
+
+        }
+
+        for (ArrayList player : finalPlayers) {
+            //System.out.println(player);
+        }
+
+        ArrayList<ArrayList<String>> finalPlayerData = new ArrayList<ArrayList<String>>();
+
+        for (ArrayList player : finalPlayers) {
+
+            for (ArrayList playerInfo : playerData) {
+
+                //Finding a name match.
+                if (String.valueOf(player.get(nameIndex)).equalsIgnoreCase(String.valueOf(
+                        playerInfo.get(nameIndex)))) {
+
+                    //Making sure the players team also matches.
+                    if (String.valueOf(player.get(teamIndex)).equalsIgnoreCase(String.valueOf(
+                            playerInfo.get(teamIndex)))) {
+
+                        finalPlayerData.add(playerInfo);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        for (ArrayList player : finalPlayerData) {
+            //System.out.println(player);
+        }
+
+        //Storing player ranking of all players.
+        ArrayList<ArrayList<String>> finalPlayersRanked = rankings(finalPlayerData, nameIndex,
+                teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
+
+        for (ArrayList element : finalPlayersRanked) {
+            //System.out.println(element);
+        }
+
+
         //Going through the ranked selected players and checking what the best possible starting team is.
         int totalCost = 0;
         String startingGk = "";
+        String subGk = "";
         ArrayList<String> startingDf = new ArrayList<>();
         ArrayList<String> startingMf = new ArrayList<>();
         ArrayList<String> startingFw = new ArrayList<>();
         ArrayList<String> subs = new ArrayList<>();
 
 
-        for (ArrayList player : selectedPlayersRanked) {
+//        for (ArrayList player : selectedPlayersRanked) {
+        for (ArrayList player : finalPlayersRanked) {
 
             if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("goalkeeper")) {
 
                 if (startingGk.equalsIgnoreCase("")) {
-                    startingGk= player.get(nameIndex) + ", " + player.get(teamIndex);
+                    startingGk = player.get(nameIndex) + ", " + player.get(teamIndex);
 
                 } else {
-                    subs.add(player.get(nameIndex) + ", " + player.get(teamIndex));
+                    subGk = player.get(nameIndex) + ", " + player.get(teamIndex);
 
                 }
 
@@ -706,6 +857,12 @@ public class outputScreen {
             fw4.setText("");
             fw5.setText("");
         }
+
+        //Subs.
+        gkSub.setText(subGk);
+        sub1.setText(subs.get(0));
+        sub2.setText(subs.get(1));
+        sub3.setText(subs.get(2));
 
     }
 
@@ -1115,7 +1272,15 @@ public class outputScreen {
         tempPlayerArrList.clear();
 
         //Resetting the rank variable so that the system can asssign rank in reverse.
-        rank = 15;
+        ArrayList<String> playerDataRow1 = playerData.get(nameIndex);
+
+        if (playerDataRow1.get(nameIndex).equalsIgnoreCase("name")) {
+            rank = playerData.size() - 1;
+
+        } else {
+            rank = playerData.size();
+
+        }
 
         //A for loop that goes through each row of the selected players sorted ranked ArrayList.
         for (ArrayList avgRankElement : selectedSortedRank) {
@@ -1165,7 +1330,362 @@ public class outputScreen {
         //Reversing the ArrayList so the rank best player is at the top.
         Collections.reverse(playerRanking);
 
+
+        //Position Rank.
+        int gkRank = 1;
+        int dfRank = 1;
+        int mfRank = 1;
+        int fwRank = 1;
+
+        ArrayList<String> playerPositionRanking = new ArrayList<String >();
+        ArrayList<String> tempPlayerRanking = new ArrayList<String>();
+
+        for (ArrayList element : playerRanking) {
+
+            if (String.valueOf(element.get(positionIndex)).
+                    equalsIgnoreCase("goalkeeper")) {
+
+                //Loop adding previously stored rank data to the new ranking ArrayList.
+                for (int i = 0; i < element.size(); i++) {
+
+                    tempPlayerRanking.add(String.valueOf(element.get(i)));
+
+                }
+
+                tempPlayerRanking.add(String.valueOf(gkRank));
+                gkRank = gkRank + 1;
+
+            } else if (String.valueOf(element.get(positionIndex)).
+                    equalsIgnoreCase("defender")) {
+
+                //Loop adding previously stored rank data to the new ranking ArrayList.
+                for (int i = 0; i < element.size(); i++) {
+
+                    tempPlayerRanking.add(String.valueOf(element.get(i)));
+
+                }
+
+                tempPlayerRanking.add(String.valueOf(dfRank));
+                dfRank = dfRank + 1;
+
+            } else if (String.valueOf(element.get(positionIndex)).
+                    equalsIgnoreCase("midfielder")) {
+
+                //Loop adding previously stored rank data to the new ranking ArrayList.
+                for (int i = 0; i < element.size(); i++) {
+
+                    tempPlayerRanking.add(String.valueOf(element.get(i)));
+
+                }
+
+                tempPlayerRanking.add(String.valueOf(mfRank));
+                mfRank = mfRank + 1;
+
+            } else if (String.valueOf(element.get(positionIndex)).
+                    equalsIgnoreCase("forward")) {
+
+                //Loop adding previously stored rank data to the new ranking ArrayList.
+                for (int i = 0; i < element.size(); i++) {
+
+                    tempPlayerRanking.add(String.valueOf(element.get(i)));
+
+                }
+
+                tempPlayerRanking.add(String.valueOf(fwRank));
+                fwRank = fwRank + 1;
+
+            }
+
+            //Cloning the temporary ArrayList into the player data ArrayList then adding
+            //that into the new ranking ArrayList.
+            playerPositionRanking = (ArrayList<String>) tempPlayerRanking.clone();
+            updatedPlayerRankings.add(playerPositionRanking);
+            tempPlayerRanking.clear();
+
+        }
+
+        //Clearing the player ranking ArrayList and copying the contents of the new player ranking
+        //ArrayList into it, then clearing the new player ranking ArrayList.
+        playerRanking.clear();
+
+        for (ArrayList element : updatedPlayerRankings) {
+            playerRanking.add(element);
+        }
+
+        updatedPlayerRankings.clear();
+
         return playerRanking;
+    }
+
+    public static ArrayList<String> bestAvailableTransfer(
+            ArrayList<ArrayList<String>> selectedPlayersRanked, ArrayList<ArrayList<String>>
+            allPlayersRanked, ArrayList<ArrayList<String>> rawPlayerData, int nameIndex, int teamIndex, int positionIndex, int costIndex,
+            int availabilityIndex, double budget) {
+
+        ArrayList<ArrayList<ArrayList<String>>> bestTransfers =
+                new ArrayList<ArrayList<ArrayList<String>>>();
+
+        ArrayList<ArrayList<String>> playerTransferOptions = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> tempPlayerTransferOptions = new ArrayList<ArrayList<String>>();
+
+        ArrayList<String> playerOption = new ArrayList<String >();
+        ArrayList<String> tempPlayerOption = new ArrayList<String >();
+
+        final int positionRankIndex = 9;
+        final int rankIndex = 8;
+        boolean alreadyInTeam = false;
+
+
+
+        for (ArrayList playerSelectedRankData : selectedPlayersRanked) {
+
+            for (ArrayList playerFullRankData : allPlayersRanked) {
+
+                for (ArrayList selectedPlayers : selectedPlayersRanked) {
+
+                    if (playerFullRankData.get(nameIndex).equals(selectedPlayers.get(nameIndex)) &&
+                            playerFullRankData.get(teamIndex).equals(selectedPlayers.get(teamIndex))) {
+
+                        alreadyInTeam = true;
+
+                    }
+
+                }
+
+                //Finding the difference between overall position rank.
+                int selectedPlayerRank = -1;
+
+                for (ArrayList player : allPlayersRanked) {
+
+                    if (player.get(nameIndex).equals(playerSelectedRankData.get(nameIndex)) &&
+                            player.get(teamIndex).equals(playerSelectedRankData.get(teamIndex))) {
+
+                        selectedPlayerRank = Integer.parseInt(String.valueOf(player.get(positionRankIndex)));
+
+                    }
+
+                }
+
+
+                if (playerSelectedRankData.get(positionIndex).equals(playerFullRankData.get(positionIndex))
+                        && Integer.parseInt(String.valueOf(playerFullRankData.get(positionRankIndex))) <
+                        Integer.parseInt(String.valueOf(playerSelectedRankData.get(positionRankIndex)))) {
+
+                    if (!alreadyInTeam && Double.parseDouble(String.valueOf(
+                            playerFullRankData.get(costIndex))) <= budget + Double.parseDouble(
+                            String.valueOf(playerSelectedRankData.get(costIndex)))) {
+
+                        //Adding the info about the new player.
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(nameIndex)));
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(positionIndex)));
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(teamIndex)));
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(costIndex)));
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(rankIndex)));
+                        tempPlayerOption.add(String.valueOf(playerFullRankData.get(positionRankIndex)));
+
+                        //Adding the info about the player he is compared to.
+                        tempPlayerOption.add(String.valueOf(playerSelectedRankData.get(nameIndex)));
+                        tempPlayerOption.add(String.valueOf(playerSelectedRankData.get(positionIndex)));
+                        tempPlayerOption.add(String.valueOf(playerSelectedRankData.get(teamIndex)));
+                        tempPlayerOption.add(String.valueOf(playerSelectedRankData.get(costIndex)));
+                        tempPlayerOption.add(String.valueOf(playerSelectedRankData.get(rankIndex)));
+                        tempPlayerOption.add(String.valueOf(selectedPlayerRank));
+
+                        //Adding the difference between their cost (plus remaining budget)
+                        double selectedCost = Double.parseDouble(String.valueOf(
+                                playerSelectedRankData.get(costIndex)));
+                        double newCost = Double.parseDouble(String.valueOf(playerFullRankData.get(costIndex)));
+
+                        DecimalFormat df = new DecimalFormat("#.#");
+
+                        double potentialBudget = selectedCost - newCost + budget;
+
+                        tempPlayerOption.add(String.valueOf(round(potentialBudget, 1)));
+
+                        //Adding the difference between overall position rank.
+                        int selectedPosRank = Integer.parseInt(String.valueOf(
+                                playerSelectedRankData.get(positionRankIndex)));
+                        int newPosRank = Integer.parseInt(String.valueOf(
+                                playerFullRankData.get(positionRankIndex)));
+
+                        //System.out.println(playerSelectedRankData);
+                        tempPlayerOption.add(String.valueOf(selectedPlayerRank - newPosRank));
+
+                    }
+
+                }
+
+                //System.out.println("test");
+
+                if (tempPlayerOption.size() != 0) {
+
+                    //Cloning the temporary ArrayList into the player data ArrayList then adding
+                    //that into the new ranking ArrayList.
+                    playerOption = (ArrayList<String>) tempPlayerOption.clone();
+                    tempPlayerTransferOptions.add(playerOption);
+                    tempPlayerOption.clear();
+
+                }
+
+                alreadyInTeam = false;
+
+            }
+
+            if (tempPlayerTransferOptions.size() != 0) {
+
+                //Cloning the temporary ArrayList into the player data ArrayList then adding
+                //that into the new ranking ArrayList.
+                playerTransferOptions = (ArrayList<ArrayList<String>>) tempPlayerTransferOptions.clone();
+                bestTransfers.add(playerTransferOptions);
+                tempPlayerTransferOptions.clear();
+
+            }
+
+        }
+
+        for (ArrayList<ArrayList<String>> element2 : bestTransfers) {
+
+            for (ArrayList<String> element : element2) {
+
+                //System.out.println(element);
+
+            }
+
+        }
+        //System.out.println("");
+
+        //Finding the best transfer of the results.
+        ArrayList<String> bestTransfer = new ArrayList<String>();
+
+        //Checking if player in team is seriously injured (0% chance to play)
+        //to prioritise their transfer.
+        final int transferOutNameIndex = 6;
+        final int transferOutPositionIndex = 7;
+        final int transferOutTeamIndex = 8;
+        final int transferOutCostIndex = 9;
+        int highestPriority = 3;
+
+        ArrayList<ArrayList<ArrayList<String>>> updatedBestTransfers =
+                new ArrayList<ArrayList<ArrayList<String>>>();
+
+        ArrayList<ArrayList<String>> allTransferOptions = new ArrayList<ArrayList<String>>();
+        tempPlayerTransferOptions.clear();
+
+        ArrayList<String> transferOption = new ArrayList<String >();
+        tempPlayerOption.clear();
+
+
+        // go through elements in transfer AL and match to name in full data to check if player injured
+        for (ArrayList<ArrayList<String>> playerOutOuter : bestTransfers) {
+
+            for (ArrayList<String> playerOut : playerOutOuter) {
+
+                for (ArrayList<String> playerData : rawPlayerData) {
+
+                    if (playerOut.get(transferOutNameIndex).equals(playerData.get(nameIndex)) &&
+                            playerOut.get(transferOutTeamIndex).equals(playerData.get(teamIndex))) {
+
+                        if (playerData.get(availabilityIndex).equals("0")) {
+
+                            for (int i = 0; i < playerOut.size(); i++) {
+
+                                tempPlayerOption.add(playerOut.get(i));
+
+                            }
+
+                            tempPlayerOption.add("1");
+                            highestPriority = 1;
+
+                        } else if (playerData.get(availabilityIndex).equals("25")) {
+
+                            for (int i = 0; i < playerOut.size(); i++) {
+
+                                tempPlayerOption.add(playerOut.get(i));
+
+                            }
+
+                            tempPlayerOption.add("2");
+                            if (highestPriority == 3) {
+                                highestPriority = 2;
+
+                            }
+
+                        } else {
+
+                            for (int i = 0; i < playerOut.size(); i++) {
+
+                                tempPlayerOption.add(playerOut.get(i));
+
+                            }
+
+                            tempPlayerOption.add("3");
+                            if (highestPriority == 3) {
+                                highestPriority = 3;
+
+                            }
+
+                        }
+
+                        if (!tempPlayerOption.isEmpty()) {
+
+                            //Cloning the temporary ArrayList into the player data ArrayList then adding
+                            //that into the new ranking ArrayList.
+                            //System.out.println(tempPlayerOption);
+                            transferOption = (ArrayList<String>) tempPlayerOption.clone();
+                            tempPlayerTransferOptions.add(transferOption);
+                            tempPlayerOption.clear();
+
+                        }
+
+                    }
+
+                    //Cloning the temporary ArrayList into the player data ArrayList then adding
+                    //that into the new ranking ArrayList.
+                    allTransferOptions = (ArrayList<ArrayList<String>>) tempPlayerTransferOptions.clone();
+                    updatedBestTransfers.add(allTransferOptions);
+                    tempPlayerTransferOptions.clear();
+
+                }
+
+            }
+
+
+        }
+
+
+        int biggestGain = 0;
+
+        //Transferring the highest priority player with the best transfer.
+        for (ArrayList<ArrayList<String>> element2 : updatedBestTransfers) {
+
+            for (ArrayList<String> element : element2) {
+
+                if (Integer.parseInt(String.valueOf(element.get(13))) > biggestGain &&
+                        Integer.parseInt(String.valueOf(element.get(14))) == highestPriority) {
+
+                    biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+
+                    bestTransfer.clear();
+                    bestTransfer = element;
+
+                }
+
+            }
+
+        }
+
+        if (bestTransfer.isEmpty()) {
+
+            return null;
+
+        }
+        return bestTransfer;
+
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 
 }

@@ -329,7 +329,7 @@ public class teamScreen {
                 }
 
                 //Checking if the free transfers is valid.
-                int freeTransfersInt;
+                int freeTransfersInt = 0;
 
                 if (freeTransferNumber.getValue() instanceof Integer) {
 
@@ -352,7 +352,7 @@ public class teamScreen {
                 }
 
                 //Checking if the budget is valid.
-                double budgetDouble;
+                double budgetDouble = 0.0;
 
                 if (isNumeric(budgetNumber.getText())) {
                     budgetDouble = Double.valueOf(budgetNumber.getText());
@@ -368,7 +368,7 @@ public class teamScreen {
                 if (noDupes && validFrees && validBudget) {
 
                     try {
-                        outputScreen.outputScreen(players);
+                        outputScreen.outputScreen(players, freeTransfersInt, budgetDouble);
                         teamFrame.dispose();
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
