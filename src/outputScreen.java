@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
@@ -9,16 +12,22 @@ public class outputScreen {
 
     public static void main(String args[]) throws Exception {
         ArrayList<String> players = new ArrayList<>(
-                Arrays.asList("A.Becker, Liverpool", "Leno, Fulham", "Chambers, Liverpool",
-                        "Saliba, Arsenal",  "Romero, Spurs", "Chambers, Aston Villa", "Virgil, Liverpool",
-                        "Son, Spurs", "Salah, Liverpool", "Bernardo, Man City", "Maddison, Spurs",
-                        "Bentancur, Spurs", "Haaland, Man City", "Watkins, Aston Villa",
-                        "J.Alvarez, Man City"));
+                Arrays.asList("A.Becker, Liverpool", "Leno, Fulham", "Udogie, Spurs",
+                        "Estupi�an, Brighton",  "Saliba, Arsenal", "Trippier, Newcastle", "Botman, Newcastle",
+                        "Rashford, Man Utd", "Maddison, Spurs", "Mbeumo, Brentford", "B.Fernandes, Man Utd",
+                        "Mitoma, Brighton", "Haaland, Man City", "Jo�o Pedro, Brighton",
+                        "Awoniyi, Nottm Forest"));
+
+        //"A.Becker, Liverpool", "Leno, Fulham", "Chambers, Liverpool",
+        //                        "Saliba, Arsenal",  "Romero, Spurs", "Chambers, Aston Villa", "Virgil, Liverpool",
+        //                        "Son, Spurs", "Salah, Liverpool", "Bernardo, Man City", "Maddison, Spurs",
+        //                        "Bentancur, Spurs", "Haaland, Man City", "Watkins, Aston Villa",
+        //                        "J.Alvarez, Man City"
 
 
         //"Udogie, Spurs"
         //"Walker, Man City"
-        outputScreen(players, 2, 0.6);
+        outputScreen(players, 2, 0.0);
 
     }
 
@@ -320,6 +329,123 @@ public class outputScreen {
         sub3.setOpaque(true);
         pitchPane.add(sub3, JLayeredPane.PALETTE_LAYER);
 
+
+        //Transfers
+        //Title and connecting segments.
+        JLabel transferTitle = new JLabel("Transfers");
+        transferTitle.setBounds(1503, 20, 380, 100);
+        transferTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        transferTitle.setBackground(Color.decode("#FFFFFF"));
+        transferTitle.setFont(new Font("Calibri", Font.BOLD, 38));
+        transferTitle.setForeground(Color.decode("#000000"));
+        transferTitle.setOpaque(true);
+        pitchPane.add(transferTitle, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferConnect = new JLabel("");
+        transferConnect.setBounds(1503, 420, 380, 50);
+        transferConnect.setHorizontalAlignment(SwingConstants.CENTER);
+        transferConnect.setBackground(Color.decode("#FFFFFF"));
+        transferConnect.setFont(new Font("Calibri", Font.BOLD, 38));
+        transferConnect.setForeground(Color.decode("#000000"));
+        transferConnect.setOpaque(true);
+        pitchPane.add(transferConnect, JLayeredPane.PALETTE_LAYER);
+
+
+        //Transfer Out.
+        JLabel transferOutText = new JLabel("Transfers Out:");
+        transferOutText.setBounds(1503, 120, 380, 100);
+        transferOutText.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutText.setBackground(Color.decode("#FFFFFF"));
+        transferOutText.setFont(new Font("Calibri", Font.BOLD, 36));
+        transferOutText.setForeground(Color.decode("#000000"));
+        transferOutText.setOpaque(true);
+        pitchPane.add(transferOutText, JLayeredPane.PALETTE_LAYER);
+
+        //Adding a maximum of 2 players for free transfer slot as that is the max allowed.
+        JLabel transferOutPlayer1 = new JLabel("");
+        transferOutPlayer1.setBounds(1503, 220, 380, 100);
+        transferOutPlayer1.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer1.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer1.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferOutPlayer1.setForeground(Color.decode("#E90052"));
+        transferOutPlayer1.setOpaque(true);
+        pitchPane.add(transferOutPlayer1, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer2 = new JLabel("");
+        transferOutPlayer2.setBounds(1503, 320, 380, 100);
+        transferOutPlayer2.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer2.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer2.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferOutPlayer2.setForeground(Color.decode("#E90052"));
+        transferOutPlayer2.setOpaque(true);
+        pitchPane.add(transferOutPlayer2, JLayeredPane.PALETTE_LAYER);
+
+
+        //Transfer In.
+        JLabel transferInText = new JLabel("Transfers In:");
+        transferInText.setBounds(1503, 470, 380, 100);
+        transferInText.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInText.setBackground(Color.decode("#FFFFFF"));
+        transferInText.setFont(new Font("Calibri", Font.BOLD, 36));
+        transferInText.setForeground(Color.decode("#000000"));
+        transferInText.setOpaque(true);
+        pitchPane.add(transferInText, JLayeredPane.PALETTE_LAYER);
+
+        //Adding a maximum of 2 players for free transfer slot as that is the max allowed.
+        JLabel transferInPlayer1 = new JLabel("");
+        transferInPlayer1.setBounds(1503, 570, 380, 100);
+        transferInPlayer1.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer1.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer1.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferInPlayer1.setForeground(Color.decode("#00FF85"));
+        transferInPlayer1.setOpaque(true);
+        pitchPane.add(transferInPlayer1, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer2 = new JLabel("");
+        transferInPlayer2.setBounds(1503, 670, 380, 100);
+        transferInPlayer2.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer2.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer2.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferInPlayer2.setForeground(Color.decode("#00FF85"));
+        transferInPlayer2.setOpaque(true);
+        pitchPane.add(transferInPlayer2, JLayeredPane.PALETTE_LAYER);
+
+
+        //Buttons.
+        //Adding a button to take the user to the main menu and another to exit.
+        //Main menu.
+        //Adding a button that checks your team is valid.
+        JButton mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.setBounds(1503, 795, 380, 100);
+        mainMenuButton.setFont(new Font("Calibri Light", Font.BOLD, 50));
+        mainMenuButton.setBackground(Color.decode("#00FF85"));
+        mainMenuButton.setForeground(Color.decode("#38003C"));
+        pitchPane.add(mainMenuButton, JLayeredPane.PALETTE_LAYER);
+
+        mainMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                homeScreen.homeScreen();
+                outputFrame.dispose();
+            }
+        });
+
+        //Exit.
+        JButton exitButton = new JButton("Exit");
+        exitButton.setBounds(1503, 920, 380, 100);
+        exitButton.setFont(new Font("Calibri Light", Font.BOLD, 50));
+        exitButton.setBackground(Color.decode("#E90052"));
+        exitButton.setForeground(Color.decode("#FFFFFF"));
+        pitchPane.add(exitButton, JLayeredPane.PALETTE_LAYER);
+
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+
         //Working out which players will start in the team.
         //Getting the full player data.
         ArrayList<ArrayList<String>> playerData = teamScreen.readFile("all", "all");
@@ -388,6 +514,7 @@ public class outputScreen {
         ArrayList<String> playerNames = new ArrayList<String>();
         ArrayList<String> playerTeams = new ArrayList<String>();
 
+        //Splitting the player name and team from the team screen.
         for (int i = 0; i < players.size(); i++) {
 
             String currentPlayer = players.get(i);
@@ -400,6 +527,7 @@ public class outputScreen {
         //Finding name matches then adding their file to the ArrayList.
         for (int i = 0; i < players.size(); i++) {
 
+            //Going through each player in the full raw data file.
             for (ArrayList element : playerData) {
 
                 //Finding a name match.
@@ -430,37 +558,53 @@ public class outputScreen {
                 teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
 
-
-        for (ArrayList element : selectedPlayersRanked) {
-            //System.out.println(element);
-        }
-
         //Storing player ranking of all players.
         ArrayList<ArrayList<String>> allPlayersRanked = rankings(playerData, nameIndex,
                 teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
-        for (ArrayList element : allPlayersRanked) {
-            //System.out.println(element);
-        }
 
 
         //Transfers.
-        //Checking if the user has any free transfers.
         ArrayList<ArrayList<String>> transfers = new ArrayList<ArrayList<String>>();
+        ArrayList<String> previousTransfer = new ArrayList<String>();
 
+        //Checking if the user has any free transfers.
         if (freeTransfers != 0) {
 
+            //A for loop making a transfer for every free transfer a player has.
             for (int i = 0; i < freeTransfers; i++) {
 
                 //Checking if there is still budget left.
-                if (budget > 0) {
+                if (budget >= 0) {
 
                     ArrayList<String> bestTransfer = bestAvailableTransfer(selectedPlayersRanked,
-                            allPlayersRanked, playerData, nameIndex, teamIndex, positionIndex, costIndex, availabilityIndex, budget);
+                            allPlayersRanked, playerData, previousTransfer, nameIndex, teamIndex, positionIndex, costIndex, availabilityIndex, budget);
 
                     transfers.add(bestTransfer);
+                    previousTransfer = bestTransfer;
 
-                    if (bestTransfer != null) {
+                    System.out.println(bestTransfer);
+
+
+                    //Making sure another transfer is possible before updating the budget
+                    //and adding the transfers to the output screen to avoid errors.
+                    if (!bestTransfer.isEmpty()) {
+
+                        if (i == 0) {
+
+                            //Adding player info to the transfer section of the screen.
+                            transferOutPlayer1.setText(bestTransfer.get(6) + ", " + bestTransfer.get(8));
+                            transferInPlayer1.setText(bestTransfer.get(nameIndex) + ", "
+                                    + bestTransfer.get(teamIndex));
+
+                        } else {
+
+                            //Adding player info to the transfer section of the screen.
+                            transferOutPlayer2.setText(bestTransfer.get(6) + ", " + bestTransfer.get(8));
+                            transferInPlayer2.setText(bestTransfer.get(nameIndex) + ", "
+                                    + bestTransfer.get(teamIndex));
+
+                        }
 
                         //Updating the budget with the new transfer.
                         budget = Double.parseDouble(String.valueOf(bestTransfer.get(12)));
@@ -483,35 +627,44 @@ public class outputScreen {
 
             boolean transferMade = false;
 
-            //A for loop that goes through all rows in the transfers ArrayList.
-            for (ArrayList transferPlayer : transfers) {
+            //Checking if no transfers were made.
+            if (!transfers.isEmpty()) {
 
-                //Checking if the current selected player and player to be transferred out match.
-                if (playerInfo.get(nameIndex).equals(transferPlayer.get(6)) &&
-                        playerInfo.get(positionIndex).equals(transferPlayer.get(7))) {
+                //A for loop that goes through all rows in the transfers ArrayList.
+                for (ArrayList transferPlayer : transfers) {
 
-                    //A for loop that goes through all rows in the full ranking ArrayList.
-                    for (ArrayList newPlayer : allPlayersRanked) {
+                    //Checking both free transfers were used.
+                    if (!transferPlayer.isEmpty()) {
 
-                        //Checking if the player in the ArrayList and player to be transferred in match.
-                        if (newPlayer.get(nameIndex).equals(transferPlayer.get(nameIndex)) &&
-                                newPlayer.get(positionIndex).equals(transferPlayer.get(positionIndex))) {
+                        //Checking if the current selected player and player to be transferred out match.
+                        if (playerInfo.get(nameIndex).equals(transferPlayer.get(6)) &&
+                                playerInfo.get(positionIndex).equals(transferPlayer.get(7))) {
 
-                            finalPlayers.add(newPlayer);
-                            transferMade = true;
+                            //A for loop that goes through all rows in the full ranking ArrayList.
+                            for (ArrayList newPlayer : allPlayersRanked) {
+
+                                //Checking if the player in the ArrayList and player to be transferred in match.
+                                if (newPlayer.get(nameIndex).equals(transferPlayer.get(nameIndex)) &&
+                                        newPlayer.get(positionIndex).equals(transferPlayer.get(positionIndex))) {
+
+                                    finalPlayers.add(newPlayer);
+                                    transferMade = true;
+
+                                }
+
+                            }
 
                         }
 
                     }
-
                 }
 
-            }
+                //Checking if a transfer was made, if it was skipping adding the current player.
+                if (!transferMade) {
 
-            //Checking if a transfer was made, if it was skipping adding the current player.
-            if (!transferMade) {
+                    finalPlayers.add(playerInfo);
 
-                finalPlayers.add(playerInfo);
+                }
 
             }
 
@@ -554,7 +707,7 @@ public class outputScreen {
                 teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
         for (ArrayList element : finalPlayersRanked) {
-            //System.out.println(element);
+            System.out.println(element);
         }
 
 
@@ -1419,8 +1572,9 @@ public class outputScreen {
 
     public static ArrayList<String> bestAvailableTransfer(
             ArrayList<ArrayList<String>> selectedPlayersRanked, ArrayList<ArrayList<String>>
-            allPlayersRanked, ArrayList<ArrayList<String>> rawPlayerData, int nameIndex, int teamIndex, int positionIndex, int costIndex,
-            int availabilityIndex, double budget) {
+            allPlayersRanked, ArrayList<ArrayList<String>> rawPlayerData, ArrayList<String> prevTransfer,
+            int nameIndex, int teamIndex, int positionIndex, int costIndex, int availabilityIndex,
+            double budget) {
 
         ArrayList<ArrayList<ArrayList<String>>> bestTransfers =
                 new ArrayList<ArrayList<ArrayList<String>>>();
@@ -1585,42 +1739,48 @@ public class outputScreen {
                     if (playerOut.get(transferOutNameIndex).equals(playerData.get(nameIndex)) &&
                             playerOut.get(transferOutTeamIndex).equals(playerData.get(teamIndex))) {
 
-                        if (playerData.get(availabilityIndex).equals("0")) {
+                        if (!prevTransfer.isEmpty() && !prevTransfer.get(nameIndex).equals(
+                                playerOut.get(nameIndex)) &&  !prevTransfer.get(teamIndex).equals(
+                                playerOut.get(teamIndex)) || prevTransfer.isEmpty()) {
 
-                            for (int i = 0; i < playerOut.size(); i++) {
+                            if (playerData.get(availabilityIndex).equals("0")) {
 
-                                tempPlayerOption.add(playerOut.get(i));
+                                for (int i = 0; i < playerOut.size(); i++) {
 
-                            }
+                                    tempPlayerOption.add(playerOut.get(i));
 
-                            tempPlayerOption.add("1");
-                            highestPriority = 1;
+                                }
 
-                        } else if (playerData.get(availabilityIndex).equals("25")) {
+                                tempPlayerOption.add("1");
+                                highestPriority = 1;
 
-                            for (int i = 0; i < playerOut.size(); i++) {
+                            } else if (playerData.get(availabilityIndex).equals("25")) {
 
-                                tempPlayerOption.add(playerOut.get(i));
+                                for (int i = 0; i < playerOut.size(); i++) {
 
-                            }
+                                    tempPlayerOption.add(playerOut.get(i));
 
-                            tempPlayerOption.add("2");
-                            if (highestPriority == 3) {
-                                highestPriority = 2;
+                                }
 
-                            }
+                                tempPlayerOption.add("2");
+                                if (highestPriority == 3) {
+                                    highestPriority = 2;
 
-                        } else {
+                                }
 
-                            for (int i = 0; i < playerOut.size(); i++) {
+                            } else {
 
-                                tempPlayerOption.add(playerOut.get(i));
+                                for (int i = 0; i < playerOut.size(); i++) {
 
-                            }
+                                    tempPlayerOption.add(playerOut.get(i));
 
-                            tempPlayerOption.add("3");
-                            if (highestPriority == 3) {
-                                highestPriority = 3;
+                                }
+
+                                tempPlayerOption.add("3");
+                                if (highestPriority == 3) {
+                                    highestPriority = 3;
+
+                                }
 
                             }
 
@@ -1652,6 +1812,16 @@ public class outputScreen {
 
         }
 
+        for (ArrayList<ArrayList<String>> e : updatedBestTransfers) {
+
+            for (ArrayList e2 : e) {
+
+                //System.out.println(e2);
+
+            }
+
+        }
+
 
         int biggestGain = 0;
 
@@ -1663,10 +1833,24 @@ public class outputScreen {
                 if (Integer.parseInt(String.valueOf(element.get(13))) > biggestGain &&
                         Integer.parseInt(String.valueOf(element.get(14))) == highestPriority) {
 
-                    biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+                    //Making sure a duplicate transfer is not made - this includes the same exact
+                    //transfer or transfers with the same player coming in.
+                    if (!prevTransfer.isEmpty() && !prevTransfer.get(nameIndex).equals(
+                            element.get(nameIndex))) {
 
-                    bestTransfer.clear();
-                    bestTransfer = element;
+                        biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+
+                        bestTransfer.clear();
+                        bestTransfer = element;
+
+                    } else if (prevTransfer.isEmpty()) {
+
+                        biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+
+                        bestTransfer.clear();
+                        bestTransfer = element;
+
+                    }
 
                 }
 
@@ -1676,7 +1860,7 @@ public class outputScreen {
 
         if (bestTransfer.isEmpty()) {
 
-            return null;
+            return bestTransfer;
 
         }
         return bestTransfer;

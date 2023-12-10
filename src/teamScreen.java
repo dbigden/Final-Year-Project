@@ -146,7 +146,7 @@ public class teamScreen {
 
         }
 
-        //Sorting the ArrayList alphabetically so it is easier to find players.
+        //Sorting the ArrayList alphabetically so that it is easier to find players.
         Collections.sort(fwName_Team, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {

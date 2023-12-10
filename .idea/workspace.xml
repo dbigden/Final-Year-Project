@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
@@ -229,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701998814256</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="finished transfer segment. need to add transfers to output page. if have time create as an application.">
+      <option name="closed" value="true" />
+      <created>1702235483599</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702235483599</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -248,7 +255,8 @@
     <MESSAGE value="added the position to the ranking arraylist." />
     <MESSAGE value="program successfully adds highest ranked selected players to the output screen. need to add subs and work on transfers." />
     <MESSAGE value="added icon image." />
-    <option name="LAST_COMMIT_MESSAGE" value="added icon image." />
+    <MESSAGE value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
+    <option name="LAST_COMMIT_MESSAGE" value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
