@@ -84,7 +84,7 @@ public class outputScreen {
         //Creating slots for players to potentially fill.
         //Goalkeeper.
         JLabel gk1 = new JLabel("gk1");
-        gk1.setBounds(680, 180, 150, 50);
+        gk1.setBounds(680, 180, 170, 50);
         gk1.setHorizontalAlignment(SwingConstants.CENTER);
         gk1.setBackground(Color.decode("#38003C"));
         gk1.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -98,7 +98,7 @@ public class outputScreen {
         // - 2, 4, 6 and 8
         // - 1, 3, 5, 7 and 9
         JLabel df1 = new JLabel("df1");
-        df1.setBounds(320, 320, 150, 50);
+        df1.setBounds(320, 320, 170, 50);
         df1.setHorizontalAlignment(SwingConstants.CENTER);
         df1.setBackground(Color.decode("#38003C"));
         df1.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -106,7 +106,7 @@ public class outputScreen {
         pitchPane.add(df1, JLayeredPane.PALETTE_LAYER);
 
         JLabel df2 = new JLabel("df2");
-        df2.setBounds(410, 320, 150, 50);
+        df2.setBounds(410, 320, 170, 50);
         df2.setHorizontalAlignment(SwingConstants.CENTER);
         df2.setBackground(Color.decode("#38003C"));
         df2.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -114,7 +114,7 @@ public class outputScreen {
         pitchPane.add(df2, JLayeredPane.PALETTE_LAYER);
 
         JLabel df3 = new JLabel("df3");
-        df3.setBounds(500, 320, 150, 50);
+        df3.setBounds(500, 320, 170, 50);
         df3.setHorizontalAlignment(SwingConstants.CENTER);
         df3.setBackground(Color.decode("#38003C"));
         df3.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -122,7 +122,7 @@ public class outputScreen {
         pitchPane.add(df3, JLayeredPane.PALETTE_LAYER);
 
         JLabel df4 = new JLabel("df4");
-        df4.setBounds(590, 320, 150, 50);
+        df4.setBounds(590, 320, 170, 50);
         df4.setHorizontalAlignment(SwingConstants.CENTER);
         df4.setBackground(Color.decode("#38003C"));
         df4.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -130,7 +130,7 @@ public class outputScreen {
         pitchPane.add(df4, JLayeredPane.PALETTE_LAYER);
 
         JLabel df5 = new JLabel("df5");
-        df5.setBounds(680, 320, 150, 50);
+        df5.setBounds(680, 320, 170, 50);
         df5.setHorizontalAlignment(SwingConstants.CENTER);
         df5.setBackground(Color.decode("#38003C"));
         df5.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -138,7 +138,7 @@ public class outputScreen {
         pitchPane.add(df5, JLayeredPane.PALETTE_LAYER);
 
         JLabel df6 = new JLabel("df6");
-        df6.setBounds(770, 320, 150, 50);
+        df6.setBounds(770, 320, 170, 50);
         df6.setHorizontalAlignment(SwingConstants.CENTER);
         df6.setBackground(Color.decode("#38003C"));
         df6.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -146,7 +146,7 @@ public class outputScreen {
         pitchPane.add(df6, JLayeredPane.PALETTE_LAYER);
 
         JLabel df7 = new JLabel("df7");
-        df7.setBounds(860, 320, 150, 50);
+        df7.setBounds(860, 320, 170, 50);
         df7.setHorizontalAlignment(SwingConstants.CENTER);
         df7.setBackground(Color.decode("#38003C"));
         df7.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -154,7 +154,7 @@ public class outputScreen {
         pitchPane.add(df7, JLayeredPane.PALETTE_LAYER);
 
         JLabel df8 = new JLabel("df8");
-        df8.setBounds(950, 320, 150, 50);
+        df8.setBounds(950, 320, 170, 50);
         df8.setHorizontalAlignment(SwingConstants.CENTER);
         df8.setBackground(Color.decode("#38003C"));
         df8.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -162,7 +162,7 @@ public class outputScreen {
         pitchPane.add(df8, JLayeredPane.PALETTE_LAYER);
 
         JLabel df9 = new JLabel("df9");
-        df9.setBounds(1040, 320, 150, 50);
+        df9.setBounds(1040, 320, 170, 50);
         df9.setHorizontalAlignment(SwingConstants.CENTER);
         df9.setBackground(Color.decode("#38003C"));
         df9.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -176,7 +176,7 @@ public class outputScreen {
         // - 2, 4, 6 and 8
         // - 1, 3, 5, 7 and 9
         JLabel mf1 = new JLabel("mf1");
-        mf1.setBounds(320, 480, 150, 50);
+        mf1.setBounds(320, 480, 170, 50);
         mf1.setHorizontalAlignment(SwingConstants.CENTER);
         mf1.setBackground(Color.decode("#38003C"));
         mf1.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -184,7 +184,7 @@ public class outputScreen {
         pitchPane.add(mf1, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf2 = new JLabel("mf2");
-        mf2.setBounds(410, 480, 150, 50);
+        mf2.setBounds(410, 480, 170, 50);
         mf2.setHorizontalAlignment(SwingConstants.CENTER);
         mf2.setBackground(Color.decode("#38003C"));
         mf2.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -192,7 +192,7 @@ public class outputScreen {
         pitchPane.add(mf2, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf3 = new JLabel("mf3");
-        mf3.setBounds(500, 480, 150, 50);
+        mf3.setBounds(500, 480, 170, 50);
         mf3.setHorizontalAlignment(SwingConstants.CENTER);
         mf3.setBackground(Color.decode("#38003C"));
         mf3.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -200,7 +200,7 @@ public class outputScreen {
         pitchPane.add(mf3, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf4 = new JLabel("mf4");
-        mf4.setBounds(590, 480, 150, 50);
+        mf4.setBounds(590, 480, 170, 50);
         mf4.setHorizontalAlignment(SwingConstants.CENTER);
         mf4.setBackground(Color.decode("#38003C"));
         mf4.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -208,7 +208,7 @@ public class outputScreen {
         pitchPane.add(mf4, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf5 = new JLabel("mf5");
-        mf5.setBounds(680, 480, 150, 50);
+        mf5.setBounds(680, 480, 170, 50);
         mf5.setHorizontalAlignment(SwingConstants.CENTER);
         mf5.setBackground(Color.decode("#38003C"));
         mf5.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -216,7 +216,7 @@ public class outputScreen {
         pitchPane.add(mf5, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf6 = new JLabel("mf6");
-        mf6.setBounds(770, 480, 150, 50);
+        mf6.setBounds(770, 480, 170, 50);
         mf6.setHorizontalAlignment(SwingConstants.CENTER);
         mf6.setBackground(Color.decode("#38003C"));
         mf6.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -224,7 +224,7 @@ public class outputScreen {
         pitchPane.add(mf6, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf7 = new JLabel("mf7");
-        mf7.setBounds(860, 480, 150, 50);
+        mf7.setBounds(860, 480, 170, 50);
         mf7.setHorizontalAlignment(SwingConstants.CENTER);
         mf7.setBackground(Color.decode("#38003C"));
         mf7.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -232,7 +232,7 @@ public class outputScreen {
         pitchPane.add(mf7, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf8 = new JLabel("mf8");
-        mf8.setBounds(950, 480, 150, 50);
+        mf8.setBounds(950, 480, 170, 50);
         mf8.setHorizontalAlignment(SwingConstants.CENTER);
         mf8.setBackground(Color.decode("#38003C"));
         mf8.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -240,7 +240,7 @@ public class outputScreen {
         pitchPane.add(mf8, JLayeredPane.PALETTE_LAYER);
 
         JLabel mf9 = new JLabel("mf9");
-        mf9.setBounds(1040, 480, 150, 50);
+        mf9.setBounds(1040, 480, 170, 50);
         mf9.setHorizontalAlignment(SwingConstants.CENTER);
         mf9.setBackground(Color.decode("#38003C"));
         mf9.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -253,7 +253,7 @@ public class outputScreen {
         // - 2 and 4
         // - 1, 3 and 5
         JLabel fw1 = new JLabel("fw1");
-        fw1.setBounds(500, 640, 150, 50);
+        fw1.setBounds(500, 640, 170, 50);
         fw1.setHorizontalAlignment(SwingConstants.CENTER);
         fw1.setBackground(Color.decode("#38003C"));
         fw1.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -261,7 +261,7 @@ public class outputScreen {
         pitchPane.add(fw1, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw2 = new JLabel("fw2");
-        fw2.setBounds(590, 640, 150, 50);
+        fw2.setBounds(590, 640, 170, 50);
         fw2.setHorizontalAlignment(SwingConstants.CENTER);
         fw2.setBackground(Color.decode("#38003C"));
         fw2.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -269,7 +269,7 @@ public class outputScreen {
         pitchPane.add(fw2, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw3 = new JLabel("fw3");
-        fw3.setBounds(680, 640, 150, 50);
+        fw3.setBounds(680, 640, 170, 50);
         fw3.setHorizontalAlignment(SwingConstants.CENTER);
         fw3.setBackground(Color.decode("#38003C"));
         fw3.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -277,7 +277,7 @@ public class outputScreen {
         pitchPane.add(fw3, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw4 = new JLabel("fw4");
-        fw4.setBounds(770, 640, 150, 50);
+        fw4.setBounds(770, 640, 170, 50);
         fw4.setHorizontalAlignment(SwingConstants.CENTER);
         fw4.setBackground(Color.decode("#38003C"));
         fw4.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -285,7 +285,7 @@ public class outputScreen {
         pitchPane.add(fw4, JLayeredPane.PALETTE_LAYER);
 
         JLabel fw5 = new JLabel("fw5");
-        fw5.setBounds(860, 640, 150, 50);
+        fw5.setBounds(860, 640, 170, 50);
         fw5.setHorizontalAlignment(SwingConstants.CENTER);
         fw5.setBackground(Color.decode("#38003C"));
         fw5.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -294,7 +294,7 @@ public class outputScreen {
 
         //Subs.
         JLabel gkSub = new JLabel("gkSub");
-        gkSub.setBounds(1190, 180, 150, 50);
+        gkSub.setBounds(1190, 180, 170, 50);
         gkSub.setHorizontalAlignment(SwingConstants.CENTER);
         gkSub.setBackground(Color.decode("#38003C"));
         gkSub.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -303,7 +303,7 @@ public class outputScreen {
         pitchPane.add(gkSub, JLayeredPane.PALETTE_LAYER);
 
         JLabel sub1 = new JLabel("sub1");
-        sub1.setBounds(1215, 250, 150, 50);
+        sub1.setBounds(1215, 250, 170, 50);
         sub1.setHorizontalAlignment(SwingConstants.CENTER);
         sub1.setBackground(Color.decode("#38003C"));
         sub1.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -312,7 +312,7 @@ public class outputScreen {
         pitchPane.add(sub1, JLayeredPane.PALETTE_LAYER);
 
         JLabel sub2 = new JLabel("sub2");
-        sub2.setBounds(1242, 320, 150, 50);
+        sub2.setBounds(1242, 320, 170, 50);
         sub2.setHorizontalAlignment(SwingConstants.CENTER);
         sub2.setBackground(Color.decode("#38003C"));
         sub2.setFont(new Font("Calibri", Font.BOLD, 15));
@@ -321,13 +321,33 @@ public class outputScreen {
         pitchPane.add(sub2, JLayeredPane.PALETTE_LAYER);
 
         JLabel sub3 = new JLabel("sub3");
-        sub3.setBounds(1270, 390, 150, 50);
+        sub3.setBounds(1270, 390, 170, 50);
         sub3.setHorizontalAlignment(SwingConstants.CENTER);
         sub3.setBackground(Color.decode("#38003C"));
         sub3.setFont(new Font("Calibri", Font.BOLD, 15));
         sub3.setForeground(Color.decode("#FFFFFF"));
         sub3.setOpaque(true);
         pitchPane.add(sub3, JLayeredPane.PALETTE_LAYER);
+
+
+        //Captain and Vice Captain
+        JLabel captain = new JLabel("");
+        captain.setBounds(50, 60, 250, 50);
+        captain.setHorizontalAlignment(SwingConstants.CENTER);
+        captain.setBackground(Color.decode("#38003C"));
+        captain.setFont(new Font("Calibri", Font.BOLD, 16));
+        captain.setForeground(Color.decode("#FFFFFF"));
+        captain.setOpaque(true);
+        pitchPane.add(captain, JLayeredPane.PALETTE_LAYER);
+
+        JLabel viceCaptain = new JLabel("");
+        viceCaptain.setBounds(50, 120, 250, 50);
+        viceCaptain.setHorizontalAlignment(SwingConstants.CENTER);
+        viceCaptain.setBackground(Color.decode("#38003C"));
+        viceCaptain.setFont(new Font("Calibri", Font.BOLD, 16));
+        viceCaptain.setForeground(Color.decode("#FFFFFF"));
+        viceCaptain.setOpaque(true);
+        pitchPane.add(viceCaptain, JLayeredPane.PALETTE_LAYER);
 
 
         //Transfers
@@ -666,6 +686,11 @@ public class outputScreen {
 
                 }
 
+            //If no transfers were made, add all players to final players ArrayList.
+            } else {
+
+                finalPlayers.add(playerInfo);
+
             }
 
         }
@@ -707,7 +732,7 @@ public class outputScreen {
                 teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
         for (ArrayList element : finalPlayersRanked) {
-            System.out.println(element);
+            //System.out.println(element);
         }
 
 
@@ -719,6 +744,14 @@ public class outputScreen {
         ArrayList<String> startingMf = new ArrayList<>();
         ArrayList<String> startingFw = new ArrayList<>();
         ArrayList<String> subs = new ArrayList<>();
+
+        //Assigning the Captain and Vice Captain and setting them onto the screen.
+        ArrayList<String> captainRankings = finalPlayersRanked.get(0);
+        captain.setText("Captain: " + captainRankings.get(nameIndex) + ", " +
+                captainRankings.get(teamIndex));
+        ArrayList<String> viceCaptainRankings = finalPlayersRanked.get(1);
+        viceCaptain.setText("Vice Captain: " + viceCaptainRankings.get(nameIndex) + ", " +
+                viceCaptainRankings.get(teamIndex));
 
 
 //        for (ArrayList player : selectedPlayersRanked) {
@@ -870,14 +903,41 @@ public class outputScreen {
 
         //Adding the starting players to the team.
         //Goalkeeper.
-        gk1.setText(startingGk);
+        //Checking if the captain or vice captain is a goalkeeper.
+        if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("goalkeeper")) {
+            gk1.setText(startingGk + " (C)");
+
+        } else  if (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("goalkeeper")){
+            gk1.setText(startingGk + " (V)");
+        } else {
+            gk1.setText(startingGk);
+        }
 
         //Defenders.
         if (startingDf.size() == 5) {
+            //Checking if the captain is a defender.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
+                df1.setText(startingDf.get(0) + " (C)");
+                df3.setText(startingDf.get(1));
+
+            //Checking if the vice captain is a defender.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df1.setText(startingDf.get(0) + " (V)");
+                df3.setText(startingDf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df1.setText(startingDf.get(0) + " (C)");
+                df3.setText(startingDf.get(1) + " (V)");
+            } else {
+                df1.setText(startingDf.get(0));
+                df3.setText(startingDf.get(1));
+            }
             df1.setText(startingDf.get(0));
             df1.setOpaque(true);
             df2.setText("");
-            df3.setText(startingDf.get(1));
+            //df3.setText(startingDf.get(1));
             df3.setOpaque(true);
             df4.setText("");
             df5.setText(startingDf.get(2));
@@ -891,10 +951,28 @@ public class outputScreen {
 
         } else if (startingDf.size() == 4) {
             df1.setText("");
-            df2.setText(startingDf.get(0));
+            //Checking if the captain is a defender.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
+                df2.setText(startingDf.get(0) + " (C)");
+                df4.setText(startingDf.get(1));
+
+                //Checking if the vice captain is a defender.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df2.setText(startingDf.get(0) + " (V)");
+                df4.setText(startingDf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df2.setText(startingDf.get(0) + " (C)");
+                df4.setText(startingDf.get(1) + " (V)");
+            } else {
+                df2.setText(startingDf.get(0));
+                df4.setText(startingDf.get(1));
+            }
             df2.setOpaque(true);
             df3.setText("");
-            df4.setText(startingDf.get(1));
+            //df4.setText(startingDf.get(1));
             df4.setOpaque(true);
             df5.setText("");
             df6.setText(startingDf.get(2));
@@ -907,10 +985,28 @@ public class outputScreen {
         } else {
             df1.setText("");
             df2.setText("");
-            df3.setText(startingDf.get(0));
+            //Checking if the captain is a defender.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
+                df3.setText(startingDf.get(0) + " (C)");
+                df5.setText(startingDf.get(1));
+
+                //Checking if the vice captain is a defender.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df3.setText(startingDf.get(0) + " (V)");
+                df5.setText(startingDf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
+                df3.setText(startingDf.get(0) + " (C)");
+                df5.setText(startingDf.get(1) + " (V)");
+            } else {
+                df3.setText(startingDf.get(0));
+                df5.setText(startingDf.get(1));
+            }
             df3.setOpaque(true);
             df4.setText("");
-            df5.setText(startingDf.get(1));
+            //df5.setText(startingDf.get(1));
             df5.setOpaque(true);
             df6.setText("");
             df7.setText(startingDf.get(2));
@@ -923,10 +1019,28 @@ public class outputScreen {
 
         //Midfielders.
         if (startingMf.size() == 5) {
-            mf1.setText(startingMf.get(0));
+            //Checking if the captain is a midfielder.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
+                mf1.setText(startingMf.get(0) + " (C)");
+                mf3.setText(startingMf.get(1));
+
+                //Checking if the vice captain is a midfielder.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf1.setText(startingMf.get(0) + " (V)");
+                mf3.setText(startingMf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf1.setText(startingMf.get(0) + " (C)");
+                mf3.setText(startingMf.get(1) + " (V)");
+            } else {
+                mf1.setText(startingMf.get(0));
+                mf3.setText(startingMf.get(1));
+            }
             mf1.setOpaque(true);
             mf2.setText("");
-            mf3.setText(startingMf.get(1));
+            //mf3.setText(startingMf.get(1));
             mf3.setOpaque(true);
             mf4.setText("");
             mf5.setText(startingMf.get(2));
@@ -940,10 +1054,28 @@ public class outputScreen {
 
         } else if (startingMf.size() == 4) {
             mf1.setText("");
-            mf2.setText(startingMf.get(0));
+            //Checking if the captain is a midfielder.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
+                mf2.setText(startingMf.get(0) + " (C)");
+                mf4.setText(startingMf.get(1));
+
+                //Checking if the vice captain is a midfielder.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf2.setText(startingMf.get(0) + " (V)");
+                mf4.setText(startingMf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf2.setText(startingMf.get(0) + " (C)");
+                mf4.setText(startingMf.get(1) + " (V)");
+            } else {
+                mf2.setText(startingMf.get(0));
+                mf4.setText(startingMf.get(1));
+            }
             mf2.setOpaque(true);
             mf3.setText("");
-            mf4.setText(startingMf.get(1));
+            //mf4.setText(startingMf.get(1));
             mf4.setOpaque(true);
             mf5.setText("");
             mf6.setText(startingMf.get(2));
@@ -956,7 +1088,25 @@ public class outputScreen {
         } else if (startingMf.size() == 3) {
             mf1.setText("");
             mf2.setText("");
-            mf3.setText(startingMf.get(0));
+            //Checking if the captain is a midfielder.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
+                mf3.setText(startingMf.get(0) + " (C)");
+                mf5.setText(startingMf.get(1));
+
+                //Checking if the vice captain is a midfielder.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf3.setText(startingMf.get(0) + " (V)");
+                mf5.setText(startingMf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf3.setText(startingMf.get(0) + " (C)");
+                mf5.setText(startingMf.get(1) + " (V)");
+            } else {
+                mf3.setText(startingMf.get(0));
+                mf5.setText(startingMf.get(1));
+            }
             mf3.setOpaque(true);
             mf4.setText("");
             mf5.setText(startingMf.get(1));
@@ -971,10 +1121,28 @@ public class outputScreen {
             mf1.setText("");
             mf2.setText("");
             mf3.setText("");
-            mf4.setText(startingMf.get(0));
+            //Checking if the captain is a midfielder.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
+                mf4.setText(startingMf.get(0) + " (C)");
+                mf6.setText(startingMf.get(1));
+
+                //Checking if the vice captain is a midfielder.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf4.setText(startingMf.get(0) + " (V)");
+                mf6.setText(startingMf.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
+                mf4.setText(startingMf.get(0) + " (C)");
+                mf6.setText(startingMf.get(1) + " (V)");
+            } else {
+                mf4.setText(startingMf.get(0));
+                mf6.setText(startingMf.get(1));
+            }
             mf4.setOpaque(true);
             mf5.setText("");
-            mf6.setText(startingMf.get(1));
+            //mf6.setText(startingMf.get(1));
             mf6.setOpaque(true);
             mf7.setText("");
             mf8.setText("");
@@ -984,10 +1152,28 @@ public class outputScreen {
 
         //Forwards.
         if (startingFw.size() == 3) {
-            fw1.setText(startingFw.get(0));
+            //Checking if the captain is a forward.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")))) {
+                fw1.setText(startingFw.get(0) + " (C)");
+                fw3.setText(startingFw.get(1));
+
+                //Checking if the vice captain is a forward.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
+                fw1.setText(startingFw.get(0) + " (V)");
+                fw3.setText(startingFw.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
+                fw1.setText(startingFw.get(0) + " (C)");
+                fw3.setText(startingFw.get(1) + " (V)");
+            } else {
+                fw1.setText(startingFw.get(0));
+                fw3.setText(startingFw.get(1));
+            }
             fw1.setOpaque(true);
             fw2.setText("");
-            fw3.setText(startingFw.get(1));
+            //fw3.setText(startingFw.get(1));
             fw3.setOpaque(true);
             fw4.setText("");
             fw5.setText(startingFw.get(2));
@@ -995,17 +1181,43 @@ public class outputScreen {
 
         } else if (startingFw.size() == 2) {
             fw1.setText("");
-            fw2.setText(startingFw.get(0));
+            //Checking if the captain is a forward.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward") &&
+                    (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")))) {
+                fw2.setText(startingFw.get(0) + " (C)");
+                fw4.setText(startingFw.get(1));
+
+                //Checking if the vice captain is a forward.
+            } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
+                fw2.setText(startingFw.get(0) + " (V)");
+                fw4.setText(startingFw.get(1));
+            } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
+                    (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
+                fw2.setText(startingFw.get(0) + " (C)");
+                fw4.setText(startingFw.get(1) + " (V)");
+            } else {
+                fw2.setText(startingFw.get(0));
+                fw4.setText(startingFw.get(1));
+            }
             fw2.setOpaque(true);
             fw3.setText("");
-            fw4.setText(startingFw.get(1));
+            //fw4.setText(startingFw.get(1));
             fw4.setOpaque(true);
             fw5.setText("");
 
         } else {
             fw1.setText("");
             fw2.setText("");
-            fw3.setText(startingFw.get(0));
+            //Checking if the captain is a forward.
+            if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) {
+                fw3.setText(startingFw.get(0) + " (C)");
+            //Checking if the vice captain is a forward.
+            } else if (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")) {
+
+            } else {
+                fw3.setText(startingFw.get(0));
+            }
             fw3.setOpaque(true);
             fw4.setText("");
             fw5.setText("");

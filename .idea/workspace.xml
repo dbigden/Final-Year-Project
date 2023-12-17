@@ -236,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702235483599</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose.">
+      <option name="closed" value="true" />
+      <created>1702245711572</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702245711572</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -256,7 +264,8 @@
     <MESSAGE value="program successfully adds highest ranked selected players to the output screen. need to add subs and work on transfers." />
     <MESSAGE value="added icon image." />
     <MESSAGE value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
-    <option name="LAST_COMMIT_MESSAGE" value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
+    <MESSAGE value="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose." />
+    <option name="LAST_COMMIT_MESSAGE" value="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

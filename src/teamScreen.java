@@ -249,8 +249,9 @@ public class teamScreen {
         budgetNumber.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                //Checking if inputted character is a number or a decimal point.
-                if (e.getKeyChar() >= '0' && e.getKeyChar() <= '9' || e.getKeyChar() == '.') {
+                //Checking if inputted character is a number, a decimal point, backspace or delete.
+                if (e.getKeyChar() >= '0' && e.getKeyChar() <= '9' || e.getKeyChar() == '.' ||
+                        e.getKeyChar() == KeyEvent.VK_BACK_SPACE || e.getKeyChar() == KeyEvent.VK_DELETE) {
                     budgetNumber.setEditable(true);
 
                 } else {
@@ -283,6 +284,7 @@ public class teamScreen {
                 boolean noDupes = false;
                 boolean validFrees = false;
                 boolean validBudget = false;
+                boolean moreThan3 = true;
 
                 //Adding all player selections to an array.
                 ArrayList<String> players = new ArrayList<String>();
@@ -328,6 +330,60 @@ public class teamScreen {
 
                 }
 
+                //Checking the number of players from each team is no more than 3.
+                try {
+                    ArrayList<ArrayList<String>> playerData = readFile("all", "all");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                //Splitting the selected players to separate the name and the team.
+                ArrayList<String> playerNames = new ArrayList<String>();
+                ArrayList<String> playerTeams = new ArrayList<String>();
+
+                //Splitting the player name and team.
+                for (int i = 0; i < players.size(); i++) {
+
+                    String currentPlayer = players.get(i);
+                    String[] split = currentPlayer.split(", ");
+                    playerNames.add(split[0]);
+                    playerTeams.add(split[1]);
+
+                }
+
+                for (String teams : playerTeams) {
+
+                    int teamCount = 0;
+
+                    for (String teams2 : playerTeams) {
+
+                        if (teams.equalsIgnoreCase(teams2)) {
+
+                            teamCount = teamCount + 1;
+
+                        }
+
+                        if (teamCount > 3) {
+
+                            JOptionPane.showMessageDialog(null,
+                                    "You can't have more than 3 players from a team!",
+                                    "Team Error", JOptionPane.INFORMATION_MESSAGE);
+
+                            //Clearing the ArrayList so the message only shows up once.
+                            playerTeams.clear();
+                            moreThan3 = false;
+                            break;
+
+                        }
+
+                    }
+
+                    if (!moreThan3) {
+                        break;
+                    }
+
+                }
+
                 //Checking if the free transfers is valid.
                 int freeTransfersInt = 0;
 
@@ -365,7 +421,7 @@ public class teamScreen {
 
                 }
 
-                if (noDupes && validFrees && validBudget) {
+                if (noDupes && validFrees && validBudget && moreThan3) {
 
                     try {
                         outputScreen.outputScreen(players, freeTransfersInt, budgetDouble);
