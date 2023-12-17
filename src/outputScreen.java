@@ -1807,8 +1807,11 @@ public class outputScreen {
 
             for (ArrayList playerFullRankData : allPlayersRanked) {
 
+                int numOfPlayersFromTeam = 0;
+
                 for (ArrayList selectedPlayers : selectedPlayersRanked) {
 
+                    //Checking if the player is already in the team.
                     if (playerFullRankData.get(nameIndex).equals(selectedPlayers.get(nameIndex)) &&
                             playerFullRankData.get(teamIndex).equals(selectedPlayers.get(teamIndex))) {
 
@@ -1837,9 +1840,31 @@ public class outputScreen {
                         && Integer.parseInt(String.valueOf(playerFullRankData.get(positionRankIndex))) <
                         Integer.parseInt(String.valueOf(playerSelectedRankData.get(positionRankIndex)))) {
 
+                    //Checking that the number of players from one club inclusing all players from team
+                    //and the new transfer is no more than 3.
+                    for (ArrayList selectedPlayersTeams : selectedPlayersRanked) {
+
+                        if (selectedPlayersTeams.get(teamIndex).equals(playerFullRankData.get(teamIndex))) {
+
+                            //Making sure not to include the player to be potentially transferred out.
+                            if (!(selectedPlayersTeams.get(nameIndex).equals(playerSelectedRankData.get(nameIndex)) &&
+                                   selectedPlayersTeams.get(teamIndex).equals(playerSelectedRankData.get(teamIndex)))) {
+
+                                numOfPlayersFromTeam = numOfPlayersFromTeam + 1;
+
+                            }
+
+                        }
+
+                    }
+
+                    if (numOfPlayersFromTeam >= 3) {
+                        //System.out.println("test");
+                    }
+
                     if (!alreadyInTeam && Double.parseDouble(String.valueOf(
                             playerFullRankData.get(costIndex))) <= budget + Double.parseDouble(
-                            String.valueOf(playerSelectedRankData.get(costIndex)))) {
+                            String.valueOf(playerSelectedRankData.get(costIndex))) && numOfPlayersFromTeam <= 3) {
 
                         //Adding the info about the new player.
                         tempPlayerOption.add(String.valueOf(playerFullRankData.get(nameIndex)));
