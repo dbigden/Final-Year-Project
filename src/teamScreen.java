@@ -480,7 +480,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf1 = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
 
         //Counting the number of lines in the file.
         int lines = 0;
@@ -500,7 +500,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
 
         //A for loop that goes through each line of the csv file.
         for (int j = 0; j < lines; j++) {

@@ -102,7 +102,7 @@ public class outputScreen {
         df1.setHorizontalAlignment(SwingConstants.CENTER);
         df1.setBackground(Color.decode("#38003C"));
         df1.setFont(new Font("Calibri", Font.BOLD, 15));
-        df1.setForeground(Color.decode("#FFFFFF"));
+        df1.setForeground(Color.decode("#FFFFFf"));
         pitchPane.add(df1, JLayeredPane.PALETTE_LAYER);
 
         JLabel df2 = new JLabel("df2");
@@ -320,7 +320,7 @@ public class outputScreen {
         sub2.setOpaque(true);
         pitchPane.add(sub2, JLayeredPane.PALETTE_LAYER);
 
-        JLabel sub3 = new JLabel("sub3");
+        JLabel sub3 = new JLabel("sub3", JLabel.CENTER);
         sub3.setBounds(1270, 390, 170, 50);
         sub3.setHorizontalAlignment(SwingConstants.CENTER);
         sub3.setBackground(Color.decode("#38003C"));
@@ -331,24 +331,43 @@ public class outputScreen {
 
 
         //Captain and Vice Captain
-        JLabel captain = new JLabel("");
-        captain.setBounds(50, 60, 250, 50);
-        captain.setHorizontalAlignment(SwingConstants.CENTER);
-        captain.setBackground(Color.decode("#38003C"));
-        captain.setFont(new Font("Calibri", Font.BOLD, 16));
-        captain.setForeground(Color.decode("#FFFFFF"));
-        captain.setOpaque(true);
-        pitchPane.add(captain, JLayeredPane.PALETTE_LAYER);
+//        JLabel captain = new JLabel("");
+//        captain.setBounds(50, 60, 250, 50);
+//        captain.setHorizontalAlignment(SwingConstants.CENTER);
+//        captain.setBackground(Color.decode("#38003C"));
+//        captain.setFont(new Font("Calibri", Font.BOLD, 16));
+//        captain.setForeground(Color.decode("#FFFFFF"));
+//        captain.setOpaque(true);
+//        pitchPane.add(captain, JLayeredPane.PALETTE_LAYER);
+//
+//        JLabel viceCaptain = new JLabel("");
+//        viceCaptain.setBounds(50, 120, 250, 50);
+//        viceCaptain.setHorizontalAlignment(SwingConstants.CENTER);
+//        viceCaptain.setBackground(Color.decode("#38003C"));
+//        viceCaptain.setFont(new Font("Calibri", Font.BOLD, 16));
+//        viceCaptain.setForeground(Color.decode("#FFFFFF"));
+//        viceCaptain.setOpaque(true);
+//        pitchPane.add(viceCaptain, JLayeredPane.PALETTE_LAYER);
 
-        JLabel viceCaptain = new JLabel("");
-        viceCaptain.setBounds(50, 120, 250, 50);
-        viceCaptain.setHorizontalAlignment(SwingConstants.CENTER);
-        viceCaptain.setBackground(Color.decode("#38003C"));
-        viceCaptain.setFont(new Font("Calibri", Font.BOLD, 16));
-        viceCaptain.setForeground(Color.decode("#FFFFFF"));
-        viceCaptain.setOpaque(true);
-        pitchPane.add(viceCaptain, JLayeredPane.PALETTE_LAYER);
 
+        //Budget
+        JLabel budgetLabel = new JLabel("Budget:");
+        budgetLabel.setBounds(70, 60, 140, 50);
+        budgetLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        budgetLabel.setBackground(Color.decode("#38003C"));
+        budgetLabel.setFont(new Font("Calibri", Font.BOLD, 35));
+        budgetLabel.setForeground(Color.decode("#FFFFFF"));
+        budgetLabel.setOpaque(true);
+        pitchPane.add(budgetLabel, JLayeredPane.PALETTE_LAYER);
+
+        JLabel budgetRemaining = new JLabel("");
+        budgetRemaining.setBounds(70, 110, 140, 50);
+        budgetRemaining.setHorizontalAlignment(SwingConstants.CENTER);
+        budgetRemaining.setBackground(Color.decode("#38003C"));
+        budgetRemaining.setFont(new Font("Calibri", Font.BOLD, 35));
+        budgetRemaining.setForeground(Color.decode("#FFFFFF"));
+        budgetRemaining.setOpaque(true);
+        pitchPane.add(budgetRemaining, JLayeredPane.PALETTE_LAYER);
 
         //Transfers
         //Title and connecting segments.
@@ -583,6 +602,9 @@ public class outputScreen {
                 teamIndex, positionIndex, ICT_Index, pointsIndex, costIndex, formIndex, pointsPerGameIndex);
 
 
+        for (ArrayList e : allPlayersRanked) {
+            //System.out.println(e);
+        }
 
         //Transfers.
         ArrayList<ArrayList<String>> transfers = new ArrayList<ArrayList<String>>();
@@ -629,6 +651,9 @@ public class outputScreen {
                         //Updating the budget with the new transfer.
                         budget = Double.parseDouble(String.valueOf(bestTransfer.get(12)));
                         budget = round(budget, 1);
+
+                        //Adding the budget to the screen.
+                        budgetRemaining.setText(String.valueOf(budget));
 
                     }
 
@@ -747,11 +772,11 @@ public class outputScreen {
 
         //Assigning the Captain and Vice Captain and setting them onto the screen.
         ArrayList<String> captainRankings = finalPlayersRanked.get(0);
-        captain.setText("Captain: " + captainRankings.get(nameIndex) + ", " +
-                captainRankings.get(teamIndex));
+//        captain.setText("Captain: " + captainRankings.get(nameIndex) + ", " +
+//                captainRankings.get(teamIndex));
         ArrayList<String> viceCaptainRankings = finalPlayersRanked.get(1);
-        viceCaptain.setText("Vice Captain: " + viceCaptainRankings.get(nameIndex) + ", " +
-                viceCaptainRankings.get(teamIndex));
+//        viceCaptain.setText("Vice Captain: " + viceCaptainRankings.get(nameIndex) + ", " +
+//                viceCaptainRankings.get(teamIndex));
 
 
 //        for (ArrayList player : selectedPlayersRanked) {
@@ -760,7 +785,10 @@ public class outputScreen {
             if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("goalkeeper")) {
 
                 if (startingGk.equalsIgnoreCase("")) {
-                    startingGk = player.get(nameIndex) + ", " + player.get(teamIndex);
+                    startingGk = "<html><br/>" + player.get(nameIndex) + "<br/>" +
+                            player.get(teamIndex) + "</html>";
+                    startingGk = "<html><b>" + player.get(nameIndex) + ", " + player.get(teamIndex) + "</b></html>";
+                    System.out.println(startingGk);
 
                 } else {
                     subGk = player.get(nameIndex) + ", " + player.get(teamIndex);
@@ -905,12 +933,12 @@ public class outputScreen {
         //Goalkeeper.
         //Checking if the captain or vice captain is a goalkeeper.
         if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("goalkeeper")) {
-            gk1.setText(startingGk + " (C)");
+            gk1.setText("<html><div align=center>" + startingGk + " (C)</html>");
 
         } else  if (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("goalkeeper")){
-            gk1.setText(startingGk + " (V)");
+            gk1.setText("<html><div align=center>" + startingGk + " (V)</html>");
         } else {
-            gk1.setText(startingGk);
+            gk1.setText("<html><div align=center>" + startingGk + "</html>");
         }
 
         //Defenders.
@@ -918,35 +946,33 @@ public class outputScreen {
             //Checking if the captain is a defender.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
-                df1.setText(startingDf.get(0) + " (C)");
-                df3.setText(startingDf.get(1));
+                df1.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df3.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
 
             //Checking if the vice captain is a defender.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df1.setText(startingDf.get(0) + " (V)");
-                df3.setText(startingDf.get(1));
+                df1.setText("<html><div align=center>" + startingDf.get(0) + " (V)</html>");
+                df3.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df1.setText(startingDf.get(0) + " (C)");
-                df3.setText(startingDf.get(1) + " (V)");
+                df1.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df3.setText("<html><div align=center>" + startingDf.get(1) + " (V)</html>");
             } else {
-                df1.setText(startingDf.get(0));
-                df3.setText(startingDf.get(1));
+                df1.setText("<html><div align=center>" + startingDf.get(0) + "</html>");
+                df3.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             }
-            df1.setText(startingDf.get(0));
             df1.setOpaque(true);
             df2.setText("");
-            //df3.setText(startingDf.get(1));
             df3.setOpaque(true);
             df4.setText("");
-            df5.setText(startingDf.get(2));
+            df5.setText("<html><div align=center>" + startingDf.get(2) + "</html>");
             df5.setOpaque(true);
             df6.setText("");
-            df7.setText(startingDf.get(3));
+            df7.setText("<html><div align=center>" + startingDf.get(3) + "</html>");
             df7.setOpaque(true);
             df8.setText("");
-            df9.setText(startingDf.get(4));
+            df9.setText("<html><div align=center>" + startingDf.get(4) + "</html>");
             df9.setOpaque(true);
 
         } else if (startingDf.size() == 4) {
@@ -954,31 +980,30 @@ public class outputScreen {
             //Checking if the captain is a defender.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
-                df2.setText(startingDf.get(0) + " (C)");
-                df4.setText(startingDf.get(1));
+                df2.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df4.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
 
                 //Checking if the vice captain is a defender.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df2.setText(startingDf.get(0) + " (V)");
-                df4.setText(startingDf.get(1));
+                df2.setText("<html><div align=center>" + startingDf.get(0) + " (V)</html>");
+                df4.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df2.setText(startingDf.get(0) + " (C)");
-                df4.setText(startingDf.get(1) + " (V)");
+                df2.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df4.setText("<html><div align=center>" + startingDf.get(1) + " (V)</html>");
             } else {
-                df2.setText(startingDf.get(0));
-                df4.setText(startingDf.get(1));
+                df2.setText("<html><div align=center>" + startingDf.get(0) + "</html>");
+                df4.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             }
             df2.setOpaque(true);
             df3.setText("");
-            //df4.setText(startingDf.get(1));
             df4.setOpaque(true);
             df5.setText("");
-            df6.setText(startingDf.get(2));
+            df6.setText("<html><div align=center>" + startingDf.get(2) + "</html>");
             df6.setOpaque(true);
             df7.setText("");
-            df8.setText(startingDf.get(3));
+            df8.setText("<html><div align=center>" + startingDf.get(3) + "</html>");
             df8.setOpaque(true);
             df9.setText("");
 
@@ -988,28 +1013,27 @@ public class outputScreen {
             //Checking if the captain is a defender.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender")))) {
-                df3.setText(startingDf.get(0) + " (C)");
-                df5.setText(startingDf.get(1));
+                df3.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df5.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
 
                 //Checking if the vice captain is a defender.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df3.setText(startingDf.get(0) + " (V)");
-                df5.setText(startingDf.get(1));
+                df3.setText("<html><div align=center>" + startingDf.get(0) + " (V)</html>");
+                df5.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("defender")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("defender"))) {
-                df3.setText(startingDf.get(0) + " (C)");
-                df5.setText(startingDf.get(1) + " (V)");
+                df3.setText("<html><div align=center>" + startingDf.get(0) + " (C)</html>");
+                df5.setText("<html><div align=center>" + startingDf.get(1) + " (V)</html>");
             } else {
-                df3.setText(startingDf.get(0));
-                df5.setText(startingDf.get(1));
+                df3.setText("<html><div align=center>" + startingDf.get(0) + "</html>");
+                df5.setText("<html><div align=center>" + startingDf.get(1) + "</html>");
             }
             df3.setOpaque(true);
             df4.setText("");
-            //df5.setText(startingDf.get(1));
             df5.setOpaque(true);
             df6.setText("");
-            df7.setText(startingDf.get(2));
+            df7.setText("<html><div align=center>" + startingDf.get(2) + "</html>");
             df7.setOpaque(true);
             df8.setText("");
             df9.setText("");
@@ -1022,34 +1046,33 @@ public class outputScreen {
             //Checking if the captain is a midfielder.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
-                mf1.setText(startingMf.get(0) + " (C)");
-                mf3.setText(startingMf.get(1));
+                mf1.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf3.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
 
                 //Checking if the vice captain is a midfielder.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf1.setText(startingMf.get(0) + " (V)");
-                mf3.setText(startingMf.get(1));
+                mf1.setText("<html><div align=center>" + startingMf.get(0) + " (V)</html>");
+                mf3.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf1.setText(startingMf.get(0) + " (C)");
-                mf3.setText(startingMf.get(1) + " (V)");
+                mf1.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf3.setText("<html><div align=center>" + startingMf.get(1) + " (V)</html>");
             } else {
-                mf1.setText(startingMf.get(0));
-                mf3.setText(startingMf.get(1));
+                mf1.setText("<html><div align=center>" + startingMf.get(0) + "</html>");
+                mf3.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             }
             mf1.setOpaque(true);
             mf2.setText("");
-            //mf3.setText(startingMf.get(1));
             mf3.setOpaque(true);
             mf4.setText("");
-            mf5.setText(startingMf.get(2));
+            mf5.setText("<html><div align=center>" + startingMf.get(2) + "</html>");
             mf5.setOpaque(true);
             mf6.setText("");
-            mf7.setText(startingMf.get(3));
+            mf7.setText("<html><div align=center>" + startingMf.get(3) + "</html>");
             mf7.setOpaque(true);
             mf8.setText("");
-            mf9.setText(startingMf.get(4));
+            mf9.setText("<html><div align=center>" + startingMf.get(4) + "</html>");
             mf9.setOpaque(true);
 
         } else if (startingMf.size() == 4) {
@@ -1057,31 +1080,30 @@ public class outputScreen {
             //Checking if the captain is a midfielder.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
-                mf2.setText(startingMf.get(0) + " (C)");
-                mf4.setText(startingMf.get(1));
+                mf2.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf4.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
 
                 //Checking if the vice captain is a midfielder.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf2.setText(startingMf.get(0) + " (V)");
-                mf4.setText(startingMf.get(1));
+                mf2.setText("<html><div align=center>" + startingMf.get(0) + " (V)</html>");
+                mf4.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf2.setText(startingMf.get(0) + " (C)");
-                mf4.setText(startingMf.get(1) + " (V)");
+                mf2.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf4.setText("<html><div align=center>" + startingMf.get(1) + " (V)</html>");
             } else {
-                mf2.setText(startingMf.get(0));
-                mf4.setText(startingMf.get(1));
+                mf2.setText("<html><div align=center>" + startingMf.get(0) + "</html>");
+                mf4.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             }
             mf2.setOpaque(true);
             mf3.setText("");
-            //mf4.setText(startingMf.get(1));
             mf4.setOpaque(true);
             mf5.setText("");
-            mf6.setText(startingMf.get(2));
+            mf6.setText("<html><div align=center>" + startingMf.get(2) + "</html>");
             mf6.setOpaque(true);
             mf7.setText("");
-            mf8.setText(startingMf.get(3));
+            mf8.setText("<html><div align=center>" + startingMf.get(3) + "</html>");
             mf8.setOpaque(true);
             mf9.setText("");
 
@@ -1091,28 +1113,27 @@ public class outputScreen {
             //Checking if the captain is a midfielder.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
-                mf3.setText(startingMf.get(0) + " (C)");
-                mf5.setText(startingMf.get(1));
+                mf3.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf5.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
 
                 //Checking if the vice captain is a midfielder.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf3.setText(startingMf.get(0) + " (V)");
-                mf5.setText(startingMf.get(1));
+                mf3.setText("<html><div align=center>" + startingMf.get(0) + " (V)</html>");
+                mf5.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf3.setText(startingMf.get(0) + " (C)");
-                mf5.setText(startingMf.get(1) + " (V)");
+                mf3.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf5.setText("<html><div align=center>" + startingMf.get(1) + " (V)</html>");
             } else {
-                mf3.setText(startingMf.get(0));
-                mf5.setText(startingMf.get(1));
+                mf3.setText("<html><div align=center>" + startingMf.get(0) + "</html>");
+                mf5.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             }
             mf3.setOpaque(true);
             mf4.setText("");
-            mf5.setText(startingMf.get(1));
             mf5.setOpaque(true);
             mf6.setText("");
-            mf7.setText(startingMf.get(2));
+            mf7.setText("<html><div align=center>" + startingMf.get(2) + "</html>");
             mf7.setOpaque(true);
             mf8.setText("");
             mf9.setText("");
@@ -1124,25 +1145,24 @@ public class outputScreen {
             //Checking if the captain is a midfielder.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder")))) {
-                mf4.setText(startingMf.get(0) + " (C)");
-                mf6.setText(startingMf.get(1));
+                mf4.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf6.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
 
                 //Checking if the vice captain is a midfielder.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf4.setText(startingMf.get(0) + " (V)");
-                mf6.setText(startingMf.get(1));
+                mf4.setText("<html><div align=center>" + startingMf.get(0) + " (V)</html>");
+                mf6.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("midfielder")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("midfielder"))) {
-                mf4.setText(startingMf.get(0) + " (C)");
-                mf6.setText(startingMf.get(1) + " (V)");
+                mf4.setText("<html><div align=center>" + startingMf.get(0) + " (C)</html>");
+                mf6.setText("<html><div align=center>" + startingMf.get(1) + " (V)</html>");
             } else {
-                mf4.setText(startingMf.get(0));
-                mf6.setText(startingMf.get(1));
+                mf4.setText("<html><div align=center>" + startingMf.get(0) + "</html>");
+                mf6.setText("<html><div align=center>" + startingMf.get(1) + "</html>");
             }
             mf4.setOpaque(true);
             mf5.setText("");
-            //mf6.setText(startingMf.get(1));
             mf6.setOpaque(true);
             mf7.setText("");
             mf8.setText("");
@@ -1155,28 +1175,27 @@ public class outputScreen {
             //Checking if the captain is a forward.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")))) {
-                fw1.setText(startingFw.get(0) + " (C)");
-                fw3.setText(startingFw.get(1));
+                fw1.setText("<html><div align=center>" + startingFw.get(0) + " (C)</html>");
+                fw3.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
 
                 //Checking if the vice captain is a forward.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
-                fw1.setText(startingFw.get(0) + " (V)");
-                fw3.setText(startingFw.get(1));
+                fw1.setText("<html><div align=center>" + startingFw.get(0) + " (V)</html>");
+                fw3.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
-                fw1.setText(startingFw.get(0) + " (C)");
-                fw3.setText(startingFw.get(1) + " (V)");
+                fw1.setText("<html><div align=center>" + startingFw.get(0) + " (C)</html>");
+                fw3.setText("<html><div align=center>" + startingFw.get(1) + " (V)</html>");
             } else {
-                fw1.setText(startingFw.get(0));
-                fw3.setText(startingFw.get(1));
+                fw1.setText("<html><div align=center>" + startingFw.get(0) + "</html>");
+                fw3.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
             }
             fw1.setOpaque(true);
             fw2.setText("");
-            //fw3.setText(startingFw.get(1));
             fw3.setOpaque(true);
             fw4.setText("");
-            fw5.setText(startingFw.get(2));
+            fw5.setText("<html><div align=center>" + startingFw.get(2) + "</html>");
             fw5.setOpaque(true);
 
         } else if (startingFw.size() == 2) {
@@ -1184,25 +1203,24 @@ public class outputScreen {
             //Checking if the captain is a forward.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward") &&
                     (!(String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")))) {
-                fw2.setText(startingFw.get(0) + " (C)");
-                fw4.setText(startingFw.get(1));
+                fw2.setText("<html><div align=center>" + startingFw.get(0) + " (C)</html>");
+                fw4.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
 
                 //Checking if the vice captain is a forward.
             } else if (!(String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
-                fw2.setText(startingFw.get(0) + " (V)");
-                fw4.setText(startingFw.get(1));
+                fw2.setText("<html><div align=center>" + startingFw.get(0) + " (V)</html>");
+                fw4.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
             } else if ((String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) &&
                     (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward"))) {
-                fw2.setText(startingFw.get(0) + " (C)");
-                fw4.setText(startingFw.get(1) + " (V)");
+                fw2.setText("<html><div align=center>" + startingFw.get(0) + " (C)</html>");
+                fw4.setText("<html><div align=center>" + startingFw.get(1) + " (V)</html>");
             } else {
-                fw2.setText(startingFw.get(0));
-                fw4.setText(startingFw.get(1));
+                fw2.setText("<html><div align=center>" + startingFw.get(0) + "</html>");
+                fw4.setText("<html><div align=center>" + startingFw.get(1) + "</html>");
             }
             fw2.setOpaque(true);
             fw3.setText("");
-            //fw4.setText(startingFw.get(1));
             fw4.setOpaque(true);
             fw5.setText("");
 
@@ -1211,12 +1229,12 @@ public class outputScreen {
             fw2.setText("");
             //Checking if the captain is a forward.
             if (String.valueOf(captainRankings.get(1)).equalsIgnoreCase("forward")) {
-                fw3.setText(startingFw.get(0) + " (C)");
+                fw3.setText("<html><div align=center>" + startingFw.get(0) + " (C)</html>");
             //Checking if the vice captain is a forward.
             } else if (String.valueOf(viceCaptainRankings.get(1)).equalsIgnoreCase("forward")) {
-
+                fw3.setText("<html><div align=center>" + startingFw.get(0) + " (V)</html>");
             } else {
-                fw3.setText(startingFw.get(0));
+                fw3.setText("<html><div align=center>" + startingFw.get(0) + "</html>");
             }
             fw3.setOpaque(true);
             fw4.setText("");
@@ -1225,9 +1243,9 @@ public class outputScreen {
 
         //Subs.
         gkSub.setText(subGk);
-        sub1.setText(subs.get(0));
-        sub2.setText(subs.get(1));
-        sub3.setText(subs.get(2));
+        sub1.setText("<html><div align=center>" + subs.get(0) + "</html>");
+        sub2.setText("<html><div align=center>" + subs.get(1) + "</html>");
+        sub3.setText("<html><div align=center>" + subs.get(2) + "</html>");
 
     }
 
@@ -1802,9 +1820,23 @@ public class outputScreen {
         boolean alreadyInTeam = false;
 
 
-
+        //Going through all selected players ranked data.
         for (ArrayList playerSelectedRankData : selectedPlayersRanked) {
 
+            //Going through all players ranked data to store the overall position ranking of the current
+            //selected player.
+            int currentSelectedPlayerOverallPositionRank = -1;
+            for (ArrayList playerRank : allPlayersRanked) {
+
+                if (playerSelectedRankData.get(nameIndex).equals(playerRank.get(nameIndex))) {
+                    currentSelectedPlayerOverallPositionRank = Integer.parseInt(
+                            String.valueOf(playerRank.get(positionRankIndex)));
+
+                }
+
+            }
+
+            //Going through all players ranked data.
             for (ArrayList playerFullRankData : allPlayersRanked) {
 
                 int numOfPlayersFromTeam = 0;
@@ -1835,10 +1867,12 @@ public class outputScreen {
 
                 }
 
+                //Integer.parseInt(String.valueOf(playerSelectedRankData.get(positionRankIndex)))
 
+                //Checking if new player is the same position as old player and better than the old player.
                 if (playerSelectedRankData.get(positionIndex).equals(playerFullRankData.get(positionIndex))
                         && Integer.parseInt(String.valueOf(playerFullRankData.get(positionRankIndex))) <
-                        Integer.parseInt(String.valueOf(playerSelectedRankData.get(positionRankIndex)))) {
+                        currentSelectedPlayerOverallPositionRank) {
 
                     //Checking that the number of players from one club inclusing all players from team
                     //and the new transfer is no more than 3.
@@ -1976,9 +2010,31 @@ public class outputScreen {
                     if (playerOut.get(transferOutNameIndex).equals(playerData.get(nameIndex)) &&
                             playerOut.get(transferOutTeamIndex).equals(playerData.get(teamIndex))) {
 
-                        if (!prevTransfer.isEmpty() && !prevTransfer.get(nameIndex).equals(
-                                playerOut.get(nameIndex)) &&  !prevTransfer.get(teamIndex).equals(
-                                playerOut.get(teamIndex)) || prevTransfer.isEmpty()) {
+                        //Stopping the same player being transferred in or the same player being
+                        //transferred out twice.
+
+                        //Creating a variable that checks if the previous transfers players in and out
+                        //are the same as the current potential transfer.
+                        boolean sameIn = false;
+                        boolean sameOut = false;
+                        if (!prevTransfer.isEmpty()) {
+
+                            if (prevTransfer.get(nameIndex).equals(playerOut.get(nameIndex)) &&
+                                    prevTransfer.get(teamIndex).equals(playerOut.get(teamIndex))) {
+
+                                sameIn = true;
+
+                            } else if (prevTransfer.get(transferOutNameIndex).equals(playerOut.get(
+                                    transferOutNameIndex)) && prevTransfer.get(transferOutTeamIndex).equals(
+                                            playerOut.get(transferOutTeamIndex))) {
+
+                                sameOut = true;
+
+                            }
+
+                        }
+
+                        if (!prevTransfer.isEmpty() && sameIn == false && sameOut == false || prevTransfer.isEmpty()) {
 
                             if (playerData.get(availabilityIndex).equals("0")) {
 

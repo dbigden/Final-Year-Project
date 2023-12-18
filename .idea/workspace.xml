@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="new team validity fix. mvp complete.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702780169780</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="new team validity fix. mvp complete.">
+      <option name="closed" value="true" />
+      <created>1702827691931</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702827691931</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -273,7 +282,8 @@
     <MESSAGE value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
     <MESSAGE value="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose." />
     <MESSAGE value="captains and team validity fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="captains and team validity fix." />
+    <MESSAGE value="new team validity fix. mvp complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="new team validity fix. mvp complete." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
