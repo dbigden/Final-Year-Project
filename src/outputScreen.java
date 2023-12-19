@@ -2,11 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.*;
-import java.util.List;
 
 public class outputScreen {
 
@@ -27,11 +24,12 @@ public class outputScreen {
 
         //"Udogie, Spurs"
         //"Walker, Man City"
-        outputScreen(players, 2, 0.0);
+        outputScreen(players, 2, 0.0, true);
 
     }
 
-    public static void outputScreen(ArrayList<String> players, int freeTransfers, double budget) throws Exception {
+    public static void outputScreen(ArrayList<String> players, int freeTransfers, double budget,
+                                    boolean chipSelected) throws Exception {
         //Creating the window.
         JFrame outputFrame = new JFrame("FPL Optimiser");
 
@@ -369,86 +367,302 @@ public class outputScreen {
         budgetRemaining.setOpaque(true);
         pitchPane.add(budgetRemaining, JLayeredPane.PALETTE_LAYER);
 
-        //Transfers
-        //Title and connecting segments.
-        JLabel transferTitle = new JLabel("Transfers");
-        transferTitle.setBounds(1503, 20, 380, 100);
-        transferTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        transferTitle.setBackground(Color.decode("#FFFFFF"));
-        transferTitle.setFont(new Font("Calibri", Font.BOLD, 38));
-        transferTitle.setForeground(Color.decode("#000000"));
-        transferTitle.setOpaque(true);
-        pitchPane.add(transferTitle, JLayeredPane.PALETTE_LAYER);
-
-        JLabel transferConnect = new JLabel("");
-        transferConnect.setBounds(1503, 420, 380, 50);
-        transferConnect.setHorizontalAlignment(SwingConstants.CENTER);
-        transferConnect.setBackground(Color.decode("#FFFFFF"));
-        transferConnect.setFont(new Font("Calibri", Font.BOLD, 38));
-        transferConnect.setForeground(Color.decode("#000000"));
-        transferConnect.setOpaque(true);
-        pitchPane.add(transferConnect, JLayeredPane.PALETTE_LAYER);
-
 
         //Transfer Out.
         JLabel transferOutText = new JLabel("Transfers Out:");
-        transferOutText.setBounds(1503, 120, 380, 100);
+//        transferOutText.setBounds(1503, 120, 380, 100);
+        transferOutText.setBounds(1503, 20, 180, 70);
         transferOutText.setHorizontalAlignment(SwingConstants.CENTER);
         transferOutText.setBackground(Color.decode("#FFFFFF"));
-        transferOutText.setFont(new Font("Calibri", Font.BOLD, 36));
+        transferOutText.setFont(new Font("Calibri", Font.BOLD, 24));
         transferOutText.setForeground(Color.decode("#000000"));
         transferOutText.setOpaque(true);
         pitchPane.add(transferOutText, JLayeredPane.PALETTE_LAYER);
 
-        //Adding a maximum of 2 players for free transfer slot as that is the max allowed.
+        //Adding a maximum of 15 players as this accounts for free hits and wildcards.
         JLabel transferOutPlayer1 = new JLabel("");
-        transferOutPlayer1.setBounds(1503, 220, 380, 100);
+        transferOutPlayer1.setBounds(1503, 95, 180, 40);
         transferOutPlayer1.setHorizontalAlignment(SwingConstants.CENTER);
         transferOutPlayer1.setBackground(Color.decode("#FFFFFF"));
-        transferOutPlayer1.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferOutPlayer1.setFont(new Font("Calibri", Font.BOLD, 18));
         transferOutPlayer1.setForeground(Color.decode("#E90052"));
         transferOutPlayer1.setOpaque(true);
         pitchPane.add(transferOutPlayer1, JLayeredPane.PALETTE_LAYER);
 
         JLabel transferOutPlayer2 = new JLabel("");
-        transferOutPlayer2.setBounds(1503, 320, 380, 100);
+        transferOutPlayer2.setBounds(1503, 135, 180, 40);
         transferOutPlayer2.setHorizontalAlignment(SwingConstants.CENTER);
         transferOutPlayer2.setBackground(Color.decode("#FFFFFF"));
-        transferOutPlayer2.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferOutPlayer2.setFont(new Font("Calibri", Font.BOLD, 18));
         transferOutPlayer2.setForeground(Color.decode("#E90052"));
         transferOutPlayer2.setOpaque(true);
         pitchPane.add(transferOutPlayer2, JLayeredPane.PALETTE_LAYER);
 
+        JLabel transferOutPlayer3 = new JLabel("");
+        transferOutPlayer3.setBounds(1503, 175, 180, 40);
+        transferOutPlayer3.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer3.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer3.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer3.setForeground(Color.decode("#E90052"));
+        transferOutPlayer3.setOpaque(true);
+        pitchPane.add(transferOutPlayer3, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer4 = new JLabel("");
+        transferOutPlayer4.setBounds(1503, 215, 180, 40);
+        transferOutPlayer4.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer4.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer4.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer4.setForeground(Color.decode("#E90052"));
+        transferOutPlayer4.setOpaque(true);
+        pitchPane.add(transferOutPlayer4, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer5 = new JLabel("");
+        transferOutPlayer5.setBounds(1503, 255, 180, 40);
+        transferOutPlayer5.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer5.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer5.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer5.setForeground(Color.decode("#E90052"));
+        transferOutPlayer5.setOpaque(true);
+        pitchPane.add(transferOutPlayer5, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer6 = new JLabel("");
+        transferOutPlayer6.setBounds(1503, 295, 180, 40);
+        transferOutPlayer6.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer6.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer6.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer6.setForeground(Color.decode("#E90052"));
+        transferOutPlayer6.setOpaque(true);
+        pitchPane.add(transferOutPlayer6, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer7 = new JLabel("");
+        transferOutPlayer7.setBounds(1503, 335, 180, 40);
+        transferOutPlayer7.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer7.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer7.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer7.setForeground(Color.decode("#E90052"));
+        transferOutPlayer7.setOpaque(true);
+        pitchPane.add(transferOutPlayer7, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer8 = new JLabel("");
+        transferOutPlayer8.setBounds(1503, 375, 180, 40);
+        transferOutPlayer8.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer8.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer8.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer8.setForeground(Color.decode("#E90052"));
+        transferOutPlayer8.setOpaque(true);
+        pitchPane.add(transferOutPlayer8, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer9 = new JLabel("");
+        transferOutPlayer9.setBounds(1503, 415, 180, 40);
+        transferOutPlayer9.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer9.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer9.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer9.setForeground(Color.decode("#E90052"));
+        transferOutPlayer9.setOpaque(true);
+        pitchPane.add(transferOutPlayer9, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer10 = new JLabel("");
+        transferOutPlayer10.setBounds(1503, 455, 180, 40);
+        transferOutPlayer10.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer10.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer10.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer10.setForeground(Color.decode("#E90052"));
+        transferOutPlayer10.setOpaque(true);
+        pitchPane.add(transferOutPlayer10, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer11 = new JLabel("");
+        transferOutPlayer11.setBounds(1503, 495, 180, 40);
+        transferOutPlayer11.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer11.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer11.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer11.setForeground(Color.decode("#E90052"));
+        transferOutPlayer11.setOpaque(true);
+        pitchPane.add(transferOutPlayer11, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer12 = new JLabel("");
+        transferOutPlayer12.setBounds(1503, 535, 180, 40);
+        transferOutPlayer12.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer12.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer12.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer12.setForeground(Color.decode("#E90052"));
+        transferOutPlayer12.setOpaque(true);
+        pitchPane.add(transferOutPlayer12, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer13 = new JLabel("");
+        transferOutPlayer13.setBounds(1503, 575, 180, 40);
+        transferOutPlayer13.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer13.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer13.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer13.setForeground(Color.decode("#E90052"));
+        transferOutPlayer13.setOpaque(true);
+        pitchPane.add(transferOutPlayer13, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer14 = new JLabel("");
+        transferOutPlayer14.setBounds(1503, 615, 180, 40);
+        transferOutPlayer14.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer14.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer14.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer14.setForeground(Color.decode("#E90052"));
+        transferOutPlayer14.setOpaque(true);
+        pitchPane.add(transferOutPlayer14, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferOutPlayer15 = new JLabel("");
+        transferOutPlayer15.setBounds(1503, 655, 180, 40);
+        transferOutPlayer15.setHorizontalAlignment(SwingConstants.CENTER);
+        transferOutPlayer15.setBackground(Color.decode("#FFFFFF"));
+        transferOutPlayer15.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferOutPlayer15.setForeground(Color.decode("#E90052"));
+        transferOutPlayer15.setOpaque(true);
+        pitchPane.add(transferOutPlayer15, JLayeredPane.PALETTE_LAYER);
+
+
 
         //Transfer In.
         JLabel transferInText = new JLabel("Transfers In:");
-        transferInText.setBounds(1503, 470, 380, 100);
+//        transferInText.setBounds(1503, 470, 380, 100);
+        transferInText.setBounds(1703, 20, 180, 70);
         transferInText.setHorizontalAlignment(SwingConstants.CENTER);
         transferInText.setBackground(Color.decode("#FFFFFF"));
-        transferInText.setFont(new Font("Calibri", Font.BOLD, 36));
+        transferInText.setFont(new Font("Calibri", Font.BOLD,24));
         transferInText.setForeground(Color.decode("#000000"));
         transferInText.setOpaque(true);
         pitchPane.add(transferInText, JLayeredPane.PALETTE_LAYER);
 
-        //Adding a maximum of 2 players for free transfer slot as that is the max allowed.
+        //Adding a maximum of 15 players as this accounts for free hits and wildcards.
         JLabel transferInPlayer1 = new JLabel("");
-        transferInPlayer1.setBounds(1503, 570, 380, 100);
+        transferInPlayer1.setBounds(1703, 95, 180, 40);
         transferInPlayer1.setHorizontalAlignment(SwingConstants.CENTER);
         transferInPlayer1.setBackground(Color.decode("#FFFFFF"));
-        transferInPlayer1.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferInPlayer1.setFont(new Font("Calibri", Font.BOLD, 18));
         transferInPlayer1.setForeground(Color.decode("#00FF85"));
         transferInPlayer1.setOpaque(true);
         pitchPane.add(transferInPlayer1, JLayeredPane.PALETTE_LAYER);
 
         JLabel transferInPlayer2 = new JLabel("");
-        transferInPlayer2.setBounds(1503, 670, 380, 100);
+        transferInPlayer2.setBounds(1703, 135, 180, 40);
         transferInPlayer2.setHorizontalAlignment(SwingConstants.CENTER);
         transferInPlayer2.setBackground(Color.decode("#FFFFFF"));
-        transferInPlayer2.setFont(new Font("Calibri", Font.BOLD, 34));
+        transferInPlayer2.setFont(new Font("Calibri", Font.BOLD, 18));
         transferInPlayer2.setForeground(Color.decode("#00FF85"));
         transferInPlayer2.setOpaque(true);
         pitchPane.add(transferInPlayer2, JLayeredPane.PALETTE_LAYER);
 
+        JLabel transferInPlayer3 = new JLabel("");
+        transferInPlayer3.setBounds(1703, 175, 180, 40);
+        transferInPlayer3.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer3.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer3.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer3.setForeground(Color.decode("#00FF85"));
+        transferInPlayer3.setOpaque(true);
+        pitchPane.add(transferInPlayer3, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer4 = new JLabel("");
+        transferInPlayer4.setBounds(1703, 215, 180, 40);
+        transferInPlayer4.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer4.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer4.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer4.setForeground(Color.decode("#00FF85"));
+        transferInPlayer4.setOpaque(true);
+        pitchPane.add(transferInPlayer4, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer5 = new JLabel("");
+        transferInPlayer5.setBounds(1703, 255, 180, 40);
+        transferInPlayer5.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer5.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer5.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer5.setForeground(Color.decode("#00FF85"));
+        transferInPlayer5.setOpaque(true);
+        pitchPane.add(transferInPlayer5, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer6 = new JLabel("");
+        transferInPlayer6.setBounds(1703, 295, 180, 40);
+        transferInPlayer6.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer6.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer6.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer6.setForeground(Color.decode("#00FF85"));
+        transferInPlayer6.setOpaque(true);
+        pitchPane.add(transferInPlayer6, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer7 = new JLabel("");
+        transferInPlayer7.setBounds(1703, 335, 180, 40);
+        transferInPlayer7.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer7.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer7.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer7.setForeground(Color.decode("#00FF85"));
+        transferInPlayer7.setOpaque(true);
+        pitchPane.add(transferInPlayer7, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer8 = new JLabel("");
+        transferInPlayer8.setBounds(1703, 375, 180, 40);
+        transferInPlayer8.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer8.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer8.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer8.setForeground(Color.decode("#00FF85"));
+        transferInPlayer8.setOpaque(true);
+        pitchPane.add(transferInPlayer8, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer9 = new JLabel("");
+        transferInPlayer9.setBounds(1703, 415, 180, 40);
+        transferInPlayer9.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer9.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer9.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer9.setForeground(Color.decode("#00FF85"));
+        transferInPlayer9.setOpaque(true);
+        pitchPane.add(transferInPlayer9, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer10 = new JLabel("");
+        transferInPlayer10.setBounds(1703, 455, 180, 40);
+        transferInPlayer10.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer10.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer10.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer10.setForeground(Color.decode("#00FF85"));
+        transferInPlayer10.setOpaque(true);
+        pitchPane.add(transferInPlayer10, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer11 = new JLabel("");
+        transferInPlayer11.setBounds(1703, 495, 180, 40);
+        transferInPlayer11.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer11.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer11.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer11.setForeground(Color.decode("#00FF85"));
+        transferInPlayer11.setOpaque(true);
+        pitchPane.add(transferInPlayer11, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer12 = new JLabel("");
+        transferInPlayer12.setBounds(1703, 535, 180, 40);
+        transferInPlayer12.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer12.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer12.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer12.setForeground(Color.decode("#00FF85"));
+        transferInPlayer12.setOpaque(true);
+        pitchPane.add(transferInPlayer12, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer13 = new JLabel("");
+        transferInPlayer13.setBounds(1703, 575, 180, 40);
+        transferInPlayer13.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer13.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer13.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer13.setForeground(Color.decode("#00FF85"));
+        transferInPlayer13.setOpaque(true);
+        pitchPane.add(transferInPlayer13, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer14 = new JLabel("");
+        transferInPlayer14.setBounds(1703, 615, 180, 40);
+        transferInPlayer14.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer14.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer14.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer14.setForeground(Color.decode("#00FF85"));
+        transferInPlayer14.setOpaque(true);
+        pitchPane.add(transferInPlayer14, JLayeredPane.PALETTE_LAYER);
+
+        JLabel transferInPlayer15 = new JLabel("");
+        transferInPlayer15.setBounds(1703, 655, 180, 40);
+        transferInPlayer15.setHorizontalAlignment(SwingConstants.CENTER);
+        transferInPlayer15.setBackground(Color.decode("#FFFFFF"));
+        transferInPlayer15.setFont(new Font("Calibri", Font.BOLD, 18));
+        transferInPlayer15.setForeground(Color.decode("#00FF85"));
+        transferInPlayer15.setOpaque(true);
+        pitchPane.add(transferInPlayer15, JLayeredPane.PALETTE_LAYER);
 
         //Buttons.
         //Adding a button to take the user to the main menu and another to exit.
@@ -608,7 +822,104 @@ public class outputScreen {
 
         //Transfers.
         ArrayList<ArrayList<String>> transfers = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> previousTransfers = new ArrayList<ArrayList<String>>();
         ArrayList<String> previousTransfer = new ArrayList<String>();
+
+        //Checking if the user played a free hit or wildcard chip.
+//        if (chipSelected) {
+//
+//            //Going through selected player data and calculating how much budget the user has to spend.
+//            for (ArrayList playerCost : selectedPlayerData) {
+//
+//                budget = budget + Double.parseDouble(String.valueOf(playerCost.get(costIndex)));
+//
+//            }
+//
+//            //Going through all player data ranked and adding the best possible team with the
+//            //allowed budget.
+//            int numGk = 0;
+//            int numDf = 0;
+//            int numMf = 0;
+//            int numFw = 0;
+//            int numPlayers = 0;
+//            double cost = 0;
+//            ArrayList<ArrayList<String>> chipPlayersRanked = new ArrayList<ArrayList<String>>();
+//
+//            for (ArrayList allPlayers : allPlayersRanked) {
+//
+//                double avgPriceStarters = 0;
+//                double avgPriceRemaining = 0;
+//                if (!allPlayersRanked.get(0).equals(allPlayers) && numPlayers <= 11) {
+//                    avgPriceStarters = cost / (numPlayers + 1);
+//                    avgPriceRemaining = (78 - cost) / (11- numPlayers);
+//                }
+//                System.out.println("");
+//                System.out.println(avgPriceStarters);
+//                System.out.println(avgPriceRemaining);
+//
+//                if (numPlayers < 11 && cost < 78 && (avgPriceStarters <= 7.1 || avgPriceStarters == 0)) {
+//
+//                    if (String.valueOf(allPlayers.get(positionIndex)).equalsIgnoreCase(
+//                            "goalkeeper")) {
+//
+//                        if (numGk ==0) {
+//
+//                            chipPlayersRanked.add(allPlayers);
+//                            numGk = numGk + 1;
+//                            cost = cost + Double.parseDouble(String.valueOf(allPlayers.get(
+//                                    costIndex)));
+//                            numPlayers = numPlayers  + 1;
+//
+//                        }
+//
+//                        chipPlayersRanked.add(allPlayers);
+//                        numGk = numGk + 1;
+//                        cost = cost + Double.parseDouble(String.valueOf(allPlayers.get(
+//                                costIndex)));
+//                        numPlayers = numPlayers  + 1;
+//
+//                    } else if (String.valueOf(allPlayers.get(positionIndex)).equalsIgnoreCase(
+//                            "defender") && numDf != 5) {
+//
+//                        chipPlayersRanked.add(allPlayers);
+//                        numDf = numDf + 1;
+//                        cost = cost + Double.parseDouble(String.valueOf(allPlayers.get(
+//                                costIndex)));
+//                        numPlayers = numPlayers  + 1;
+//
+//                    } else if (String.valueOf(allPlayers.get(positionIndex)).equalsIgnoreCase(
+//                            "midfielder") && numMf != 5) {
+//
+//                        chipPlayersRanked.add(allPlayers);
+//                        numMf = numMf + 1;
+//                        cost = cost + Double.parseDouble(String.valueOf(allPlayers.get(
+//                                costIndex)));
+//                        numPlayers = numPlayers  + 1;
+//
+//                    } else if (String.valueOf(allPlayers.get(positionIndex)).equalsIgnoreCase(
+//                            "forward") && numFw != 3) {
+//
+//                        chipPlayersRanked.add(allPlayers);
+//                        numFw = numFw + 1;
+//                        cost = cost + Double.parseDouble(String.valueOf(allPlayers.get(
+//                                costIndex)));
+//                        numPlayers = numPlayers  + 1;
+//
+//                    }
+//
+//                }
+//
+//            }
+//
+//            for (ArrayList e : chipPlayersRanked) {
+//
+//                System.out.println(e);
+//                budget = budget - Double.parseDouble(String.valueOf(e.get(costIndex)));
+//                System.out.println(budget);
+//
+//            }
+//
+//        }
 
         //Checking if the user has any free transfers.
         if (freeTransfers != 0) {
@@ -616,44 +927,54 @@ public class outputScreen {
             //A for loop making a transfer for every free transfer a player has.
             for (int i = 0; i < freeTransfers; i++) {
 
-                //Checking if there is still budget left.
+                //Checking if there is still budget left and transfers to be made.
                 if (budget >= 0) {
 
-                    ArrayList<String> bestTransfer = bestAvailableTransfer(selectedPlayersRanked,
-                            allPlayersRanked, playerData, previousTransfer, nameIndex, teamIndex, positionIndex, costIndex, availabilityIndex, budget);
+                    //Making sure a transfer was previously made if there's still more free transfers.
+                    if (i == 0 || !previousTransfer.isEmpty()) {
 
-                    transfers.add(bestTransfer);
-                    previousTransfer = bestTransfer;
+                        ArrayList<String> bestTransfer = bestAvailableTransfer(selectedPlayersRanked,
+                                allPlayersRanked, playerData, previousTransfers, nameIndex, teamIndex, positionIndex, costIndex, availabilityIndex, budget);
 
-                    System.out.println(bestTransfer);
+                        transfers.add(bestTransfer);
+                        previousTransfer = bestTransfer;
+                        previousTransfers.add(previousTransfer);
+
+                        //System.out.println("best: " + bestTransfer);
 
 
-                    //Making sure another transfer is possible before updating the budget
-                    //and adding the transfers to the output screen to avoid errors.
-                    if (!bestTransfer.isEmpty()) {
+                        //Making sure another transfer is possible before updating the budget
+                        //and adding the transfers to the output screen to avoid errors.
+                        if (!bestTransfer.isEmpty()) {
 
-                        if (i == 0) {
+                            if (i == 0) {
 
-                            //Adding player info to the transfer section of the screen.
-                            transferOutPlayer1.setText(bestTransfer.get(6) + ", " + bestTransfer.get(8));
-                            transferInPlayer1.setText(bestTransfer.get(nameIndex) + ", "
-                                    + bestTransfer.get(teamIndex));
+                                //Adding player info to the transfer section of the screen.
+                                transferOutPlayer1.setText("<html><div align=center>" + bestTransfer.get(6)
+                                        + ", " + bestTransfer.get(8) + "</html>");
+                                transferInPlayer1.setText("<html><div align=center>" + bestTransfer.get(
+                                        nameIndex) + ", " + bestTransfer.get(teamIndex) + "</html>");
 
-                        } else {
+                            } else {
 
-                            //Adding player info to the transfer section of the screen.
-                            transferOutPlayer2.setText(bestTransfer.get(6) + ", " + bestTransfer.get(8));
-                            transferInPlayer2.setText(bestTransfer.get(nameIndex) + ", "
-                                    + bestTransfer.get(teamIndex));
+                                //Adding player info to the transfer section of the screen.
+                                transferOutPlayer2.setText("<html><div align=center>" + bestTransfer.get(6)
+                                        + ", " + bestTransfer.get(8) + "</html>");
+                                transferInPlayer2.setText("<html><div align=center>" + bestTransfer.get(
+                                        nameIndex) + ", " + bestTransfer.get(teamIndex) + "</html>");
+
+                            }
+
+                            //System.out.println("transfer complete");
+
+                            //Updating the budget with the new transfer.
+                            budget = Double.parseDouble(String.valueOf(bestTransfer.get(12)));
+                            budget = round(budget, 1);
+
+                            //Adding the budget to the screen.
+                            budgetRemaining.setText(String.valueOf(budget));
 
                         }
-
-                        //Updating the budget with the new transfer.
-                        budget = Double.parseDouble(String.valueOf(bestTransfer.get(12)));
-                        budget = round(budget, 1);
-
-                        //Adding the budget to the screen.
-                        budgetRemaining.setText(String.valueOf(budget));
 
                     }
 
@@ -778,6 +1099,288 @@ public class outputScreen {
 //        viceCaptain.setText("Vice Captain: " + viceCaptainRankings.get(nameIndex) + ", " +
 //                viceCaptainRankings.get(teamIndex));
 
+        //Making sure captains are not injured.
+        boolean captainAssigned = false;
+        boolean viceAssigned = false;
+        int index = 0;
+        for (ArrayList player : finalPlayersRanked) {
+            //System.out.println(player);
+
+            //Checking player data.
+            for (ArrayList data : playerData) {
+
+                //Checking if the players match.
+                if (player.get(nameIndex).equals(data.get(nameIndex)) &&
+                        player.get(teamIndex).equals(data.get(teamIndex))) {
+
+                    if (!data.get(availabilityIndex).equals("0") && !data.get(availabilityIndex).equals("25")
+                            && !data.get(availabilityIndex).equals("50")) {
+
+                        if (captainAssigned == false) {
+
+                            captainRankings = finalPlayersRanked.get(index);
+                            captainAssigned = true;
+
+                        } else if (captainAssigned == true && viceAssigned == false) {
+
+                            viceCaptainRankings = finalPlayersRanked.get(index);
+                            viceAssigned = true;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            index = index + 1;
+
+        }
+
+
+        //Making sure all injured players (or the lowest ranked injured players if there are > 3)
+        //are benched.
+        //Reversing the list to go from lowest to highest ranked players.
+        Collections.reverse(finalPlayersRanked);
+
+        int num0Chance = 0;
+        int num25Chance = 0;
+        int num50Chance = 0;
+        int numInjured;
+
+        //Going through the ranked players.
+        for (ArrayList injury : finalPlayersRanked) {
+
+            //Going through the players data.
+            for (ArrayList data : playerData) {
+
+                //Checking if the players match.
+                if (injury.get(nameIndex).equals(data.get(nameIndex)) &&
+                        injury.get(teamIndex).equals(data.get(teamIndex))) {
+
+                    //Checking their injury status.
+                    if (data.get(availabilityIndex).equals("0")) {
+
+                        num0Chance = num0Chance + 1;
+
+                    } else if (data.get(availabilityIndex).equals("25")) {
+
+                        num25Chance = num25Chance + 1;
+
+                    } else if (data.get(availabilityIndex).equals("50")) {
+
+                        num50Chance = num50Chance + 1;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        numInjured = num0Chance + num25Chance + num50Chance;
+
+        ArrayList<ArrayList<String>> otherInjured = new ArrayList<ArrayList<String>>();
+
+        //Going through the data and adding injured players to subs from most injured to least.
+        for (ArrayList injury : finalPlayersRanked) {
+
+            //Going through the players data.
+            for (ArrayList data : playerData) {
+
+                //Checking there are injuries.
+                if (numInjured != 0) {
+
+                    //Checking the bench isn't full and ignoring the header.
+                    if (subs.size() != 3 && !String.valueOf(data.get(availabilityIndex))
+                            .equalsIgnoreCase("chance of playing")) {
+
+                        //Checking if the players match.
+                        if (injury.get(nameIndex).equals(data.get(nameIndex)) &&
+                                injury.get(teamIndex).equals(data.get(teamIndex))) {
+
+                            //Checking if theres any 0% chance to play.
+                            if (num0Chance != 0) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("0") &&
+                                        subs.size() != 3) {
+
+                                    //Checking if player is a goalkeeper, if so, adding them to bench slot.
+                                    if (String.valueOf(data.get(availabilityIndex)).equals("goalkeeper")) {
+                                        subGk = injury.get(nameIndex) + ", " + injury.get(teamIndex);
+                                    } else {
+                                        subs.add(injury.get(nameIndex) + ", " + injury.get(teamIndex));
+                                    }
+
+                                }
+
+                            } else if (num0Chance != 25) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("25") &&
+                                        subs.size() != 3) {
+
+                                    //Checking if player is a goalkeeper, if so, adding them to bench slot
+                                    //if not filled.
+                                    if (String.valueOf(data.get(availabilityIndex)).equals("goalkeeper") &&
+                                            subGk.equalsIgnoreCase("")) {
+                                        subGk = injury.get(nameIndex) + ", " + injury.get(teamIndex);
+                                    } else {
+                                        subs.add(injury.get(nameIndex) + ", " + injury.get(teamIndex));
+                                    }
+
+                                }
+
+                            } else if (num0Chance != 50) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("50") &&
+                                        subs.size() != 3) {
+
+                                    //Checking if player is a goalkeeper, if so, adding them to bench slot
+                                    //if not filled.
+                                    if (String.valueOf(data.get(availabilityIndex)).equals("goalkeeper") &&
+                                            subGk.equalsIgnoreCase("")) {
+                                        subGk = injury.get(nameIndex) + ", " + injury.get(teamIndex);
+                                    } else {
+                                        subs.add(injury.get(nameIndex) + ", " + injury.get(teamIndex));
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    //Making sure the rest of the injured players are lower down the pecking order.
+                    } else if (subs.size() == 3 && !String.valueOf(data.get(availabilityIndex))
+                                .equalsIgnoreCase("chance of playing")) {
+
+                        //Checking if the players match.
+                        if (injury.get(nameIndex).equals(data.get(nameIndex)) &&
+                                injury.get(teamIndex).equals(data.get(teamIndex))) {
+
+                            //Checking if theres any 0% chance to play.
+                            if (num0Chance != 0) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("0")) {
+
+                                    otherInjured.add(injury);
+
+                                }
+
+                            } else if (num0Chance != 25) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("25")) {
+
+                                    otherInjured.add(injury);
+
+                                }
+
+                            } else if (num0Chance != 50) {
+
+                                //Checking if the current player has a 0% chance to play.
+                                if (String.valueOf(data.get(availabilityIndex)).equals("50")) {
+
+                                    otherInjured.add(injury);
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        //Reversing the order of the subs and injured so the best injured player is higher up the bench.
+        Collections.reverse(subs);
+        Collections.reverse(otherInjured);
+
+        for (ArrayList e : otherInjured) {
+            //System.out.println(e);
+        }
+
+        //Reversing the list again to go to the original order.
+        Collections.reverse(finalPlayersRanked);
+
+        //Removing subs from ranked list.
+        ArrayList<ArrayList<String>> finalPlayersRankedMinusSubs = new ArrayList<ArrayList<String>>();
+
+        for (ArrayList player : finalPlayersRanked) {
+
+            boolean added = false;
+            boolean inSubs = false;
+            boolean inOtherInjured = false;
+
+            String playerCompare = String.valueOf(player.get(nameIndex)) + ", " +
+                    String.valueOf(player.get(teamIndex));
+
+            //Checking if player is in subs.
+            if (!subs.isEmpty()) {
+
+                for (String sub : subs) {
+                    if (sub.equalsIgnoreCase(playerCompare)) {
+                        inSubs = true;
+                    }
+
+                }
+
+            }
+
+            //Checking if player is in other injured.
+            if (!otherInjured.isEmpty()) {
+
+                for (ArrayList injured : otherInjured) {
+                    if ((String.valueOf(injured.get(nameIndex)) + ", " +
+                            String.valueOf(injured.get(teamIndex))).equalsIgnoreCase(playerCompare)) {
+                        inOtherInjured = true;
+                    }
+
+                }
+
+            }
+
+            for (String sub : subs) {
+
+                if (inSubs == false && added == false && inOtherInjured == false) {
+
+                    finalPlayersRankedMinusSubs.add(player);
+                    added = true;
+
+                }
+
+            }
+
+        }
+
+        //Adding the other injured players.
+        if (!otherInjured.isEmpty()) {
+
+            for (ArrayList injured : otherInjured) {
+                finalPlayersRankedMinusSubs.add(injured);
+
+            }
+
+        }
+
+        //Adding the new final players ranked to the old ArrayList.
+        finalPlayersRanked.clear();
+        for (ArrayList e : finalPlayersRankedMinusSubs) {
+            finalPlayersRanked.add(e);
+        }
+
+
 
 //        for (ArrayList player : selectedPlayersRanked) {
         for (ArrayList player : finalPlayersRanked) {
@@ -785,10 +1388,7 @@ public class outputScreen {
             if (String.valueOf(player.get(positionIndex)).equalsIgnoreCase("goalkeeper")) {
 
                 if (startingGk.equalsIgnoreCase("")) {
-                    startingGk = "<html><br/>" + player.get(nameIndex) + "<br/>" +
-                            player.get(teamIndex) + "</html>";
-                    startingGk = "<html><b>" + player.get(nameIndex) + ", " + player.get(teamIndex) + "</b></html>";
-                    System.out.println(startingGk);
+                    startingGk = player.get(nameIndex) + ", " + player.get(teamIndex);
 
                 } else {
                     subGk = player.get(nameIndex) + ", " + player.get(teamIndex);
@@ -1802,7 +2402,7 @@ public class outputScreen {
 
     public static ArrayList<String> bestAvailableTransfer(
             ArrayList<ArrayList<String>> selectedPlayersRanked, ArrayList<ArrayList<String>>
-            allPlayersRanked, ArrayList<ArrayList<String>> rawPlayerData, ArrayList<String> prevTransfer,
+            allPlayersRanked, ArrayList<ArrayList<String>> rawPlayerData, ArrayList<ArrayList<String>> prevTransfers,
             int nameIndex, int teamIndex, int positionIndex, int costIndex, int availabilityIndex,
             double budget) {
 
@@ -2017,24 +2617,28 @@ public class outputScreen {
                         //are the same as the current potential transfer.
                         boolean sameIn = false;
                         boolean sameOut = false;
-                        if (!prevTransfer.isEmpty()) {
+                        if (!prevTransfers.isEmpty()) {
 
-                            if (prevTransfer.get(nameIndex).equals(playerOut.get(nameIndex)) &&
-                                    prevTransfer.get(teamIndex).equals(playerOut.get(teamIndex))) {
+                            for (ArrayList prevTransfer : prevTransfers) {
 
-                                sameIn = true;
+                                if (prevTransfer.get(nameIndex).equals(playerOut.get(nameIndex)) &&
+                                        prevTransfer.get(teamIndex).equals(playerOut.get(teamIndex))) {
 
-                            } else if (prevTransfer.get(transferOutNameIndex).equals(playerOut.get(
-                                    transferOutNameIndex)) && prevTransfer.get(transferOutTeamIndex).equals(
-                                            playerOut.get(transferOutTeamIndex))) {
+                                    sameIn = true;
 
-                                sameOut = true;
+                                } else if (prevTransfer.get(transferOutNameIndex).equals(playerOut.get(
+                                        transferOutNameIndex)) && prevTransfer.get(transferOutTeamIndex).equals(
+                                        playerOut.get(transferOutTeamIndex))) {
+
+                                    sameOut = true;
+
+                                }
 
                             }
 
                         }
 
-                        if (!prevTransfer.isEmpty() && sameIn == false && sameOut == false || prevTransfer.isEmpty()) {
+                        if (!prevTransfers.isEmpty() && sameIn == false && sameOut == false || prevTransfers.isEmpty()) {
 
                             if (playerData.get(availabilityIndex).equals("0")) {
 
@@ -2128,15 +2732,28 @@ public class outputScreen {
 
                     //Making sure a duplicate transfer is not made - this includes the same exact
                     //transfer or transfers with the same player coming in.
-                    if (!prevTransfer.isEmpty() && !prevTransfer.get(nameIndex).equals(
-                            element.get(nameIndex))) {
+                    if (!prevTransfers.isEmpty()) {
 
-                        biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+                        for (ArrayList prevTransfer : prevTransfers) {
 
-                        bestTransfer.clear();
-                        bestTransfer = element;
+                            if (!prevTransfer.get(nameIndex).equals(element.get(nameIndex)) &&
+                                    !prevTransfer.get(teamIndex).equals(element.get(teamIndex))) {
 
-                    } else if (prevTransfer.isEmpty()) {
+                                biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+
+                                bestTransfer.clear();
+                                bestTransfer = element;
+
+                            }
+
+                        }
+
+//                        biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
+//
+//                        bestTransfer.clear();
+//                        bestTransfer = element;
+
+                    } else if (prevTransfers.isEmpty()) {
 
                         biggestGain = Integer.parseInt(String.valueOf(element.get(13)));
 

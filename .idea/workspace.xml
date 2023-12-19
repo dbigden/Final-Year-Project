@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captians and starting 11.">
+      <change afterPath="$PROJECT_DIR$/PlayerData3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702936696498</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="cleaning code.">
+      <option name="closed" value="true" />
+      <created>1702938383548</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702938383548</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -291,7 +301,9 @@
     <MESSAGE value="captains and team validity fix." />
     <MESSAGE value="new team validity fix. mvp complete." />
     <MESSAGE value="changes post testing participants teams." />
-    <option name="LAST_COMMIT_MESSAGE" value="changes post testing participants teams." />
+    <MESSAGE value="cleaning code." />
+    <MESSAGE value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captians and starting 11." />
+    <option name="LAST_COMMIT_MESSAGE" value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captians and starting 11." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

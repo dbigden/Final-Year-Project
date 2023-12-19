@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.sql.SQLOutput;
 import java.util.*;
@@ -264,6 +261,38 @@ public class teamScreen {
             }
         });
 
+        //Adding chips.
+        JToggleButton fHitWild = new JToggleButton("Free Hit/Wildcard");
+        fHitWild.setBounds(1503, 600, 380, 50);
+        fHitWild.setFont(new Font("Calibri", Font.BOLD, 38));
+        fHitWild.setBackground(Color.decode("#00FF85"));
+        fHitWild.setForeground(Color.decode("#38003C"));
+        fHitWild.setVerticalAlignment(SwingConstants.CENTER);
+        pitchPane.add(fHitWild, JLayeredPane.PALETTE_LAYER);
+
+//        fHitWild.addItemListener(new ItemListener() {
+//            boolean chipSelected;
+//            @Override
+//            public void itemStateChanged(ItemEvent e) {
+//                int state = e.getStateChange();
+//
+//
+//                if (state == ItemEvent.SELECTED) {
+//                    chipSelected = true;
+//                } else {
+//                    chipSelected = false;
+//                }
+//            }
+//
+//            public boolean getChipSelected() {
+//                return chipSelected;
+//            }
+//        });
+
+        //Adding an item listener to get the state of the item listener.
+        ItemListener chipSelectedListener = new MyItemListener();
+        fHitWild.addItemListener(chipSelectedListener);
+
 
 
         //Adding a button that checks your team is valid.
@@ -285,6 +314,7 @@ public class teamScreen {
                 boolean validFrees = false;
                 boolean validBudget = false;
                 boolean moreThan3 = true;
+                boolean chipSelected = ((MyItemListener) chipSelectedListener).getChipSelected();
 
                 //Adding all player selections to an array.
                 ArrayList<String> players = new ArrayList<String>();
@@ -424,7 +454,7 @@ public class teamScreen {
                 if (noDupes && validFrees && validBudget && moreThan3) {
 
                     try {
-                        outputScreen.outputScreen(players, freeTransfersInt, budgetDouble);
+                        outputScreen.outputScreen(players, freeTransfersInt, budgetDouble, chipSelected);
                         teamFrame.dispose();
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
@@ -480,7 +510,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf1 = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData3.csv"));
 
         //Counting the number of lines in the file.
         int lines = 0;
@@ -500,7 +530,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData3.csv"));
 
         //A for loop that goes through each line of the csv file.
         for (int j = 0; j < lines; j++) {
@@ -641,6 +671,31 @@ public class teamScreen {
             return true;
         } catch (NumberFormatException e) {
             return false;
+        }
+
+    }
+
+    private static class MyItemListener implements ItemListener {
+
+        private boolean chipSelected = false;
+
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            int state = e.getStateChange();
+
+
+            if (state == ItemEvent.SELECTED) {
+                chipSelected = true;
+                System.out.println("yes");
+            } else {
+                chipSelected = false;
+                System.out.println("no");
+            }
+
+        }
+
+        public boolean getChipSelected() {
+            return chipSelected;
         }
 
     }
