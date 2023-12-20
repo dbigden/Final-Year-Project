@@ -24,12 +24,11 @@ public class outputScreen {
 
         //"Udogie, Spurs"
         //"Walker, Man City"
-        outputScreen(players, 2, 0.0, true);
+        outputScreen(players, 2, 0.0);
 
     }
 
-    public static void outputScreen(ArrayList<String> players, int freeTransfers, double budget,
-                                    boolean chipSelected) throws Exception {
+    public static void outputScreen(ArrayList<String> players, int freeTransfers, double budget) throws Exception {
         //Creating the window.
         JFrame outputFrame = new JFrame("FPL Optimiser");
 
@@ -1138,7 +1137,6 @@ public class outputScreen {
 
         }
 
-
         //Making sure all injured players (or the lowest ranked injured players if there are > 3)
         //are benched.
         //Reversing the list to go from lowest to highest ranked players.
@@ -1217,7 +1215,7 @@ public class outputScreen {
 
                                 }
 
-                            } else if (num0Chance != 25) {
+                            } else if (num25Chance != 0) {
 
                                 //Checking if the current player has a 0% chance to play.
                                 if (String.valueOf(data.get(availabilityIndex)).equals("25") &&
@@ -1234,7 +1232,7 @@ public class outputScreen {
 
                                 }
 
-                            } else if (num0Chance != 50) {
+                            } else if (num50Chance != 0) {
 
                                 //Checking if the current player has a 0% chance to play.
                                 if (String.valueOf(data.get(availabilityIndex)).equals("50") &&
@@ -1273,7 +1271,7 @@ public class outputScreen {
 
                                 }
 
-                            } else if (num0Chance != 25) {
+                            } else if (num25Chance != 0) {
 
                                 //Checking if the current player has a 0% chance to play.
                                 if (String.valueOf(data.get(availabilityIndex)).equals("25")) {
@@ -1282,7 +1280,7 @@ public class outputScreen {
 
                                 }
 
-                            } else if (num0Chance != 50) {
+                            } else if (num50Chance != 0) {
 
                                 //Checking if the current player has a 0% chance to play.
                                 if (String.valueOf(data.get(availabilityIndex)).equals("50")) {
@@ -1351,15 +1349,22 @@ public class outputScreen {
 
             }
 
-            for (String sub : subs) {
+            if (!subs.isEmpty()) {
 
-                if (inSubs == false && added == false && inOtherInjured == false) {
+                for (String sub : subs) {
 
-                    finalPlayersRankedMinusSubs.add(player);
-                    added = true;
+
+                    if (inSubs == false && added == false && inOtherInjured == false) {
+
+                        finalPlayersRankedMinusSubs.add(player);
+                        added = true;
+
+                    }
 
                 }
 
+            } else {
+                finalPlayersRankedMinusSubs.add(player);
             }
 
         }
@@ -1378,6 +1383,11 @@ public class outputScreen {
         finalPlayersRanked.clear();
         for (ArrayList e : finalPlayersRankedMinusSubs) {
             finalPlayersRanked.add(e);
+        }
+
+
+        for (ArrayList e : finalPlayersRanked) {
+            //System.out.println(e);
         }
 
 
@@ -1898,7 +1908,8 @@ public class outputScreen {
             //A for loop that goes through each column of the Arraylist.
             for (int i = 0; i < element.size(); i++) {
 
-                //A for loop that adds the name, ICT index and ICT ranking to the temporary ArrayList.
+                //A for loop that adds the name, team, ICT index and ICT ranking to the
+                //temporary ArrayList.
                 if (i == nameIndex) {
                     tempPlayerArrList.add(String.valueOf(element.get(i)));
 
@@ -2246,7 +2257,7 @@ public class outputScreen {
 
         }
 
-        //Sorting selected player data by PC.
+        //Sorting selected player data by average rank.
         ArrayList<ArrayList<String>> selectedSortedRank = sortData(selectedPlayersRank, rankIndex);
 
         //Clearing the previous ArrayList to store the player ranking data as its own ArrayList as well as
