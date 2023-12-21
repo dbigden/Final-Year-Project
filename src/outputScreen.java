@@ -981,6 +981,9 @@ public class outputScreen {
 
             }
 
+        } else {
+            //Adding the budget to the screen.
+            budgetRemaining.setText(String.valueOf(budget));
         }
 
         //Creating an ArrayList to add the current players details to.

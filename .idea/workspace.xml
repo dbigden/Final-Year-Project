@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captains and starting 11.">
+    <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
@@ -46,18 +46,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "workingBranch",
-    "last_opened_file_path": "C:/Users/Daniel/IdeaProjects/FYP",
-    "onboarding.tips.debug.path": "C:/Users/Daniel/IdeaProjects/FYP/src/Main.java",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;workingBranch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniel\IdeaProjects\FYP" />
@@ -292,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703006712749</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixes after user tests. FINAL BEFORE HAND IN.">
+      <option name="closed" value="true" />
+      <created>1703112415068</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1703112415068</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -320,7 +328,8 @@
     <MESSAGE value="cleaning code." />
     <MESSAGE value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captians and starting 11." />
     <MESSAGE value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captains and starting 11." />
-    <option name="LAST_COMMIT_MESSAGE" value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captains and starting 11." />
+    <MESSAGE value="fixes after user tests. FINAL BEFORE HAND IN." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes after user tests. FINAL BEFORE HAND IN." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

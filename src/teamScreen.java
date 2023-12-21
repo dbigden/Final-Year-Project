@@ -310,7 +310,7 @@ public class teamScreen {
                 //JOptionPane.showMessageDialog(null, "Error", "Team Error", JOptionPane.INFORMATION_MESSAGE);
 
                 //Creating variables to track if the submission passes all the checks.
-                boolean noDupes = false;
+                boolean noDupes = true;
                 boolean validFrees = false;
                 boolean validBudget = false;
                 boolean moreThan3 = true;
@@ -336,24 +336,32 @@ public class teamScreen {
 
                 //System.out.println(players);
 
-                for (int i = 0; i < players.size(); i++) {
+                for (String player : players) {
 
-                    //Ending the comparisons if at the last item in array.
-                    if (i + 1 == players.size()) {
-                        noDupes = true;
-                        break;
+                    for (int i = 0; i < players.size(); i++) {
 
-                    } else {
+//                        //Ending the comparisons if at the last item in array.
+//                        if (i + 1 == players.size()) {
+//                            noDupes = true;
+//                            break;
+//
+//                        } else {
 
-                        //Comparing items in array of players.
-                        if (players.get(i).equals(players.get(i + 1))) {
-                            JOptionPane.showMessageDialog(null,
-                                    "You can't select the same player more than once!",
-                                    "Team Error", JOptionPane.INFORMATION_MESSAGE);
+                        if (i != players.indexOf(player)) {
 
-                            //Clearing the players array to stop the pop up showing infinitely.
-                            players = null;
-                            break;
+                            //Comparing items in array of players.
+                            if (players.get(i).equals(player)) {
+                                JOptionPane.showMessageDialog(null,
+                                        "You can't select the same player more than once!",
+                                        "Team Error", JOptionPane.INFORMATION_MESSAGE);
+
+                                noDupes = false;
+
+                                //Clearing the players array to stop the pop up showing infinitely.
+                                players = null;
+                                break;
+                            }
+
                         }
 
                     }
@@ -442,7 +450,16 @@ public class teamScreen {
 
                 if (isNumeric(budgetNumber.getText())) {
                     budgetDouble = Double.valueOf(budgetNumber.getText());
-                    validBudget = true;
+
+                    if (budgetDouble <= 42 && budgetDouble >= 0) {
+                        validBudget = true;
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "You must enter a valid budget!",
+                                "Budget Error", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(null,
