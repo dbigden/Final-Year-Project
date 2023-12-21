@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FYP:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61c85bff-2f37-4d23-b3a3-8e18f8d6604c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/outputScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/teamScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/teamScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -40,9 +50,12 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;workingBranch&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Daniel/IdeaProjects/FYP/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -175,10 +188,123 @@
       <option name="project" value="LOCAL" />
       <updated>1701796142063</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation.">
+      <option name="closed" value="true" />
+      <created>1701912681440</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701912681440</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added ranking for form and ppg.">
+      <option name="closed" value="true" />
+      <created>1701974308901</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701974308901</updated>
+    </task>
+    <task id="LOCAL-00017" summary="completed the ranking system for both the full player data and the selected players.">
+      <option name="closed" value="true" />
+      <created>1701987400683</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701987400683</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added the position to the ranking arraylist.">
+      <option name="closed" value="true" />
+      <created>1701987973180</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701987973180</updated>
+    </task>
+    <task id="LOCAL-00019" summary="program successfully adds highest ranked selected players to the output screen. need to add subs and work on transfers.">
+      <option name="closed" value="true" />
+      <created>1701998392710</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701998392710</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added icon image.">
+      <option name="closed" value="true" />
+      <created>1701998814256</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701998814256</updated>
+    </task>
+    <task id="LOCAL-00021" summary="finished transfer segment. need to add transfers to output page. if have time create as an application.">
+      <option name="closed" value="true" />
+      <created>1702235483599</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702235483599</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose.">
+      <option name="closed" value="true" />
+      <created>1702245711572</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702245711572</updated>
+    </task>
+    <task id="LOCAL-00023" summary="captains and team validity fix.">
+      <option name="closed" value="true" />
+      <created>1702780169780</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702780169780</updated>
+    </task>
+    <task id="LOCAL-00024" summary="new team validity fix. mvp complete.">
+      <option name="closed" value="true" />
+      <created>1702827691931</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702827691931</updated>
+    </task>
+    <task id="LOCAL-00025" summary="changes post testing participants teams.">
+      <option name="closed" value="true" />
+      <created>1702936696498</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702936696498</updated>
+    </task>
+    <task id="LOCAL-00026" summary="cleaning code.">
+      <option name="closed" value="true" />
+      <created>1702938383548</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702938383548</updated>
+    </task>
+    <task id="LOCAL-00027" summary="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captains and starting 11.">
+      <option name="closed" value="true" />
+      <created>1703006712749</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1703006712749</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixes after user tests. FINAL BEFORE HAND IN.">
+      <option name="closed" value="true" />
+      <created>1703112415068</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1703112415068</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="test new commit" />
     <MESSAGE value="created the window for the application" />
     <MESSAGE value="in the process of working on the title screen, will make a button that takes you to a screen that allows you to add players" />
@@ -188,7 +314,22 @@
     <MESSAGE value="added a pitch to the team window and working on fixing the search for players. once i am able to filter and have a correct search with an array, i will add all the positions in the team and link it to the data file." />
     <MESSAGE value="fixed team page. added drop downs for all positions where users can select their player. will add input boxes for number of transfers and budget remaining. will then link data file to program." />
     <MESSAGE value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
-    <option name="LAST_COMMIT_MESSAGE" value="linked the program to a temp csv and made a search method. working on adding the real csv and adding functionality to the team page." />
+    <MESSAGE value="made team input screen work correctly. created an output class and screen to show recommended lineup. started working on method to rank players, 1/4 done so far. need to complete rankings then work on creating transfers that fit budget and maximise team performance, then need to work on adding the team to the frame in the most valuable formation." />
+    <MESSAGE value="added ranking for form and ppg." />
+    <MESSAGE value="completed the ranking system for both the full player data and the selected players." />
+    <MESSAGE value="added the position to the ranking arraylist." />
+    <MESSAGE value="program successfully adds highest ranked selected players to the output screen. need to add subs and work on transfers." />
+    <MESSAGE value="added icon image." />
+    <MESSAGE value="finished transfer segment. need to add transfers to output page. if have time create as an application." />
+    <MESSAGE value="added transfers to final page and buttons to main menu and to exit. fixed transfers as errors arose." />
+    <MESSAGE value="captains and team validity fix." />
+    <MESSAGE value="new team validity fix. mvp complete." />
+    <MESSAGE value="changes post testing participants teams." />
+    <MESSAGE value="cleaning code." />
+    <MESSAGE value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captians and starting 11." />
+    <MESSAGE value="attempted to allow the user to use a chip but it created too many problems and i didnt have time to finish it. added healthy player priority to captains and starting 11." />
+    <MESSAGE value="fixes after user tests. FINAL BEFORE HAND IN." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes after user tests. FINAL BEFORE HAND IN." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.sql.SQLOutput;
 import java.util.*;
@@ -23,6 +20,10 @@ public class teamScreen {
     public static void teamScreen() throws Exception {
         //Creating the window.
         JFrame teamFrame = new JFrame("FPL Optimiser");
+
+        //Setting the icon image.
+        teamFrame.setIconImage(new ImageIcon("C:\\Users\\Daniel\\" +
+                "IdeaProjects\\FYP\\fpl logo.png").getImage());
 
         //Preventing the window from being resizeable.
         teamFrame.setResizable(false);
@@ -142,7 +143,7 @@ public class teamScreen {
 
         }
 
-        //Sorting the ArrayList alphabetically so it is easier to find players.
+        //Sorting the ArrayList alphabetically so that it is easier to find players.
         Collections.sort(fwName_Team, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -245,8 +246,9 @@ public class teamScreen {
         budgetNumber.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                //Checking if inputted character is a number or a decimal point.
-                if (e.getKeyChar() >= '0' && e.getKeyChar() <= '9' || e.getKeyChar() == '.') {
+                //Checking if inputted character is a number, a decimal point, backspace or delete.
+                if (e.getKeyChar() >= '0' && e.getKeyChar() <= '9' || e.getKeyChar() == '.' ||
+                        e.getKeyChar() == KeyEvent.VK_BACK_SPACE || e.getKeyChar() == KeyEvent.VK_DELETE) {
                     budgetNumber.setEditable(true);
 
                 } else {
@@ -258,6 +260,38 @@ public class teamScreen {
                 }
             }
         });
+
+        //Adding chips.
+//        JToggleButton fHitWild = new JToggleButton("Free Hit/Wildcard");
+//        fHitWild.setBounds(1503, 600, 380, 50);
+//        fHitWild.setFont(new Font("Calibri", Font.BOLD, 38));
+//        fHitWild.setBackground(Color.decode("#00FF85"));
+//        fHitWild.setForeground(Color.decode("#38003C"));
+//        fHitWild.setVerticalAlignment(SwingConstants.CENTER);
+//        pitchPane.add(fHitWild, JLayeredPane.PALETTE_LAYER);
+
+//        fHitWild.addItemListener(new ItemListener() {
+//            boolean chipSelected;
+//            @Override
+//            public void itemStateChanged(ItemEvent e) {
+//                int state = e.getStateChange();
+//
+//
+//                if (state == ItemEvent.SELECTED) {
+//                    chipSelected = true;
+//                } else {
+//                    chipSelected = false;
+//                }
+//            }
+//
+//            public boolean getChipSelected() {
+//                return chipSelected;
+//            }
+//        });
+//
+//        //Adding an item listener to get the state of the item listener.
+//        ItemListener chipSelectedListener = new MyItemListener();
+//        fHitWild.addItemListener(chipSelectedListener);
 
 
 
@@ -276,9 +310,11 @@ public class teamScreen {
                 //JOptionPane.showMessageDialog(null, "Error", "Team Error", JOptionPane.INFORMATION_MESSAGE);
 
                 //Creating variables to track if the submission passes all the checks.
-                boolean noDupes = false;
+                boolean noDupes = true;
                 boolean validFrees = false;
                 boolean validBudget = false;
+                boolean moreThan3 = true;
+                //boolean chipSelected = ((MyItemListener) chipSelectedListener).getChipSelected();
 
                 //Adding all player selections to an array.
                 ArrayList<String> players = new ArrayList<String>();
@@ -300,42 +336,104 @@ public class teamScreen {
 
                 //System.out.println(players);
 
-                for (int i = 0; i < players.size(); i++) {
+                for (String player : players) {
 
-                    //Ending the comparisons if at the last item in array.
-                    if (i + 1 == players.size()) {
-                        noDupes = true;
-                        break;
+                    for (int i = 0; i < players.size(); i++) {
 
-                    } else {
+//                        //Ending the comparisons if at the last item in array.
+//                        if (i + 1 == players.size()) {
+//                            noDupes = true;
+//                            break;
+//
+//                        } else {
 
-                        //Comparing items in array of players.
-                        if (players.get(i).equals(players.get(i + 1))) {
-                            JOptionPane.showMessageDialog(null,
-                                    "You can't select the same player more than once!",
-                                    "Team Error", JOptionPane.INFORMATION_MESSAGE);
+                        if (i != players.indexOf(player)) {
 
-                            //Clearing the players array to stop the pop up showing infinitely.
-                            players = null;
-                            break;
+                            //Comparing items in array of players.
+                            if (players.get(i).equals(player)) {
+                                JOptionPane.showMessageDialog(null,
+                                        "You can't select the same player more than once!",
+                                        "Team Error", JOptionPane.INFORMATION_MESSAGE);
+
+                                noDupes = false;
+
+                                //Clearing the players array to stop the pop up showing infinitely.
+                                players = null;
+                                break;
+                            }
+
                         }
 
                     }
 
                 }
 
+                //Checking the number of players from each team is no more than 3.
+                try {
+                    ArrayList<ArrayList<String>> playerData = readFile("all", "all");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                //Splitting the selected players to separate the name and the team.
+                ArrayList<String> playerNames = new ArrayList<String>();
+                ArrayList<String> playerTeams = new ArrayList<String>();
+
+                //Splitting the player name and team.
+                for (int i = 0; i < players.size(); i++) {
+
+                    String currentPlayer = players.get(i);
+                    String[] split = currentPlayer.split(", ");
+                    playerNames.add(split[0]);
+                    playerTeams.add(split[1]);
+
+                }
+
+                for (String teams : playerTeams) {
+
+                    int teamCount = 0;
+
+                    for (String teams2 : playerTeams) {
+
+                        if (teams.equalsIgnoreCase(teams2)) {
+
+                            teamCount = teamCount + 1;
+
+                        }
+
+                        if (teamCount > 3) {
+
+                            JOptionPane.showMessageDialog(null,
+                                    "You can't have more than 3 players from a team!",
+                                    "Team Error", JOptionPane.INFORMATION_MESSAGE);
+
+                            //Clearing the ArrayList so the message only shows up once.
+                            playerTeams.clear();
+                            moreThan3 = false;
+                            break;
+
+                        }
+
+                    }
+
+                    if (!moreThan3) {
+                        break;
+                    }
+
+                }
+
                 //Checking if the free transfers is valid.
-                int freeTransfersInt;
+                int freeTransfersInt = 0;
 
                 if (freeTransferNumber.getValue() instanceof Integer) {
 
-                    if ((int) freeTransferNumber.getValue() >= 0) {
+                    if ((int) freeTransferNumber.getValue() >= 0 && (int) freeTransferNumber.getValue() <= 2 ) {
                         freeTransfersInt = Integer.parseInt(freeTransferNumber.getValue().toString());
                         validFrees = true;
 
                     } else {
                         JOptionPane.showMessageDialog(null,
-                                "You must enter a valid number of free transfers!",
+                                "You must enter a valid number of free transfers! Must be 0, 1 or 2.",
                                 "Free Transfers Error", JOptionPane.INFORMATION_MESSAGE);
 
                     }
@@ -348,11 +446,20 @@ public class teamScreen {
                 }
 
                 //Checking if the budget is valid.
-                double budgetDouble;
+                double budgetDouble = 0.0;
 
                 if (isNumeric(budgetNumber.getText())) {
                     budgetDouble = Double.valueOf(budgetNumber.getText());
-                    validBudget = true;
+
+                    if (budgetDouble <= 42 && budgetDouble >= 0) {
+                        validBudget = true;
+
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "You must enter a valid budget!",
+                                "Budget Error", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(null,
@@ -361,10 +468,10 @@ public class teamScreen {
 
                 }
 
-                if (noDupes && validFrees && validBudget) {
+                if (noDupes && validFrees && validBudget && moreThan3) {
 
                     try {
-                        outputScreen.outputScreen(players);
+                        outputScreen.outputScreen(players, freeTransfersInt, budgetDouble);
                         teamFrame.dispose();
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
@@ -420,7 +527,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf1 = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
 
         //Counting the number of lines in the file.
         int lines = 0;
@@ -440,7 +547,7 @@ public class teamScreen {
                 //new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\testplayers.csv"));
 
         BufferedReader bf = new BufferedReader(
-                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData.csv"));
+                new FileReader("C:\\Users\\Daniel\\IdeaProjects\\FYP\\PlayerData2.csv"));
 
         //A for loop that goes through each line of the csv file.
         for (int j = 0; j < lines; j++) {
@@ -581,6 +688,29 @@ public class teamScreen {
             return true;
         } catch (NumberFormatException e) {
             return false;
+        }
+
+    }
+
+    private static class MyItemListener implements ItemListener {
+
+        private boolean chipSelected = false;
+
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            int state = e.getStateChange();
+
+
+            if (state == ItemEvent.SELECTED) {
+                chipSelected = true;
+            } else {
+                chipSelected = false;
+            }
+
+        }
+
+        public boolean getChipSelected() {
+            return chipSelected;
         }
 
     }
